@@ -1,0 +1,96 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing these this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: mystery Coder
+email: ddrdushy@yahoo.com
+twitter_username: ddrdushy
+description: > # this means to ignore newlines until "baseurl:"
+  Young consicutive learner of technologies.
+#baseurl: "" # the subpath of your site, e.g. /blog
+#url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  ddrdushy
+
+# Build settings
+markdown: kramdown
+theme: minima
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  
+  
+#User specific content
+#Links that will appear in the navbar
+primarylinks:
+ - title: Free Code Camp
+   url: https://www.freecodecamp.com/ddrdushy
+ - title: Medium
+   url: https://medium.com/@ddrdushy
+ - title: GitHub
+   url: https://github.com/ddrdushy
+ - title: Codepen
+   url: https://codepen.io/ddrdushy/
+ - title: LinkedIn
+   url: https://www.linkedin.com/in/ddr-dushy-199394a8
+
+#Any buzzword skills you want to include
+skills:
+ - Java
+ - C
+ - C++
+ - VBA
+ - C#
+ - continuous Intergration
+ - SQL
+ - Node.js
+ - Javascript
+ 
+ #Work experience is required
+roles:
+ - title: Junior Linux Administrator
+   start: 2012
+   end: 2016
+   employer: Caliber Interconnect Solutions
+   description: Caliber Interconnect Solutions a Product Engineering Solutions company is founded by technology visionaries with diversified expertise to provide Integrated product engineering solutions to global Semiconductor chipset companies <br/> I am a Junior Linux Administrator worked on serveral types of Server Deployment and Firewall management by using Opensource Technologies.
+ 
+#Education is required
+education:
+ - level: Master of Computer Application (MCA)
+   date: 2017
+   college: KGiSL Institute of Information Management
+   school: Bharathiyar University
+ - level: Bachelor of Computer Application (BCA)
+   date: 2012
+   college: Kongunadu Arts and Science College
+   school: Bharathiyar University
+   
+ #List of interesting Github repo/projects to include - optional
+github:
+ - ddrdushy/mini-project
+ - ddrdushy/TDJS
+ - ddrdushy/FCC-Status
+ - ddrdushy/HR-Management-php
+ - ddrdushy/Understanding-C
+ - ddrdushy/Printer-Sevice
+ - ddrdushy/FCC-Projects
+ 
+ #An additional info freetext section is optional at the bottom of the page - can be text or HTML
+additionalinfo: |
+   <strong>Free Code Camp</strong>: I Learnned Web technologies through the Free code camp community. Its a non-profit organization which is helps to learn the web technologies like HTML5,CSS,Javascript by solving small Problems and creating project.<br/><br/>
+   
+   <strong>Server Deployment and Troubleshooting</strong>: I gained Experience on deploying servers and Troubleshooting servers during the period of 2012-2016. apart from the Servers I Deployed an open source Firewall(PfSense) in Caliber Interconnect for the Internal needs.  <br/><br/>
+   
+   <strong>Development Control</strong>: I have experience in application life-cycle management and have worked with Git, Gradle, Sonar and Jenkins. I worked with testing tools like Robotium and Selenium with some basic Knowledge.<br/><br/>
