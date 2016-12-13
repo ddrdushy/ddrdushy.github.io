@@ -14,6 +14,6 @@ layout: default
 	</div>
 	<div class="col-md-3">
 		{% include section_img.html %}
-		{% include section_blogs.html %}
+		{% include Resume.html %}
 	</div>
 </div>

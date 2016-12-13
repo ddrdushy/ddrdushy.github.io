@@ -1,3 +1,19 @@
+.resume{
+	border-radius: 20px;
+	background: #2a7ae2;
+	font-size: large;
+	margin-top: 15px;
+	width: 100%;
+}
+.white-text,
+.white-text:hover,
+.white-text:visited,
+.white-text:active{
+	color: #fff;
+}
+.content{
+	margin-left: 25px;
+}
 body {
 	background: url('../img/bg.jpg');
 	padding-top: 40px;
