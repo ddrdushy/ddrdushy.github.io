@@ -57,8 +57,7 @@ skills:
  - SQL
  - Node.js
  - Javascript
- - RPA
-
+ 
  #Work experience is required
 roles:
  - title: Junior Linux Administrator
@@ -66,11 +65,6 @@ roles:
    end: 2016
    employer: Caliber Interconnect Solutions
    description: Caliber Interconnect Solutions a Product Engineering Solutions company is founded by technology visionaries with diversified expertise to provide Integrated product engineering solutions to global Semiconductor chipset companies <br/> I am a Junior Linux Administrator worked on serveral types of Server Deployment and Firewall management by using Opensource Technologies.
- - title: RPA Developer
-   start: 2017
-   end: Present
-   employer: KGiSL-GSS
-   description: working as a RPA Developer from 2017. Started the career with UiPath automation tool. Deployed more than 25 robots in production.
  
 #Education is required
 education:
