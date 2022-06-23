@@ -30,6 +30,10 @@
   <!-- Theme Styles -->
   <link href="css/styles_project.css" rel="stylesheet">
   <!-- Theme Styles -->
+
+  <script src="project.js" ></script>
+
+
   <!-- / CSS Files
   ========================================================= -->
 
@@ -93,10 +97,10 @@
       <div class=" timeline-wrap">
         <div class="timeline-bg">
 
-          <!-- ====>> SECTION: PROFILE INFOS <<====-->
-          <section class="timeline profile-infos">
+        <!-- ====>> SECTION: EDUCATION <<====-->
+        <section class="timeline education" id="education">
 
-            <!-- VERTICAL MARGIN (necessary for the timeline effect) -->
+            <!-- Margin (necessary for the timeline effect) -->
             <div class="line row timeline-margin">
               <div class="content-wrap">
                 <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
@@ -104,7 +108,7 @@
                 <div class="col-md-9 bg1 full-height"></div>
               </div>
             </div>
-            <!-- /VERTICAL MARGIN -->
+            <!-- /Margin -->
 
             <!-- SECTION TITLE -->
             <div class="line row">
@@ -122,96 +126,89 @@
               <!-- /Item Content -->
               <!-- Margin Collum-->
               <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-              <!-- / Margin Collum-->
+              <!-- /Margin Collum-->
             </div>
             <!-- /SECTION TITLE -->
+
 
             <!-- SECTION ITEM -->
             <div class="line row">
               <!-- Margin Collums (necessary for the timeline effect) -->
               <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-              <div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+              <div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-education "></div>
               <!-- /Margin Collums -->
               <!-- Item Content -->
               <div class="col-md-8 content-wrap bg1">
-                <div class="line-content">
-                  <!-- Subtitle -->
-                  <h3 class="section-item-title-1">Under Construction !!</h3>
-                  <!-- /Subtitle -->
-                  <!-- content
-                  <p>Ramalingam Dushyanth</p> -->
+                <div class="line-content line-content-education">
+                  <!-- Graduation title -->
+                  <h3 class="section-item-title-1">Outpatient registration process</h3>
+                  <!-- /Graduation title -->
+                  <!-- Graduation time -->
+                  <h4 class="graduation-time"><i class="fa fa-university"></i> Insurance Company <span class="graduation-date">Malaysia</span></h4>
+                  <!-- /Graduation time -->
+                  <!-- content -->
+                  <div class="graduation-description">
+                    <p>Excel file required some </p>
+                  </div>
                   <!-- /Content -->
                 </div>
               </div>
               <!-- /Item Content -->
-              <!-- Margin Collum-->
+              <!-- Margin Collum -->
               <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-              <!-- /Margin Collum-->
+              <!-- /Margin Collum -->
             </div>
             <!-- /SECTION ITEM -->
+            <div id="datas">
 
+            </div>
+
+            <script type="text/javascript">
+
+            var myContent = `<!-- SECTION ITEM -->
+              <div class="line row">
+                <!-- Margin Collums (necessary for the timeline effect) -->
+                <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+                <div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-education "></div>
+                <!-- /Margin Collums -->
+                <!-- Item Content -->
+                <div class="col-md-8 content-wrap bg1">
+                  <div class="line-content line-content-education">
+                    <!-- Graduation title -->
+                    <h3 class="section-item-title-1">@@title</h3>
+                    <!-- /Graduation title -->
+                    <!-- Graduation time -->
+                    <h4 class="graduation-time"><i class="fa fa-university"></i>@@company <span class="graduation-date">@@country</span></h4>
+                    <!-- /Graduation time -->
+                    <!-- content -->
+                    <div class="graduation-description">
+                      <p>@@description</p>
+                    </div>
+                    <!-- /Content -->
+                  </div>
+                </div>
+                <!-- /Item Content -->
+                <!-- Margin Collum -->
+                <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+                <!-- /Margin Collum -->
+              </div>
+              <!-- /SECTION ITEM -->    `
+              var nodes = "";
+              (function(){
+                 //console.log(data); // {"a" : "b", "c" : "d"}
+                 for (var i = 0; i < data.length; i++) {
+                   console.log(data[i].title);
+                   nodes = nodes + myContent.replace("@@title",data[i].title).replace("@@company",data[i].company).replace("@@country",data[i].country).replace("@@description",data[i].description);
+                 }
+              })();
+
+            document.getElementById('datas').innerHTML += nodes;
+
+            </script>
 
           </section>
-          <!-- ==>> /SECTION: PROFILE INFOS -->
+        <!-- ==>> /SECTION: EDUCATION <<==== -->
 
-          <!-- ====>> SECTION: PORTFOLIO <<====-->
-          <section class="timeline portfolio" id="portfolio">
-
-           <!-- VERTICAL MARGIN (necessary for the timeline effect) -->
-           <div class="line row timeline-margin">
-             <div class="content-wrap">
-               <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-               <div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height"></div>
-               <div class="col-md-9 bg1 full-height"></div>
-             </div>
-           </div>
-           <!-- /VERTICAL MARGIN -->
-
-           <!-- SECTION TITLE -->
-           <div class="line row">
-             <!-- Margin Collums (necessary for the timeline effect) -->
-             <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-             <div class="col-md-2 timeline-progress hidden-sm hidden-xs timeline-title full-height"></div>
-             <!-- /Margin Collums -->
-             <!-- Item Content -->
-             <div class="col-md-8 content-wrap bg1">
-               <!-- Section title -->
-               <h2 class="section-title">Certificates</h2>
-               <!-- /Section title -->
-             </div>
-             <!-- Item Content -->
-             <!-- Margin Collum-->
-             <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-             <!-- /Margin Collum-->
-           </div>
-           <!-- /SECTION TITLE -->
-
-           <!-- SECTION ITEM -->
-           <div class="line row">
-             <!-- Margin Collums (necessary for the timeline effect) -->
-             <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-             <div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
-             <!-- /Margin Collums -->
-             <!-- Item Content -->
-             <div class="col-md-8 content-wrap bg1">
-               <div class="line-content">
-
-                 <!-- content -->
-                 <div class="portfolio-itens clearfix">
-
-
-                 </div>
-                 <!-- /Content -->
-               </div>
-             </div>
-             <!-- Item Content -->
-             <!-- Margin Collum-->
-             <div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
-             <!-- /Margin Collum-->
-           </div>
-           <!-- /SECTION ITEM -->
-          </section>
-          <!-- ==>> /SECTION: PORTFOLIO -->
 
         </div>
       </div>
@@ -242,6 +239,7 @@
 
 <!-- Javascript Files
 ========================================================= -->
+
 <!-- jQuery (necessary for plugins) -->
 <script src="vendor/jquery-1.11.1.min.js"></script>
 <!-- /jquery -->
