@@ -14,11 +14,11 @@ $(document).ready(function(){
   });
 
   //Side menu - Close
-  $('#side-menu-close').click(function(){
+  $('#side-menu-close').click(function(event){
     var sideWidth = $('.side-menu').outerWidth();
     var sideWidthClose = '-' + sideWidth + 'px';
     $('.side-menu').animate({'left': sideWidthClose}, 600, 'easeOutCubic');
-    preventDefault();
+    event.preventDefault();
   });
 
   //Smooth Scroll on anchor links
