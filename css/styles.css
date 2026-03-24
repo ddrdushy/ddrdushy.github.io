@@ -403,7 +403,7 @@ ul {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, #ffffff 0%, #ffffff 35%, #888888 50%, #000000 65%, #000000 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 40%, #000000 60%, #000000 100%);
   position: relative;
   overflow: hidden;
   padding-top: var(--nav-height);
@@ -574,6 +574,8 @@ ul {
   border: none;
   filter: grayscale(100%);
   transition: filter 0.4s ease;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  mask-image: linear-gradient(to right, transparent 0%, black 30%);
 }
 
 .hero-avatar:hover {
