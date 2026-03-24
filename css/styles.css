@@ -132,6 +132,98 @@ ul {
   background: var(--bg-alt);
 }
 
+.section-dark {
+  background: #000000;
+  color: #ffffff;
+}
+
+.section-dark .section-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.section-dark .section-title {
+  color: #ffffff;
+}
+
+.section-dark .timeline-title,
+.section-dark .timeline-company,
+.section-dark .timeline-desc,
+.section-dark .timeline-details li,
+.section-dark .project-card-title,
+.section-dark .project-card-company,
+.section-dark .project-card-desc,
+.section-dark .contact-item h4,
+.section-dark .contact-item p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.section-dark .timeline-date {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.section-dark .timeline-dot {
+  background: #ffffff;
+  border-color: #000000;
+}
+
+.section-dark .timeline::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.section-dark .timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .exp-tab {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.section-dark .exp-tab.active {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.section-dark .project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .project-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.section-dark .project-card-tags span {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.section-dark .filter-btn {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.section-dark .filter-btn.active,
+.section-dark .filter-btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.section-dark .contact-icon {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.section-dark .contact-socials a {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.section-dark .contact-socials a:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 60px;
