@@ -403,7 +403,7 @@ ul {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, #ffffff 0%, #ffffff 40%, #000000 60%, #000000 100%);
+  background: #111111;
   position: relative;
   overflow: hidden;
   padding-top: var(--nav-height);
@@ -463,7 +463,7 @@ ul {
 }
 
 .hero-greeting {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 8px;
@@ -487,23 +487,23 @@ ul {
   font-family: var(--font-display);
   font-size: 60px;
   line-height: 1.1;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 16px;
 }
 
 .hero-name .accent {
-  color: #333333;
+  color: #cccccc;
 }
 
 .hero-title {
   font-size: 22px;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 12px;
 }
 
 .hero-tagline {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.45);
   font-size: 16px;
   margin-bottom: 32px;
 }
@@ -516,26 +516,26 @@ ul {
 }
 
 .hero .btn-primary {
-  background: #000000;
-  color: #ffffff;
-  border-color: #000000;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
 }
 
 .hero .btn-primary:hover {
-  background: #222222;
-  border-color: #222222;
-  color: #ffffff;
+  background: #dddddd;
+  border-color: #dddddd;
+  color: #000000;
 }
 
 .hero .btn-outline {
-  color: #000000;
-  border-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .hero .btn-outline:hover {
-  background: #000000;
-  border-color: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
 }
 
 .hero-socials {
@@ -547,19 +547,19 @@ ul {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 18px;
   transition: var(--transition);
 }
 
 .hero-socials a:hover {
-  background: #000000;
-  border-color: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
   transform: translateY(-3px);
 }
 
@@ -590,8 +590,8 @@ ul {
   border: none;
   filter: grayscale(100%);
   transition: filter 0.4s ease;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
-  mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%);
+  mask-image: linear-gradient(to right, transparent 0%, black 25%);
 }
 
 .hero-avatar:hover {
