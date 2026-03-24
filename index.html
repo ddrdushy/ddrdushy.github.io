@@ -54,6 +54,7 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="hero">
+  <canvas id="hero-particles"></canvas>
   <div class="container hero-container">
     <div class="hero-content">
       <p class="hero-greeting">Hi there <span class="wave">👋</span> I'm</p>
@@ -532,6 +533,91 @@
         </div>
       </div>
     </div>
+
+    <div class="section-header" style="margin-top: 80px;">
+      <p class="section-subtitle">Open Source</p>
+      <h2 class="section-title">GitHub Repositories</h2>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-card-header">
+          <i class="fa-brands fa-github"></i>
+          <span class="project-year">TypeScript</span>
+        </div>
+        <h3 class="project-card-title">creator_pasar</h3>
+        <p class="project-card-desc">A platform that connects brands with the right micro-influencers, making collaborations simple, transparent, and results-focused.</p>
+        <div class="project-card-tags">
+          <span>AI</span><span>Marketing</span><span>Marketplace</span>
+        </div>
+        <a href="https://github.com/ddrdushy/creator_pasar" target="_blank" class="project-card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <i class="fa-brands fa-github"></i>
+          <span class="project-year">C#</span>
+        </div>
+        <h3 class="project-card-title">UiPath_Log_Viewer</h3>
+        <p class="project-card-desc">Tool for displaying UiPath logs — a utility for RPA developers to debug and monitor automation workflows.</p>
+        <div class="project-card-tags">
+          <span>UiPath</span><span>RPA</span><span>C#</span>
+        </div>
+        <a href="https://github.com/ddrdushy/UiPath_Log_Viewer" target="_blank" class="project-card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <i class="fa-brands fa-github"></i>
+          <span class="project-year">TypeScript</span>
+        </div>
+        <h3 class="project-card-title">ainexus</h3>
+        <p class="project-card-desc">AI-powered application built with TypeScript.</p>
+        <div class="project-card-tags">
+          <span>AI</span><span>TypeScript</span>
+        </div>
+        <a href="https://github.com/ddrdushy/ainexus" target="_blank" class="project-card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <i class="fa-brands fa-github"></i>
+          <span class="project-year">TypeScript</span>
+        </div>
+        <h3 class="project-card-title">mistral_hackathon_26</h3>
+        <p class="project-card-desc">Hackathon project built with Mistral AI — exploring cutting-edge AI capabilities.</p>
+        <div class="project-card-tags">
+          <span>AI</span><span>Hackathon</span><span>TypeScript</span>
+        </div>
+        <a href="https://github.com/ddrdushy/mistral_hackathon_26" target="_blank" class="project-card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <i class="fa-brands fa-github"></i>
+          <span class="project-year">Python</span>
+        </div>
+        <h3 class="project-card-title">Tamil_songs_ai</h3>
+        <p class="project-card-desc">AI-powered Tamil songs project leveraging Python and machine learning.</p>
+        <div class="project-card-tags">
+          <span>AI</span><span>Python</span><span>Music</span>
+        </div>
+        <a href="https://github.com/ddrdushy/Tamil_songs_ai" target="_blank" class="project-card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <i class="fa-brands fa-github"></i>
+          <span class="project-year">JavaScript</span>
+        </div>
+        <h3 class="project-card-title">fbChatBotBoilerplate</h3>
+        <p class="project-card-desc">Facebook Messenger chatbot boilerplate for quickly building conversational bots.</p>
+        <div class="project-card-tags">
+          <span>Chatbot</span><span>Facebook</span><span>Node.js</span>
+        </div>
+        <a href="https://github.com/ddrdushy/fbChatBotBoilerplate" target="_blank" class="project-card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -651,6 +737,102 @@
 
 <!-- ========== SCRIPTS ========== -->
 <script>
+// Hero particles with mouse interaction
+(function() {
+  const canvas = document.getElementById('hero-particles');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles, mouse = { x: -1000, y: -1000 };
+  const PARTICLE_COUNT = 80;
+  const CONNECT_DIST = 120;
+  const MOUSE_RADIUS = 150;
+
+  function resize() {
+    const hero = document.getElementById('hero');
+    w = canvas.width = hero.offsetWidth;
+    h = canvas.height = hero.offsetHeight;
+  }
+
+  function createParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        r: Math.random() * 2 + 1
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      // Mouse repulsion
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < MOUSE_RADIUS) {
+        const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
+        p.vx += (dx / dist) * force * 0.8;
+        p.vy += (dy / dist) * force * 0.8;
+      }
+      // Damping
+      p.vx *= 0.98;
+      p.vy *= 0.98;
+      p.x += p.vx;
+      p.y += p.vy;
+      // Wrap around
+      if (p.x < 0) p.x = w;
+      if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h;
+      if (p.y > h) p.y = 0;
+      // Choose color based on position (white on dark side, dark on light side)
+      const t = p.x / w;
+      const alpha = 0.4;
+      const c = t < 0.45 ? 0 : 255;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + c + ',' + c + ',' + c + ',' + alpha + ')';
+      ctx.fill();
+      // Draw connections
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const ddx = p.x - p2.x;
+        const ddy = p.y - p2.y;
+        const d = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (d < CONNECT_DIST) {
+          const lineAlpha = (1 - d / CONNECT_DIST) * 0.15;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = 'rgba(' + c + ',' + c + ',' + c + ',' + lineAlpha + ')';
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mousemove', function(e) {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  hero.addEventListener('mouseleave', function() {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  window.addEventListener('resize', resize);
+  resize();
+  createParticles();
+  draw();
+})();
+
 // Mobile menu toggle
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
