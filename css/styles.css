@@ -950,6 +950,16 @@ ul {
 /* ================================================
    TALKS
    ================================================ */
+.youtube-channel {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.youtube-channel .btn i {
+  color: #ff0000;
+  margin-right: 8px;
+}
+
 .talks-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
