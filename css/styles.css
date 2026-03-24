@@ -4,19 +4,19 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  --primary: #0f766e;
-  --primary-light: #14b8a6;
-  --primary-dark: #0d5f58;
-  --secondary: #1e293b;
-  --accent: #f59e0b;
-  --accent-light: #fbbf24;
+  --primary: #000000;
+  --primary-light: #333333;
+  --primary-dark: #000000;
+  --secondary: #111111;
+  --accent: #000000;
+  --accent-light: #333333;
   --bg: #ffffff;
-  --bg-alt: #f8fafc;
-  --bg-dark: #0f172a;
-  --text: #334155;
-  --text-light: #64748b;
-  --text-dark: #0f172a;
-  --border: #e2e8f0;
+  --bg-alt: #f5f5f5;
+  --bg-dark: #000000;
+  --text: #333333;
+  --text-light: #666666;
+  --text-dark: #000000;
+  --border: #e0e0e0;
   --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
   --shadow-lg: 0 4px 24px rgba(0,0,0,0.1);
   --shadow-xl: 0 12px 40px rgba(0,0,0,0.12);
@@ -108,7 +108,7 @@ ul {
   border-color: var(--primary-dark);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outline {
@@ -210,7 +210,7 @@ ul {
 }
 
 .nav-logo .accent {
-  color: var(--accent);
+  color: #999999;
 }
 
 .nav-menu {
@@ -246,8 +246,8 @@ ul {
 
 .navbar.scrolled .nav-link:hover,
 .navbar.scrolled .nav-link.active {
-  color: var(--primary);
-  background: rgba(15, 118, 110, 0.08);
+  color: #000000;
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .nav-cta {
@@ -265,7 +265,7 @@ ul {
 .navbar:not(.scrolled) .nav-cta:hover {
   background: #fff;
   border-color: #fff;
-  color: var(--primary);
+  color: #000000;
 }
 
 /* Hamburger */
@@ -311,7 +311,7 @@ ul {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #000000 0%, #111111 40%, #1a1a1a 70%, #000000 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 35%, #888888 50%, #000000 65%, #000000 100%);
   position: relative;
   overflow: hidden;
   padding-top: var(--nav-height);
@@ -337,20 +337,25 @@ ul {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.02), transparent 70%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.02), transparent 70%);
   pointer-events: none;
 }
 
 .hero-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 0;
   align-items: center;
-  padding: 60px 24px;
+  padding: 0;
+  max-width: 100%;
+}
+
+.hero-content {
+  padding: 60px 60px 60px 80px;
 }
 
 .hero-greeting {
-  color: rgba(255,255,255,0.7);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 8px;
@@ -374,23 +379,23 @@ ul {
   font-family: var(--font-display);
   font-size: 60px;
   line-height: 1.1;
-  color: #fff;
+  color: #000000;
   margin-bottom: 16px;
 }
 
 .hero-name .accent {
-  color: #ffffff;
+  color: #333333;
 }
 
 .hero-title {
   font-size: 22px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.75);
   margin-bottom: 12px;
 }
 
 .hero-tagline {
-  color: rgba(255,255,255,0.6);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 16px;
   margin-bottom: 32px;
 }
@@ -403,26 +408,26 @@ ul {
 }
 
 .hero .btn-primary {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 .hero .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(255, 255, 255, 0.85);
-  color: #000000;
+  background: #222222;
+  border-color: #222222;
+  color: #ffffff;
 }
 
 .hero .btn-outline {
-  color: #fff;
-  border-color: rgba(255,255,255,0.4);
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .hero .btn-outline:hover {
-  background: #fff;
-  border-color: #fff;
-  color: #000;
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff;
 }
 
 .hero-socials {
@@ -434,44 +439,47 @@ ul {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.7);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 18px;
   transition: var(--transition);
 }
 
 .hero-socials a:hover {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: #000000;
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff;
   transform: translateY(-3px);
 }
 
 /* Hero Avatar */
 .hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: calc(100vh - var(--nav-height));
+  overflow: hidden;
 }
 
 .hero-avatar-wrap {
   position: relative;
-  width: 380px;
-  height: 380px;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-avatar {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - var(--nav-height));
   object-fit: cover;
-  border-radius: 50%;
+  object-position: top center;
+  border-radius: 0;
   position: relative;
   z-index: 2;
-  border: 4px solid rgba(255,255,255,0.15);
+  border: none;
   filter: grayscale(100%);
   transition: filter 0.4s ease;
 }
@@ -481,28 +489,11 @@ ul {
 }
 
 .hero-avatar-ring {
-  position: absolute;
-  inset: -16px;
-  border-radius: 50%;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  animation: spin 20s linear infinite;
-  z-index: 1;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
+  display: none;
 }
 
 .hero-avatar-dots {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, #ffffff 2px, transparent 2px);
-  background-size: 12px 12px;
-  z-index: 1;
-  opacity: 0.3;
+  display: none;
 }
 
 /* ================================================
@@ -546,7 +537,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(15, 118, 110, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   flex-shrink: 0;
 }
@@ -690,7 +681,7 @@ ul {
 
 .timeline-content:hover {
   box-shadow: var(--shadow-lg);
-  border-color: rgba(15, 118, 110, 0.2);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .timeline-date {
@@ -698,7 +689,7 @@ ul {
   font-size: 13px;
   font-weight: 600;
   color: var(--primary);
-  background: rgba(15, 118, 110, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   padding: 4px 12px;
   border-radius: var(--radius-full);
   margin-bottom: 12px;
@@ -838,13 +829,13 @@ ul {
 }
 
 .skill-tag.soft {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(0, 0, 0, 0.06);
   color: #b45309;
-  border-color: rgba(245, 158, 11, 0.3);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .skill-tag.soft:hover {
-  background: rgba(245, 158, 11, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   border-color: var(--accent);
 }
 
@@ -901,7 +892,7 @@ ul {
 
 .project-card:hover {
   box-shadow: var(--shadow-lg);
-  border-color: rgba(15, 118, 110, 0.2);
+  border-color: rgba(0, 0, 0, 0.15);
   transform: translateY(-4px);
 }
 
@@ -961,7 +952,7 @@ ul {
   font-weight: 600;
   padding: 3px 10px;
   border-radius: var(--radius-full);
-  background: rgba(15, 118, 110, 0.06);
+  background: rgba(0, 0, 0, 0.04);
   color: var(--primary);
 }
 
@@ -1122,7 +1113,7 @@ ul {
 }
 
 .footer-author {
-  color: var(--primary-light);
+  color: rgba(255, 255, 255, 0.6);
   font-weight: 600;
   font-size: 15px;
   margin-bottom: 40px;
@@ -1210,8 +1201,8 @@ ul {
 
   .nav-link:hover,
   .nav-link.active {
-    color: var(--primary);
-    background: rgba(15, 118, 110, 0.08);
+    color: #000000;
+    background: rgba(0, 0, 0, 0.06);
   }
 
   .nav-cta {
@@ -1239,13 +1230,23 @@ ul {
     text-align: center;
   }
 
+  .hero-content {
+    padding: 40px 24px;
+  }
+
   .hero-image {
     order: -1;
+    min-height: auto;
+  }
+
+  .hero-avatar {
+    height: auto;
+    max-height: 400px;
   }
 
   .hero-avatar-wrap {
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    height: auto;
   }
 
   .hero-name {
@@ -1331,8 +1332,9 @@ ul {
   }
 
   .hero-avatar-wrap {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
   }
 
   .hero-actions {
