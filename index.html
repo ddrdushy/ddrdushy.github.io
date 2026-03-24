@@ -788,10 +788,9 @@
       if (p.x > w) p.x = 0;
       if (p.y < 0) p.y = h;
       if (p.y > h) p.y = 0;
-      // Choose color based on position (white on dark side, dark on light side)
-      const t = p.x / w;
+      // All white particles on dark background
       const alpha = 0.4;
-      const c = t < 0.45 ? 0 : 255;
+      const c = 255;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(' + c + ',' + c + ',' + c + ',' + alpha + ')';
