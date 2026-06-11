@@ -298,13 +298,10 @@ section[tabindex="-1"]:focus { outline: none; }
 }
 .hero-inner {
   position: relative;
+  z-index: 1;
   width: min(1240px, 92vw);
   margin-inline: auto;
   padding-block: 48px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 400px);
-  gap: clamp(40px, 5vw, 80px);
-  align-items: center;
 }
 .hero-eyebrow {
   display: flex; align-items: center; gap: 12px;
@@ -322,7 +319,7 @@ section[tabindex="-1"]:focus { outline: none; }
 .hero-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(40px, 6.6vw, 100px);
+  font-size: clamp(40px, 9.4vw, 138px);
   line-height: 0.94;
   letter-spacing: -0.025em;
   text-transform: uppercase;
@@ -381,66 +378,69 @@ section[tabindex="-1"]:focus { outline: none; }
   gap: 24px;
 }
 
-/* ---------- Hero photo carousel ---------- */
-.hero-carousel {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius);
+/* ---------- Hero visual: full-bleed photos blended into the section ---------- */
+.hero-visual {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: min(58vw, 920px);
+  z-index: 0;
   overflow: hidden;
-  border: 1px solid var(--line-strong);
-  background: var(--ink-3);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  animation: visual-in 1.6s ease both;
 }
-/* Cinematic grade: vignette + bottom gradient over the photos */
-.hero-carousel::before {
-  content: '';
-  position: absolute; inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(10, 10, 14, 0.22) 0%, transparent 22%, transparent 62%, rgba(10, 10, 14, 0.55) 100%),
-    radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(10, 10, 14, 0.38) 100%);
+@keyframes visual-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-.hero-carousel img {
+.hero-visual img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: 60% 20%;
   opacity: 0;
-  filter: saturate(1.06) contrast(1.07) brightness(0.97);
+  filter: saturate(1.05) contrast(1.06) brightness(0.82);
   transition: opacity 1.6s ease;
   will-change: transform, opacity;
 }
 /* Continuous Ken Burns drift while a slide is on screen; the outgoing
    slide keeps the same animation (no restart) so it dissolves mid-motion */
-.hero-carousel img.is-active,
-.hero-carousel img.is-leaving {
+.hero-visual img.is-active,
+.hero-visual img.is-leaving {
   animation: kb-drift 9s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
-.hero-carousel img:nth-child(even).is-active,
-.hero-carousel img:nth-child(even).is-leaving {
+.hero-visual img:nth-child(even).is-active,
+.hero-visual img:nth-child(even).is-leaving {
   animation-name: kb-drift-alt;
 }
-.hero-carousel img.is-active { opacity: 1; }
-.hero-carousel img.is-leaving { opacity: 0; }
+.hero-visual img.is-active { opacity: 1; }
+.hero-visual img.is-leaving { opacity: 0; }
 @keyframes kb-drift {
-  0%   { transform: scale(1.22) translate(2.4%, 1.6%); }
-  100% { transform: scale(1.04) translate(-0.6%, -0.6%); }
+  0%   { transform: scale(1.18) translate(2%, 1.4%); }
+  100% { transform: scale(1.03) translate(-0.5%, -0.5%); }
 }
 @keyframes kb-drift-alt {
-  0%   { transform: scale(1.22) translate(-2.4%, -1.2%); }
-  100% { transform: scale(1.04) translate(0.6%, 0.8%); }
+  0%   { transform: scale(1.18) translate(-2%, -1%); }
+  100% { transform: scale(1.03) translate(0.5%, 0.7%); }
+}
+/* Seamless blend: photo edges dissolve into the page background */
+.hero-visual-veil {
+  position: absolute; inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--ink) 0%, rgba(10, 10, 14, 0.78) 18%, rgba(10, 10, 14, 0.25) 44%, transparent 68%),
+    linear-gradient(270deg, rgba(10, 10, 14, 0.45) 0%, transparent 22%),
+    linear-gradient(180deg, rgba(10, 10, 14, 0.85) 0%, transparent 30%),
+    linear-gradient(0deg, var(--ink) 0%, rgba(10, 10, 14, 0.4) 26%, transparent 52%);
 }
 .carousel-dots {
   position: absolute;
-  left: 50%; bottom: 16px;
-  transform: translateX(-50%);
+  right: 28px; bottom: 28px;
   display: flex; gap: 8px;
   padding: 8px 12px;
   border-radius: 100px;
-  background: rgba(10, 10, 14, 0.55);
+  background: rgba(10, 10, 14, 0.45);
   backdrop-filter: blur(6px);
-  z-index: 2;
+  z-index: 3;
 }
 .carousel-dots .dot {
   width: 7px; height: 7px;
@@ -1209,9 +1209,14 @@ section[tabindex="-1"]:focus { outline: none; }
   .projects-grid, .talks-grid { grid-template-columns: repeat(2, 1fr); }
   .featured-grid { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
-  .hero-inner { grid-template-columns: 1fr; gap: 44px; }
-  .hero-carousel { max-width: 380px; justify-self: start; }
-  .hero-name { font-size: clamp(40px, 9.6vw, 100px); }
+  /* Photos become a dimmed full-bleed backdrop behind the hero copy */
+  .hero-visual { width: 100%; }
+  .hero-visual-veil {
+    background:
+      linear-gradient(180deg, var(--ink) 0%, rgba(10, 10, 14, 0.62) 30%, rgba(10, 10, 14, 0.62) 62%, var(--ink) 100%),
+      linear-gradient(90deg, rgba(10, 10, 14, 0.6) 0%, rgba(10, 10, 14, 0.3) 100%);
+  }
+  .carousel-dots { right: 18px; bottom: 18px; }
 }
 
 @media (max-width: 880px) {
