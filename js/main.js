@@ -212,109 +212,51 @@
     });
   }
 
-  /* ---------- Hero neural canvas ---------- */
+  /* ---------- Hero photo carousel ---------- */
   (function () {
-    var canvas = document.getElementById('hero-canvas');
-    var hero = document.getElementById('hero');
-    if (!canvas || !hero || reducedMotion) return;
+    var wrap = document.getElementById('hero-carousel');
+    if (!wrap) return;
+    var imgs = wrap.querySelectorAll('img');
+    if (!imgs.length) return;
 
-    var ctx = canvas.getContext('2d');
-    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    var w, h, particles = [];
-    var mouse = { x: -9999, y: -9999 };
-    var CONNECT = 125;
-    var CONNECT_SQ = CONNECT * CONNECT;
-    var REPEL = 160;
-    var REPEL_SQ = REPEL * REPEL;
-    var running = true;
-
-    function resize() {
-      w = hero.offsetWidth;
-      h = hero.offsetHeight;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = w + 'px';
-      canvas.style.height = h + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seed();
+    var dotsWrap = wrap.querySelector('.carousel-dots');
+    var dots = [];
+    if (dotsWrap) {
+      imgs.forEach(function (_, i) {
+        var d = document.createElement('span');
+        d.className = 'dot' + (i === 0 ? ' on' : '');
+        dotsWrap.appendChild(d);
+        dots.push(d);
+      });
     }
 
-    function seed() {
-      var count = Math.min(80, Math.floor((w * h) / 19000));
-      particles = [];
-      for (var i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          r: Math.random() * 1.8 + 0.7
-        });
-      }
+    if (reducedMotion || imgs.length < 2) return; // static first photo
+
+    var idx = 0;
+    var INTERVAL = 4200;
+    var timer = null;
+
+    function next() {
+      imgs[idx].classList.remove('is-active');
+      if (dots[idx]) dots[idx].classList.remove('on');
+      idx = (idx + 1) % imgs.length;
+      imgs[idx].classList.add('is-active');
+      if (dots[idx]) dots[idx].classList.add('on');
     }
+    function start() { if (!timer) timer = setInterval(next, INTERVAL); }
+    function stop() { clearInterval(timer); timer = null; }
 
-    function frame() {
-      if (!running) return;
-      ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        var dx = p.x - mouse.x, dy = p.y - mouse.y;
-        var dsq = dx * dx + dy * dy;
-        if (dsq < REPEL_SQ && dsq > 0.01) {
-          var dist = Math.sqrt(dsq);
-          var f = (REPEL - dist) / REPEL;
-          p.vx += (dx / dist) * f * 0.6;
-          p.vy += (dy / dist) * f * 0.6;
-        }
-        p.vx *= 0.975; p.vy *= 0.975;
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < -20) p.x = w + 20; if (p.x > w + 20) p.x = -20;
-        if (p.y < -20) p.y = h + 20; if (p.y > h + 20) p.y = -20;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(242, 242, 238, 0.45)';
-        ctx.fill();
-
-        for (var j = i + 1; j < particles.length; j++) {
-          var q = particles[j];
-          var ddx = p.x - q.x, ddy = p.y - q.y;
-          var dsq2 = ddx * ddx + ddy * ddy;
-          if (dsq2 < CONNECT_SQ) {
-            var a = (1 - Math.sqrt(dsq2) / CONNECT);
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = 'rgba(79, 178, 255, ' + (a * 0.18) + ')';
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(frame);
-    }
-
-    hero.addEventListener('mousemove', function (e) {
-      var r = hero.getBoundingClientRect();
-      mouse.x = e.clientX - r.left;
-      mouse.y = e.clientY - r.top;
-    }, { passive: true });
-    hero.addEventListener('mouseleave', function () {
-      mouse.x = -9999; mouse.y = -9999;
+    // Don't rotate while the tab or the hero is out of sight
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? stop() : start();
     });
-
-    // Pause when hero off-screen
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
-        var visible = entries[0].isIntersecting;
-        if (visible && !running) { running = true; frame(); }
-        else if (!visible) { running = false; }
-      }).observe(hero);
+        entries[0].isIntersecting ? start() : stop();
+      }).observe(wrap);
+    } else {
+      start();
     }
-
-    window.addEventListener('resize', resize);
-    resize();
-    frame();
   })();
 
   /* ---------- Typed roles ---------- */
