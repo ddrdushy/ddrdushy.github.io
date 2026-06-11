@@ -233,11 +233,17 @@
     if (reducedMotion || imgs.length < 2) return; // static first photo
 
     var idx = 0;
-    var INTERVAL = 4200;
+    var INTERVAL = 6800;
+    var FADE_MS = 1700;
     var timer = null;
 
     function next() {
-      imgs[idx].classList.remove('is-active');
+      var leaving = imgs[idx];
+      leaving.classList.remove('is-active');
+      // Keep the Ken Burns animation alive while the old slide dissolves,
+      // then drop the class once it is fully transparent.
+      leaving.classList.add('is-leaving');
+      setTimeout(function () { leaving.classList.remove('is-leaving'); }, FADE_MS);
       if (dots[idx]) dots[idx].classList.remove('on');
       idx = (idx + 1) % imgs.length;
       imgs[idx].classList.add('is-active');
