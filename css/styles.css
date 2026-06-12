@@ -6,6 +6,7 @@
 /* ---------- Tokens ---------- */
 :root {
   --ink: #0a0a0e;          /* page background */
+  --ink-rgb: 10, 10, 14;   /* same, for rgba() overlays */
   --ink-2: #101016;        /* raised surface */
   --ink-3: #16161e;        /* card surface */
   --line: rgba(237, 237, 230, 0.1);
@@ -26,6 +27,29 @@
   --ease-snap: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+/* ---------- Light theme ---------- */
+html.light {
+  --ink: #f3f3ef;
+  --ink-rgb: 243, 243, 239;
+  --ink-2: #eaeae4;
+  --ink-3: #ffffff;
+  --line: rgba(21, 21, 27, 0.12);
+  --line-strong: rgba(21, 21, 27, 0.26);
+  --paper: #15151b;
+  --paper-dim: #4d4d59;
+  --volt: #0e6fc5;
+  --volt-dim: rgba(14, 111, 197, 0.1);
+  --volt-glow: rgba(14, 111, 197, 0.28);
+}
+html.light .grain { opacity: 0.035; }
+html.light .hero-visual img {
+  filter: saturate(1.02) contrast(1.03) brightness(1.02);
+}
+html.light .carousel-dots .dot { background: rgba(21, 21, 27, 0.3); }
+html.light .t-card:hover,
+html.light .p-card:hover { box-shadow: 0 18px 44px rgba(21, 21, 27, 0.14); }
+html.light .f-card,
+html.light .hero-visual { box-shadow: none; }
 /* ---------- Reset ---------- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -41,6 +65,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 ::selection { background: var(--volt); color: var(--ink); }
@@ -168,7 +193,7 @@ section[tabindex="-1"]:focus { outline: none; }
   border-bottom: 1px solid transparent;
 }
 .navbar.scrolled {
-  background: rgba(10, 10, 14, 0.78);
+  background: rgba(var(--ink-rgb), 0.78);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom-color: var(--line);
@@ -237,6 +262,22 @@ section[tabindex="-1"]:focus { outline: none; }
 }
 .nav-menu-footer { display: none; }
 .nav-toggle { display: none; }
+.theme-toggle {
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  margin-left: 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--paper-dim);
+  font-size: 15px;
+  flex-shrink: 0;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s, transform 0.4s var(--ease-out);
+}
+.theme-toggle:hover {
+  color: var(--volt);
+  border-color: var(--volt);
+  transform: rotate(40deg);
+}
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -427,10 +468,10 @@ section[tabindex="-1"]:focus { outline: none; }
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, var(--ink) 0%, rgba(10, 10, 14, 0.78) 18%, rgba(10, 10, 14, 0.25) 44%, transparent 68%),
-    linear-gradient(270deg, rgba(10, 10, 14, 0.45) 0%, transparent 22%),
-    linear-gradient(180deg, rgba(10, 10, 14, 0.85) 0%, transparent 30%),
-    linear-gradient(0deg, var(--ink) 0%, rgba(10, 10, 14, 0.4) 26%, transparent 52%);
+    linear-gradient(90deg, var(--ink) 0%, rgba(var(--ink-rgb), 0.78) 18%, rgba(var(--ink-rgb), 0.25) 44%, transparent 68%),
+    linear-gradient(270deg, rgba(var(--ink-rgb), 0.45) 0%, transparent 22%),
+    linear-gradient(180deg, rgba(var(--ink-rgb), 0.85) 0%, transparent 30%),
+    linear-gradient(0deg, var(--ink) 0%, rgba(var(--ink-rgb), 0.4) 26%, transparent 52%);
 }
 .carousel-dots {
   position: absolute;
@@ -438,7 +479,7 @@ section[tabindex="-1"]:focus { outline: none; }
   display: flex; gap: 8px;
   padding: 8px 12px;
   border-radius: 100px;
-  background: rgba(10, 10, 14, 0.45);
+  background: rgba(var(--ink-rgb), 0.45);
   backdrop-filter: blur(6px);
   z-index: 3;
 }
@@ -582,7 +623,7 @@ section[tabindex="-1"]:focus { outline: none; }
   font-size: 10px;
   letter-spacing: 0.16em;
   color: var(--paper);
-  background: rgba(10, 10, 14, 0.72);
+  background: rgba(var(--ink-rgb), 0.72);
   backdrop-filter: blur(6px);
   padding: 10px 14px;
   border-radius: 8px;
@@ -905,6 +946,20 @@ section[tabindex="-1"]:focus { outline: none; }
 }
 .f-link i { color: var(--volt); transition: transform 0.35s var(--ease-out); }
 .f-card:hover .f-link i { transform: translate(4px, -4px); }
+.f-link-soon {
+  align-self: flex-start;
+  color: var(--volt);
+  border: 1px dashed var(--line-strong);
+  border-radius: 100px;
+  padding: 8px 16px;
+}
+.soon-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--volt);
+  box-shadow: 0 0 8px var(--volt-glow);
+  animation: pulse 2.2s infinite;
+}
 
 /* ---------- Writing ---------- */
 .writing-list {
@@ -1096,7 +1151,7 @@ section[tabindex="-1"]:focus { outline: none; }
   display: grid; place-items: center;
   width: 64px; height: 64px;
   border-radius: 50%;
-  background: rgba(10, 10, 14, 0.7);
+  background: rgba(var(--ink-rgb), 0.7);
   backdrop-filter: blur(6px);
   border: 1px solid var(--line-strong);
   color: var(--volt);
@@ -1213,18 +1268,20 @@ section[tabindex="-1"]:focus { outline: none; }
   .hero-visual { width: 100%; }
   .hero-visual-veil {
     background:
-      linear-gradient(180deg, var(--ink) 0%, rgba(10, 10, 14, 0.62) 30%, rgba(10, 10, 14, 0.62) 62%, var(--ink) 100%),
-      linear-gradient(90deg, rgba(10, 10, 14, 0.6) 0%, rgba(10, 10, 14, 0.3) 100%);
+      linear-gradient(180deg, var(--ink) 0%, rgba(var(--ink-rgb), 0.62) 30%, rgba(var(--ink-rgb), 0.62) 62%, var(--ink) 100%),
+      linear-gradient(90deg, rgba(var(--ink-rgb), 0.6) 0%, rgba(var(--ink-rgb), 0.3) 100%);
   }
   .carousel-dots { right: 18px; bottom: 18px; }
 }
 
 @media (max-width: 880px) {
   .nav-status { display: none; }
+  .theme-toggle { order: 2; margin-left: auto; }
   .nav-toggle {
     display: flex; flex-direction: column; justify-content: center; gap: 7px;
     width: 48px; height: 48px;
-    margin-left: auto;
+    margin-left: 12px;
+    order: 3;
     z-index: 1102;
     align-items: center;
   }
@@ -1238,7 +1295,7 @@ section[tabindex="-1"]:focus { outline: none; }
   .nav-toggle.active .nav-toggle-line:last-child { transform: translateY(-4.5px) rotate(-45deg); }
   .nav-menu {
     position: fixed; inset: 0;
-    background: rgba(10, 10, 14, 0.97);
+    background: rgba(var(--ink-rgb), 0.97);
     backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: flex-start;

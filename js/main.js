@@ -300,6 +300,32 @@
     setTimeout(step, delay);
   })();
 
+  /* ---------- Theme toggle ---------- */
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var icon = btn.querySelector('i');
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(light) {
+      document.documentElement.classList.toggle('light', light);
+      if (icon) {
+        icon.classList.toggle('fa-sun', !light);
+        icon.classList.toggle('fa-moon', light);
+      }
+      btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+      if (themeMeta) themeMeta.setAttribute('content', light ? '#f3f3ef' : '#0a0a0e');
+      try { localStorage.setItem('dr_theme', light ? 'light' : 'dark'); } catch (e) {}
+    }
+
+    // Sync button state with the theme applied by the inline head script
+    applyTheme(document.documentElement.classList.contains('light'));
+
+    btn.addEventListener('click', function () {
+      applyTheme(!document.documentElement.classList.contains('light'));
+    });
+  })();
+
   /* ---------- Navbar behaviour ---------- */
   var navbar = document.getElementById('navbar');
   var lastY = 0;
