@@ -70,6 +70,11 @@
   <!-- Styles -->
   <link href="css/styles.css" rel="stylesheet">
 
+  <!-- Apply saved theme before first paint to avoid a flash -->
+  <script>
+    try { if (localStorage.getItem('dr_theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
+  </script>
+
   <noscript><style>.preloader{display:none!important}</style></noscript>
 
   <!-- Favicon -->
@@ -130,6 +135,9 @@
         <a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener">Medium</a>
       </div>
     </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme">
+      <i class="fa-solid fa-sun" aria-hidden="true"></i>
+    </button>
   </div>
 </header>
 
@@ -170,8 +178,7 @@
       <p class="hero-tagline">
         I architect <em>agentic</em> AI systems &amp; hyperautomation programs that turn
         enterprise chaos into running software — and I ship my own AI products,
-        <a href="https://hireops.symprio.com/" target="_blank" rel="noopener" class="link-underline">HireOps AI</a> and
-        <a href="https://zerokey.symprio.com/" target="_blank" rel="noopener" class="link-underline">ZeroKey</a>.
+        <strong>HireOps AI</strong> and <strong>ZeroKey</strong>.
         15+ years, 20+ global clients, founder of
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener" class="link-underline">@AiSensei</a>.
       </p>
@@ -554,20 +561,20 @@
     </div>
 
     <div class="featured-grid">
-      <a class="f-card reveal-up" href="https://hireops.symprio.com/" target="_blank" rel="noopener">
+      <article class="f-card reveal-up">
         <span class="f-label">FEATURED · AI PRODUCT</span>
         <h3 class="f-title">HireOps AI</h3>
         <p class="f-tagline">From inbox to hired, on autopilot.</p>
         <p class="f-desc">AI recruiting OS — syncs the hiring inbox, auto-classifies applications, scores resumes, runs screenings and surfaces top candidates with a live pipeline dashboard and hiring forecast.</p>
-        <span class="f-link">hireops.symprio.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-      </a>
-      <a class="f-card reveal-up" href="https://zerokey.symprio.com/" target="_blank" rel="noopener">
+        <span class="f-link f-link-soon"><span class="soon-dot" aria-hidden="true"></span> COMING SOON</span>
+      </article>
+      <article class="f-card reveal-up">
         <span class="f-label">FEATURED · AI PRODUCT</span>
         <h3 class="f-title">ZeroKey</h3>
         <p class="f-tagline">Drop the PDF. Drop the keys.</p>
         <p class="f-desc">E-invoicing platform for Malaysia's LHDN MyInvois — drop an invoice, AI extracts and validates every line item, then submits it for compliance in seconds.</p>
-        <span class="f-link">zerokey.symprio.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-      </a>
+        <span class="f-link f-link-soon"><span class="soon-dot" aria-hidden="true"></span> COMING SOON</span>
+      </article>
       <a class="f-card reveal-up" href="https://symprio.com/" target="_blank" rel="noopener">
         <span class="f-label">FEATURED · WEB DESIGN</span>
         <h3 class="f-title">Symprio.com</h3>
