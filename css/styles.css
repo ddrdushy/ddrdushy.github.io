@@ -1136,6 +1136,75 @@ ul {
 }
 
 /* ================================================
+   BLOG
+   ================================================ */
+.blog-newsletter-link {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.blog-newsletter-link .btn i {
+  color: #0a66c2;
+  margin-right: 8px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+.blog-card-date {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+}
+
+.blog-card-date i {
+  margin-right: 6px;
+}
+
+.blog-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.blog-card-read {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.blog-card:hover .blog-card-read {
+  text-decoration: underline;
+}
+
+/* ================================================
    CONTACT
    ================================================ */
 .contact-grid {
