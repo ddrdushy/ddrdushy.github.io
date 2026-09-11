@@ -43,6 +43,7 @@
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#talks" class="nav-link">Talks</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <a href="docs/resume_DR.pdf" class="btn btn-primary nav-cta" target="_blank">
@@ -712,6 +713,72 @@
   </div>
 </section>
 
+<!-- ========== BLOG ========== -->
+<section class="section section-dark" id="blog">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-subtitle">From the field</p>
+      <h2 class="section-title">Blog — Dushy from the Field</h2>
+    </div>
+
+    <div class="blog-newsletter-link">
+      <a href="https://www.linkedin.com/newsletters/dushy-from-the-field-7475174440457097217/" target="_blank" class="btn btn-outline">
+        <i class="fa-brands fa-linkedin-in"></i> Subscribe on LinkedIn
+      </a>
+    </div>
+
+    <div class="blog-grid">
+      <a href="https://www.linkedin.com/pulse/why-learn-ai-already-knows-everything-dushyanth-ramalingam-gv27c" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Sep 10, 2026</div>
+        <h3 class="blog-card-title">Why Learn AI If AI Already Knows Everything?</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/what-dead-hard-disk-taught-me-business-dushyanth-ramalingam-qp9qc" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Sep 2, 2026</div>
+        <h3 class="blog-card-title">What a Dead Hard Disk Taught Me About Business</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/two-interviews-twelve-years-egg-broke-me-dushyanth-ramalingam-k99ac" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Aug 27, 2026</div>
+        <h3 class="blog-card-title">Two Interviews in Twelve Years, and the Egg That Broke Me</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/i-23-before-learned-how-learn-dushyanth-ramalingam-ysbec" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Aug 24, 2026</div>
+        <h3 class="blog-card-title">I Was 23 Before I Learned How to Learn</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/ten-episodes-one-ringgit-zero-regenerates-dushyanth-ramalingam-z0llc" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Aug 18, 2026</div>
+        <h3 class="blog-card-title">Ten Episodes, One Ringgit, Zero Regenerates</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/twelve-years-my-brain-still-runs-tamil-dushyanth-ramalingam-rjdbc" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Aug 2026</div>
+        <h3 class="blog-card-title">Twelve Years in IT, and My Brain Still Runs on Tamil</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/we-bought-software-ravi-still-runs-company-dushyanth-ramalingam-j9pcc" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Aug 2026</div>
+        <h3 class="blog-card-title">We Bought the Software. Ravi Still Runs the Company.</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/ai-workshops-getting-hard-understand-dushyanth-ramalingam-t0arc" target="_blank" class="blog-card">
+        <div class="blog-card-date"><i class="fa-regular fa-calendar"></i> Aug 2026</div>
+        <h3 class="blog-card-title">AI Workshops Are Getting Hard to Understand</h3>
+        <span class="blog-card-read">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ========== CONTACT ========== -->
 <section class="section section-dark" id="contact">
   <div class="container">
@@ -943,7 +1010,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll('.timeline-item, .project-card, .stat-card, .skill-category, .talk-card, .contact-item, .about-text, .about-stats').forEach(el => {
+document.querySelectorAll('.timeline-item, .project-card, .stat-card, .skill-category, .talk-card, .blog-card, .contact-item, .about-text, .about-stats').forEach(el => {
   el.classList.add('animate-on-scroll');
   observer.observe(el);
 });
