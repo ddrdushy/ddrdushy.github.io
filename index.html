@@ -987,6 +987,181 @@
 </footer>
 
 <!-- ========== SCRIPTS ========== -->
+<script>
+// Hero particles with mouse interaction
+(function() {
+  const canvas = document.getElementById('hero-particles');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles, mouse = { x: -1000, y: -1000 };
+  const PARTICLE_COUNT = 80;
+  const CONNECT_DIST = 120;
+  const MOUSE_RADIUS = 150;
+
+  function resize() {
+    const hero = document.getElementById('hero');
+    w = canvas.width = hero.offsetWidth;
+    h = canvas.height = hero.offsetHeight;
+  }
+
+  function createParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        r: Math.random() * 2 + 1
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      // Mouse repulsion
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < MOUSE_RADIUS) {
+        const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
+        p.vx += (dx / dist) * force * 0.8;
+        p.vy += (dy / dist) * force * 0.8;
+      }
+      // Damping
+      p.vx *= 0.98;
+      p.vy *= 0.98;
+      p.x += p.vx;
+      p.y += p.vy;
+      // Wrap around
+      if (p.x < 0) p.x = w;
+      if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h;
+      if (p.y > h) p.y = 0;
+      // All white particles on dark background
+      const alpha = 0.4;
+      const c = 255;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + c + ',' + c + ',' + c + ',' + alpha + ')';
+      ctx.fill();
+      // Draw connections
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const ddx = p.x - p2.x;
+        const ddy = p.y - p2.y;
+        const d = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (d < CONNECT_DIST) {
+          const lineAlpha = (1 - d / CONNECT_DIST) * 0.15;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = 'rgba(' + c + ',' + c + ',' + c + ',' + lineAlpha + ')';
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mousemove', function(e) {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  hero.addEventListener('mouseleave', function() {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  window.addEventListener('resize', resize);
+  resize();
+  createParticles();
+  draw();
+})();
+
+// Mobile menu toggle
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('open');
+  navToggle.classList.toggle('active');
+});
+
+// Close menu on link click
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    navToggle.classList.remove('active');
+  });
+});
+
+// Sticky navbar on scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const scrollY = window.pageYOffset + 100;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector('.nav-link[href="#' + id + '"]');
+    if (link) {
+      link.classList.toggle('active', scrollY >= top && scrollY < top + height);
+    }
+  });
+});
+
+// Experience tabs
+document.querySelectorAll('.exp-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const target = tab.dataset.tab;
+    document.getElementById('tab-work').classList.toggle('hidden', target !== 'work');
+    document.getElementById('tab-education').classList.toggle('hidden', target !== 'education');
+  });
+});
+
+// Project filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+        card.style.animation = 'fadeUp 0.4s ease forwards';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.timeline-item, .project-card, .stat-card, .skill-category, .talk-card, .contact-item, .about-text, .about-stats').forEach(el => {
+  el.classList.add('animate-on-scroll');
+  observer.observe(el);
+});
+</script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
