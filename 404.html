@@ -28,12 +28,14 @@
   <meta property="og:site_name" content="Dushyanth Ramalingam — Portfolio">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://ddrdushy.github.io/404.html">
-  <meta property="og:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
-  <meta property="og:image:alt" content="Dushyanth Ramalingam in the AiSensei studio">
+  <meta property="og:image" content="https://ddrdushy.github.io/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Painted portrait of Dushyanth Ramalingam on a sealed parchment">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Platform 404¾ — Dushyanth Ramalingam">
   <meta name="twitter:description" content="This page has vanished.">
-  <meta name="twitter:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
+  <meta name="twitter:image" content="https://ddrdushy.github.io/img/og-image.jpg">
 
   <!-- Fonts: Cinzel (titles), EB Garamond (text), IM Fell English (asides), UnifrakturCook (newspaper masthead) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,8 +78,8 @@
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube</a>
       </div>
     </nav>
-    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: Gates of the Ancient Realm"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
-    <audio id="bgm" src="audio/gates-of-the-ancient-realm.mp3" preload="none" loop></audio>
+    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: The Mapmaker&rsquo;s Secret by day, Waltz for a Sleeping Hall by night"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
+    <audio id="bgm" preload="none" data-day="audio/the-mapmakers-secret.mp3,audio/gates-of-the-ancient-realm.mp3" data-night="audio/waltz-for-a-sleeping-hall.mp3" data-chime="audio/chime.mp3"></audio>
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to candle-lit (night) mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open the map" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button>
   </div>
@@ -86,10 +88,12 @@
 <main id="main">
 <section class="lost">
   <div class="container">
-    <p class="label">Page not found</p>
-    <h1 class="platform">404&frac34;</h1>
-    <p>This platform doesn&rsquo;t exist &mdash; or the staircase moved while you were on it. The map will get you back.</p>
-    <a href="index.html" class="btn btn-seal">Back to the map</a>
+    <div class="lost-sheet">
+      <p class="label">Page not found</p>
+      <h1 class="platform">404&frac34;</h1>
+      <p>This platform doesn&rsquo;t exist &mdash; or the staircase moved while you were on it. The map will get you back.</p>
+      <a href="index.html" class="btn btn-seal">Back to the map</a>
+    </div>
   </div>
 </section>
 </main>

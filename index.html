@@ -19,7 +19,7 @@
     "@type": "Person",
     "name": "Dushyanth Ramalingam",
     "url": "https://ddrdushy.github.io/",
-    "image": "https://ddrdushy.github.io/img/portrait-suit.jpg",
+    "image": "https://ddrdushy.github.io/img/og-image.jpg",
     "jobTitle": "Capability Lead — AI & OmniFDE",
     "worksFor": { "@type": "Organization", "name": "Symprio", "url": "https://symprio.com/" },
     "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
@@ -54,12 +54,14 @@
   <meta property="og:site_name" content="Dushyanth Ramalingam — Portfolio">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://ddrdushy.github.io/">
-  <meta property="og:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
-  <meta property="og:image:alt" content="Dushyanth Ramalingam in the AiSensei studio">
+  <meta property="og:image" content="https://ddrdushy.github.io/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Painted portrait of Dushyanth Ramalingam on a sealed parchment">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dushyanth Ramalingam — AI agents that work. No wand required.">
   <meta name="twitter:description" content="Dushyanth Ramalingam, Capability Lead — AI &amp; OmniFDE at Symprio, Kuala Lumpur. 15+ years building agentic AI and hyperautomation for banks, insurers, airlines and government; maker of HireOps AI and ZeroKey.">
-  <meta name="twitter:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
+  <meta name="twitter:image" content="https://ddrdushy.github.io/img/og-image.jpg">
 
   <!-- Fonts: Cinzel (titles), EB Garamond (text), IM Fell English (asides), UnifrakturCook (newspaper masthead) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,8 +107,8 @@
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube</a>
       </div>
     </nav>
-    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: Gates of the Ancient Realm"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
-    <audio id="bgm" src="audio/gates-of-the-ancient-realm.mp3" preload="none" loop></audio>
+    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: The Mapmaker&rsquo;s Secret by day, Waltz for a Sleeping Hall by night"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
+    <audio id="bgm" preload="none" data-day="audio/the-mapmakers-secret.mp3,audio/gates-of-the-ancient-realm.mp3" data-night="audio/waltz-for-a-sleeping-hall.mp3" data-chime="audio/chime.mp3"></audio>
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to candle-lit (night) mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open the map" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button>
   </div>
@@ -128,10 +130,12 @@
         </div>
       </div>
       <figure class="portrait after-ink" style="--after:0.6s">
-        <div class="portrait-photo" data-moving>
-          <img src="img/portrait-suit.jpg" alt="Portrait of Dushyanth Ramalingam in a dark suit" class="on">
-          <img src="img/hero-stage.jpg" alt="" loading="lazy">
-          <img src="img/aisensei-studio.jpg" alt="" loading="lazy">
+        <div class="portrait-photo">
+          <video data-autoplay muted loop playsinline preload="auto" width="720" height="900" poster="img/portrait-hall-poster.webp" aria-label="Painted portrait of Dushyanth Ramalingam that blinks and smiles">
+            <source src="video/portrait-hall.webm" type="video/webm">
+            <source src="video/portrait-hall.mp4" type="video/mp4">
+          </video>
+          <img src="img/portrait-hall-poster.webp" width="720" height="900" alt="Painted portrait of Dushyanth Ramalingam in a dark suit" class="on">
         </div>
         <figcaption class="plaque">The Practice Head, Kuala Lumpur — a portrait that moves</figcaption>
       </figure>
@@ -162,18 +166,19 @@
       <h2>Where would you like to wander?</h2>
       <p>Every room of this site, drawn on one parchment. Watch for footprints &mdash; someone is always walking the halls.</p>
     </div>
-    <div class="map reveal">
+    <div class="map map-illustrated reveal">
+      <img class="map-art" src="img/map-castle.webp" width="1536" height="1024" loading="lazy" alt="Hand-drawn parchment map of a castle with six rooms joined by dotted paths">
       <svg class="map-paths" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
         <path d="M50 50 C90 20 110 80 150 50 S220 20 250 50"/><path d="M50 50 C40 100 70 120 50 150"/><path d="M150 50 C170 100 130 110 150 150"/><path d="M250 50 C270 100 230 120 250 150"/><path d="M50 150 C100 180 110 120 150 150 S220 180 250 150"/>
       </svg>
       <div class="steps-layer" aria-hidden="true"></div>
       <div class="map-grid">
-        <a class="room" href="about.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span class="room-num">CHAPTER I</span><h3>The Study</h3><p>who I am & the four houses of my craft</p></a>
-        <a class="room" href="experience.html"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i><span class="room-num">CHAPTER II</span><h3>The Chronicle</h3><p>fifteen years of posts held</p></a>
-        <a class="room" href="work.html"><i class="fa-solid fa-hat-wizard" aria-hidden="true"></i><span class="room-num">CHAPTER III</span><h3>The Workshop</h3><p>enchantments, commissions & artefacts</p></a>
-        <a class="room" href="writing.html"><i class="fa-solid fa-newspaper" aria-hidden="true"></i><span class="room-num">CHAPTER IV</span><h3>The Daily Agent</h3><p>33 scrolls from the field</p></a>
-        <a class="room" href="talks.html"><i class="fa-solid fa-film" aria-hidden="true"></i><span class="room-num">CHAPTER V</span><h3>The Great Hall</h3><p>moving pictures & talks</p></a>
-        <a class="room" href="contact.html"><i class="fa-solid fa-dove" aria-hidden="true"></i><span class="room-num">CHAPTER VI</span><h3>The Owlery</h3><p>send an owl, get sorted</p></a>
+        <a class="room" data-spot="study" href="about.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span class="room-num">CHAPTER I</span><h3>The Study</h3><p>who I am & the four houses of my craft</p></a>
+        <a class="room" data-spot="chronicle" href="experience.html"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i><span class="room-num">CHAPTER II</span><h3>The Chronicle</h3><p>fifteen years of posts held</p></a>
+        <a class="room" data-spot="workshop" href="work.html"><i class="fa-solid fa-hat-wizard" aria-hidden="true"></i><span class="room-num">CHAPTER III</span><h3>The Workshop</h3><p>enchantments, commissions & artefacts</p></a>
+        <a class="room" data-spot="writing" href="writing.html"><i class="fa-solid fa-newspaper" aria-hidden="true"></i><span class="room-num">CHAPTER IV</span><h3>The Daily Agent</h3><p>33 scrolls from the field</p></a>
+        <a class="room" data-spot="hall" href="talks.html"><i class="fa-solid fa-film" aria-hidden="true"></i><span class="room-num">CHAPTER V</span><h3>The Great Hall</h3><p>moving pictures & talks</p></a>
+        <a class="room" data-spot="owlery" href="contact.html"><i class="fa-solid fa-dove" aria-hidden="true"></i><span class="room-num">CHAPTER VI</span><h3>The Owlery</h3><p>send an owl, get sorted</p></a>
       </div>
       <svg class="compass" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width=".6" stroke-dasharray="2 3"/><path d="M32 4 L36 32 L32 60 L28 32 Z" fill="currentColor" opacity=".8"/><path d="M4 32 L32 28 L60 32 L32 36 Z" fill="currentColor" opacity=".45"/><text x="32" y="15" text-anchor="middle" font-size="7" font-family="Cinzel" fill="currentColor">N</text></svg>
     </div>

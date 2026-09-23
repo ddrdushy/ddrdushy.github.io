@@ -29,12 +29,14 @@
   <meta property="og:site_name" content="Dushyanth Ramalingam — Portfolio">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://ddrdushy.github.io/about.html">
-  <meta property="og:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
-  <meta property="og:image:alt" content="Dushyanth Ramalingam in the AiSensei studio">
+  <meta property="og:image" content="https://ddrdushy.github.io/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Painted portrait of Dushyanth Ramalingam on a sealed parchment">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Study — About Dushyanth Ramalingam">
   <meta name="twitter:description" content="The story of Dushyanth Ramalingam: from Linux admin in Coimbatore to leading an AI &amp; Hyperautomation practice in Kuala Lumpur, and the four houses of skills behind it.">
-  <meta name="twitter:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
+  <meta name="twitter:image" content="https://ddrdushy.github.io/img/og-image.jpg">
 
   <!-- Fonts: Cinzel (titles), EB Garamond (text), IM Fell English (asides), UnifrakturCook (newspaper masthead) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,8 +78,8 @@
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube</a>
       </div>
     </nav>
-    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: Gates of the Ancient Realm"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
-    <audio id="bgm" src="audio/gates-of-the-ancient-realm.mp3" preload="none" loop></audio>
+    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: The Mapmaker&rsquo;s Secret by day, Waltz for a Sleeping Hall by night"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
+    <audio id="bgm" preload="none" data-day="audio/the-mapmakers-secret.mp3,audio/gates-of-the-ancient-realm.mp3" data-night="audio/waltz-for-a-sleeping-hall.mp3" data-chime="audio/chime.mp3"></audio>
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to candle-lit (night) mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open the map" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button>
   </div>
@@ -96,12 +98,14 @@
   <div class="container">
     <div class="about-grid">
       <figure class="portrait reveal">
-        <div class="portrait-photo" data-moving>
-          <img src="img/portrait-kl.jpg" alt="Black-and-white portrait of Dushyanth Ramalingam with the Kuala Lumpur skyline reflected in his sunglasses" class="on">
-          <img src="img/hero-mono.jpg" alt="" loading="lazy">
-          <img src="img/hero-office.jpg" alt="" loading="lazy">
+        <div class="portrait-photo">
+          <video data-autoplay muted loop playsinline preload="auto" width="720" height="900" poster="img/portrait-study-poster.webp" aria-label="Painted portrait of Dushyanth Ramalingam at a candle-lit desk, moving slightly">
+            <source src="video/portrait-study.webm" type="video/webm">
+            <source src="video/portrait-study.mp4" type="video/mp4">
+          </video>
+          <img src="img/portrait-study-poster.webp" width="720" height="900" alt="Painted portrait of Dushyanth Ramalingam at a candle-lit desk" class="on">
         </div>
-        <figcaption class="plaque">Est. 1992 — Kandy, Sri Lanka</figcaption>
+        <figcaption class="plaque">Est. 1992 — Kandy, Sri Lanka · a portrait that moves</figcaption>
       </figure>
       <div>
         <p class="about-lead reveal">From a teenage Linux admin in Coimbatore to leading a global <strong>AI &amp; Hyperautomation practice</strong> — I've spent 15+ years turning "that's impossible to automate" into production systems.</p>
@@ -121,28 +125,28 @@
     </div>
     <div class="houses">
       <article class="card house reveal" data-house="serpent">
-        <div class="crest" aria-hidden="true"><i class="fa-solid fa-brain icon"></i></div>
+        <div class="crest"><img src="img/crest-serpent.webp" width="640" height="658" loading="lazy" alt="Crest of the House of the Serpent: silver serpent on green"></div>
         <span class="house-name">House of the Serpent</span>
         <h3>AI &amp; Agentic Systems</h3>
         <p class="motto">ambition, cunning, agents</p>
         <div class="tags"><span class="hot">Agentic AI Development</span><span class="hot">Generative AI</span><span class="hot">RAG</span><span class="">LangChain</span><span class="">Vector DBs</span><span class="">LLM Orchestration</span><span class="">Computer Vision · YOLO</span><span class="">Prompt Engineering</span></div>
       </article>
       <article class="card house reveal" data-house="badger">
-        <div class="crest" aria-hidden="true"><i class="fa-solid fa-robot icon"></i></div>
+        <div class="crest"><img src="img/crest-badger.webp" width="640" height="672" loading="lazy" alt="Crest of the House of the Badger: badger on gold and black"></div>
         <span class="house-name">House of the Badger</span>
         <h3>Hyperautomation</h3>
         <p class="motto">patience, loyalty, hard work</p>
         <div class="tags"><span class="hot">UiPath</span><span class="hot">Power Platform</span><span class="">Power Automate</span><span class="">RPA Architecture</span><span class="">n8n</span><span class="">Zapier</span><span class="">Abbyy</span><span class="">Process Assessment</span></div>
       </article>
       <article class="card house reveal" data-house="eagle">
-        <div class="crest" aria-hidden="true"><i class="fa-solid fa-code icon"></i></div>
+        <div class="crest"><img src="img/crest-eagle.webp" width="640" height="621" loading="lazy" alt="Crest of the House of the Eagle: golden eagle on blue"></div>
         <span class="house-name">House of the Eagle</span>
         <h3>Engineering</h3>
         <p class="motto">wit, craft, learning</p>
         <div class="tags"><span class="hot">Python</span><span class="">JavaScript / TypeScript</span><span class="">Node.js</span><span class="">SQL</span><span class="">MongoDB</span><span class="">Shell Scripting</span><span class="">Git / CI</span><span class="">Linux</span></div>
       </article>
       <article class="card house reveal" data-house="lion">
-        <div class="crest" aria-hidden="true"><i class="fa-solid fa-compass-drafting icon"></i></div>
+        <div class="crest"><img src="img/crest-lion.webp" width="640" height="620" loading="lazy" alt="Crest of the House of the Lion: golden lion on red"></div>
         <span class="house-name">House of the Lion</span>
         <h3>Leadership &amp; Strategy</h3>
         <p class="motto">courage, leadership, nerve</p>
