@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Generate resume_DR.pdf — Dushyanth Ramalingam, synced with LinkedIn (Jun 2026)."""
+"""Generate resume_DR.pdf — Dushyanth Ramalingam, synced with LinkedIn, symprio.com and GitHub (Sep 2026)."""
+import os
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.lib.colors import HexColor
@@ -66,8 +67,9 @@ story.append(Paragraph(
     "Hyperautomation practice. Architect of <b>agentic AI systems</b> that fuse RPA with Generative AI — "
     "local RAG, vector search, computer vision and LLM orchestration. Delivered <b>100+ automated "
     "processes</b> and <b>USD $4M+ in verified savings</b> for <b>20+ clients</b> across Asia, the Middle "
-    "East and the US. Ships production AI products (<b>HireOps AI</b>, <b>ZeroKey</b>) and teaches AI to "
-    "thousands as founder of <b>AiSensei</b>.", styles["body"]))
+    "East and the US. Launched two AI products (<b>HireOps AI</b>, <b>ZeroKey</b>), builds open-source "
+    "platforms such as <b>Codanium</b>, and has published <b>33 articles</b> on enterprise AI and careers. "
+    "Founder of <b>AiSensei</b>.", styles["body"]))
 
 # ---------- Experience ----------
 story.append(Paragraph("EXPERIENCE", styles["h2"]))
@@ -122,18 +124,33 @@ job("Linux Administrator (Part-time)", "Caliber Interconnect Solutions · India"
 # ---------- Products ----------
 story.append(Paragraph("PRODUCTS &amp; PROJECTS", styles["h2"]))
 for b in [
-    "<b>HireOps AI</b> — AI recruiting OS: inbox sync, resume scoring, AI screening and pipeline forecasting (hireops.symprio.com).",
-    "<b>ZeroKey</b> — LHDN MyInvois e-invoicing: AI extraction, validation and compliant submission (zerokey.symprio.com).",
+    "<b>HireOps AI</b> (live, hireops.symprio.com) — AI recruiting OS: classifies applications, scores resumes with evidence, "
+    "runs Q&amp;A and ElevenLabs voice interviews. Built on Mistral AI; first built at the Mistral AI Hackathon 2026.",
+    "<b>ZeroKey</b> (live, zerokey.symprio.com) — LHDN MyInvois e-invoicing for Malaysian SMEs: any-format intake, AI extraction "
+    "and validation, signing with the customer's LHDN certificate and submission.",
+    "<b>Codanium</b> — AI software-delivery platform where 24 specialised agents cover the SDLC (Next.js, Prisma, PostgreSQL, "
+    "BullMQ; Tauri desktop client). Open source.",
+    "<b>Teman</b> — free companionship platform for Malaysia's elderly, caregivers and volunteers; PWA, solo build. "
+    "<b>PettahPro</b> — cloud accounting SaaS for Sri Lankan SMEs.",
     "<b>symprio.com</b> — designed and built the corporate site for Symprio's AI &amp; automation business.",
-    "<b>AiSensei</b> — founder of the AI education channel (YouTube @AiSensei_MY); writer at medium.com/@symprioblog.",
+]:
+    story.append(bullet(b))
+
+# ---------- Writing ----------
+story.append(Paragraph("WRITING &amp; COMMUNITY", styles["h2"]))
+for b in [
+    "<b>Symprio Insights</b> — 22 articles on OmniFDE, AI total cost of ownership, sovereign AI, testing AI products and "
+    "agentic automation (symprio.com/blog).",
+    "<b>Dushy from the Field</b> — LinkedIn newsletter; 11 essays on learning, careers and building with AI.",
+    "<b>AiSensei</b> — founder of the AI education channel on YouTube (@AiSensei_MY).",
 ]:
     story.append(bullet(b))
 
 # ---------- Skills ----------
 rows = [
-    ("AI &amp; Agentic", "Agentic AI development · Generative AI · RAG · LangChain · Vector DBs · LLM orchestration · Computer Vision (YOLO) · Prompt engineering"),
+    ("AI &amp; Agentic", "Agentic AI development · Generative AI · RAG · LangChain · Vector DBs · LLM orchestration · Computer Vision (YOLO) · Prompt engineering · Mistral · ElevenLabs · MCP"),
     ("Hyperautomation", "UiPath · Power Platform · Power Automate · RPA architecture · n8n · Zapier · Abbyy · Process assessment"),
-    ("Engineering", "Python · JavaScript / TypeScript · Node.js · SQL · MongoDB · Shell scripting · Git / CI · Linux"),
+    ("Engineering", "Python · TypeScript · Next.js · React · Node.js · PostgreSQL · Prisma · Tauri · MongoDB · Git / CI · Linux"),
     ("Leadership", "Solution architecture · CoE build-out · Pre-sales · Training &amp; mentoring · Project delivery · Stakeholder management"),
 ]
 skill_table = Table(
@@ -158,8 +175,16 @@ for b in [
 ]:
     story.append(bullet(b))
 
+# ---------- Certifications & languages ----------
+story.append(Paragraph("CERTIFICATIONS &amp; LANGUAGES", styles["h2"]))
+for b in [
+    "<b>UiPath Orchestrator Certification</b> — v2017.1 and v2016.2.",
+    "<b>Languages</b> — Tamil (native), English (professional), Sinhala (limited working), Japanese (elementary).",
+]:
+    story.append(bullet(b))
+
 doc = SimpleDocTemplate(
-    "/Users/symprio/Desktop/ddrdushy.github.io/docs/resume_DR.pdf",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "resume_DR.pdf"),
     pagesize=A4,
     leftMargin=18*mm, rightMargin=18*mm, topMargin=14*mm, bottomMargin=14*mm,
     title="Dushyanth Ramalingam — Resume",
