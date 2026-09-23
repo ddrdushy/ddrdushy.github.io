@@ -3,6 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Old single-page links (/#writing etc.) now live on their own pages -->
+  <script>
+    (function () {
+      var map = { about: 'about.html', skills: 'about.html#skills', experience: 'experience.html',
+        work: 'work.html', projects: 'work.html', writing: 'writing.html', blog: 'writing.html',
+        talks: 'talks.html', contact: 'contact.html' };
+      var to = map[location.hash.slice(1)];
+      if (to) location.replace(to);
+    })();
+  </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQNSXTRNVB"></script>
@@ -14,14 +24,13 @@
     gtag('config', 'G-RQNSXTRNVB');
   </script>
   <title>Dushyanth Ramalingam — OmniFDE Consultant · Practice Head, AI &amp; Hyperautomation · Agentic AI Engineer | Kuala Lumpur</title>
-  <meta name="description" content="Dushyanth Ramalingam is an OmniFDE Consultant and Practice Head of AI & Hyperautomation at Symprio, Kuala Lumpur. 15+ years building agentic AI systems, RAG, RPA (UiPath, Power Platform) and AI products like HireOps AI and ZeroKey. Founder of AiSensei. Gen AI engineer, speaker and trainer serving 20+ clients across Asia, the Middle East and the US.">
-  <meta name="keywords" content="Dushyanth Ramalingam, OmniFDE, Forward Deployed Engineer, AI consultant Malaysia, Hyperautomation, Agentic AI, Gen AI engineer, RPA architect, UiPath expert, Power Platform, RAG, LangChain, AI Sensei, Symprio, automation consultant Kuala Lumpur, AI practice head">
+  <meta name="description" content="Dushyanth Ramalingam is an OmniFDE Consultant and Practice Head of AI &amp; Hyperautomation at Symprio, Kuala Lumpur. 15+ years building agentic AI systems, RAG, RPA (UiPath, Power Platform) and AI products like HireOps AI and ZeroKey. Founder of AiSensei.">
   <meta name="author" content="Dushyanth Ramalingam">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0a0a0e">
   <link rel="canonical" href="https://ddrdushy.github.io/">
-  <meta property="og:title" content="Dushyanth Ramalingam — OmniFDE Consultant · AI & Hyperautomation Leader">
-  <meta property="og:description" content="OmniFDE Consultant · Practice Head – AI & Hyperautomation · Agentic AI Systems · Gen AI Engineer · Founder @AiSensei. Builder of HireOps AI & ZeroKey.">
+  <meta property="og:title" content="Dushyanth Ramalingam — OmniFDE Consultant · Practice Head, AI &amp; Hyperautomation · Agentic AI Engineer | Kuala Lumpur">
+  <meta property="og:description" content="Dushyanth Ramalingam is an OmniFDE Consultant and Practice Head of AI &amp; Hyperautomation at Symprio, Kuala Lumpur. 15+ years building agentic AI systems, RAG, RPA (UiPath, Power Platform) and AI products like HireOps AI and ZeroKey. Founder of AiSensei.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dushyanth Ramalingam — Portfolio">
   <meta property="og:locale" content="en_US">
@@ -29,8 +38,8 @@
   <meta property="og:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
   <meta property="og:image:alt" content="Dushyanth Ramalingam in the AiSensei studio">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dushyanth Ramalingam — OmniFDE Consultant · AI & Hyperautomation Leader">
-  <meta name="twitter:description" content="Agentic AI systems, hyperautomation and AI products — 15+ years, 20+ global clients. Founder @AiSensei.">
+  <meta name="twitter:title" content="Dushyanth Ramalingam — OmniFDE Consultant · Practice Head, AI &amp; Hyperautomation · Agentic AI Engineer | Kuala Lumpur">
+  <meta name="twitter:description" content="Dushyanth Ramalingam is an OmniFDE Consultant and Practice Head of AI &amp; Hyperautomation at Symprio, Kuala Lumpur. 15+ years building agentic AI systems, RAG, RPA (UiPath, Power Platform) and AI products like HireOps AI and ZeroKey. Founder of AiSensei.">
   <meta name="twitter:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
 
   <script type="application/ld+json">
@@ -57,6 +66,7 @@
   }
   </script>
 
+  <noscript><style>.preloader{display:none!important}</style></noscript>
   <!-- Fonts: Clash Display + Satoshi (Fontshare), JetBrains Mono (Google) -->
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,15 +85,13 @@
     try { if (localStorage.getItem('dr_theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
   </script>
 
-  <noscript><style>.preloader{display:none!important}</style></noscript>
-
   <!-- Favicon -->
   <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
   <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
   <link href="icons/apple-touch-icon-144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
 </head>
 
-<body>
+<body id="top">
 
 <!-- ========== PRELOADER ========== -->
 <div class="preloader" id="preloader" aria-hidden="true">
@@ -106,7 +114,7 @@
 <!-- ========== NAVIGATION ========== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
-    <a href="#hero" class="nav-logo" data-magnetic>DR<span class="accent">.</span></a>
+    <a href="index.html" class="nav-logo" aria-label="Dushyanth Ramalingam — home" aria-current="page" data-magnetic>DR<span class="accent">.</span></a>
     <div class="nav-status" aria-hidden="true">
       <span class="status-dot"></span>
       <span class="status-text">OPEN&nbsp;TO&nbsp;COLLABORATE</span>
@@ -117,13 +125,12 @@
     </button>
     <nav class="nav-menu" id="nav-menu" aria-label="Primary">
       <ul class="nav-list">
-        <li><a href="#about" class="nav-link"><span class="nav-num">01</span>About</a></li>
-        <li><a href="#experience" class="nav-link"><span class="nav-num">02</span>Experience</a></li>
-        <li><a href="#skills" class="nav-link"><span class="nav-num">03</span>Skills</a></li>
-        <li><a href="#work" class="nav-link"><span class="nav-num">04</span>Work</a></li>
-        <li><a href="#writing" class="nav-link"><span class="nav-num">05</span>Writing</a></li>
-        <li><a href="#talks" class="nav-link"><span class="nav-num">06</span>Talks</a></li>
-        <li><a href="#contact" class="nav-link"><span class="nav-num">07</span>Contact</a></li>
+        <li><a href="about.html" class="nav-link"><span class="nav-num">01</span>About</a></li>
+        <li><a href="experience.html" class="nav-link"><span class="nav-num">02</span>Experience</a></li>
+        <li><a href="work.html" class="nav-link"><span class="nav-num">03</span>Work</a></li>
+        <li><a href="writing.html" class="nav-link"><span class="nav-num">04</span>Writing</a></li>
+        <li><a href="talks.html" class="nav-link"><span class="nav-num">05</span>Talks</a></li>
+        <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span>Contact</a></li>
       </ul>
       <a href="docs/resume_DR.pdf" class="btn btn-primary nav-cta" target="_blank" rel="noopener" data-magnetic>
         Resume <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -185,7 +192,7 @@
     </div>
 
     <div class="hero-actions reveal-up">
-      <a href="#contact" class="btn btn-primary" data-magnetic>Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="contact.html" class="btn btn-primary" data-magnetic>Get in touch <i class="fa-solid fa-arrow-right"></i></a>
       <a href="docs/resume_DR.pdf" target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic>
         Download CV <i class="fa-solid fa-arrow-down"></i>
       </a>
@@ -198,7 +205,7 @@
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener" aria-label="YouTube" data-magnetic><i class="fa-brands fa-youtube"></i></a>
         <a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener" aria-label="Medium" data-magnetic><i class="fa-brands fa-medium"></i></a>
       </div>
-      <a class="hero-scroll mono" href="#about">SCROLL <span class="scroll-arrow" aria-hidden="true">↓</span></a>
+      <a class="hero-scroll mono" href="#intro">SCROLL <span class="scroll-arrow" aria-hidden="true">↓</span></a>
     </div>
    </div>
   </div>
@@ -218,346 +225,52 @@
   </div>
 </div>
 
-<!-- ========== ABOUT ========== -->
-<section class="section" id="about">
+<section class="section" id="intro">
   <div class="container">
     <div class="section-head">
-      <span class="section-num mono">01</span>
+      <span class="section-num mono">HELLO</span>
       <h2 class="section-title" data-split-words>The human behind the agents</h2>
     </div>
 
-    <div class="about-grid">
-      <div class="about-visual">
-        <div class="avatar-frame reveal-up">
-          <img src="img/portrait-kl.jpg" alt="Black-and-white portrait of Dushyanth Ramalingam with the Kuala Lumpur skyline reflected in his sunglasses" class="avatar-img" loading="lazy">
-          <div class="avatar-ring" aria-hidden="true"></div>
-          <span class="avatar-badge mono">EST. 1992 — KANDY, SRI LANKA</span>
-        </div>
-      </div>
-
-      <div class="about-content">
-        <p class="about-lead reveal-up">
+    <div class="intro-grid">
+      <p class="about-lead reveal-up">
           From a teenage Linux admin in Coimbatore to leading a global
           <strong>AI &amp; Hyperautomation practice</strong> — I've spent 15+ years
           turning "that's impossible to automate" into production systems.
         </p>
-        <p class="reveal-up">
-          Today I'm <strong>Capability Lead — AI &amp; OmniFDE at Symprio</strong>, an
-          <strong>OmniFDE consultant</strong> embedding forward-deployed engineering inside
-          enterprises across Asia, the Middle East and the US. I helped build and scale an
-          Automation Centre of Excellence, delivered <strong>USD $4M+ in verified savings</strong>,
-          and now architect <strong>agentic workflows</strong> that fuse RPA with
-          Generative AI — local RAG systems, vector search, computer vision and
-          LLM orchestration. I also ship products: <strong>HireOps AI</strong> (hiring on
-          autopilot) and <strong>ZeroKey</strong> (LHDN MyInvois e-invoicing), and I designed
-          <a href="https://symprio.com/" target="_blank" rel="noopener" class="link-underline">symprio.com</a>.
-          Platform-loyal to nothing, loyal to the problem.
-        </p>
-
-        <div class="about-facts reveal-up">
-          <div class="fact">
-            <span class="fact-label mono">BASED IN</span>
-            <span class="fact-value">Kuala Lumpur, MY</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label mono">ROLE</span>
-            <span class="fact-value">Capability Lead — AI &amp; OmniFDE</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label mono">FOUNDER</span>
-            <span class="fact-value">AiSensei — AI education</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label mono">EMAIL</span>
-            <span class="fact-value"><a href="mailto:ddrdushy@yahoo.com" class="link-underline">ddrdushy@yahoo.com</a></span>
-          </div>
-          <div class="fact">
-            <span class="fact-label mono">PHONE</span>
-            <span class="fact-value"><a href="tel:+60172750818" class="link-underline">+60 17 275 0818</a></span>
-          </div>
-          <div class="fact">
-            <span class="fact-label mono">FOCUS</span>
-            <span class="fact-value">Agentic AI · RPA · GenAI</span>
-          </div>
-        </div>
+      <div class="intro-side reveal-up">
+        <p>Today I lead AI &amp; OmniFDE at <strong>Symprio</strong>, embedding forward-deployed engineering inside enterprises across Asia, the Middle East and the US. I also build and ship my own AI products.</p>
+        <a href="about.html" class="text-link">Read the full story <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
 
     <div class="stats-row">
       <div class="stat reveal-up">
-        <span class="stat-number mono"><span class="count" data-count="15">0</span>+</span>
+        <span class="stat-number mono"><span class="count" data-count="15">15</span>+</span>
         <span class="stat-label">Years in tech</span>
       </div>
       <div class="stat reveal-up">
-        <span class="stat-number mono"><span class="count" data-count="100">0</span>+</span>
+        <span class="stat-number mono"><span class="count" data-count="100">100</span>+</span>
         <span class="stat-label">Processes automated</span>
       </div>
       <div class="stat reveal-up">
-        <span class="stat-number mono"><span class="count" data-count="20">0</span>+</span>
+        <span class="stat-number mono"><span class="count" data-count="20">20</span>+</span>
         <span class="stat-label">Clients · Asia / ME / US</span>
       </div>
       <div class="stat reveal-up">
-        <span class="stat-number mono">$<span class="count" data-count="4">0</span>M+</span>
+        <span class="stat-number mono">$<span class="count" data-count="4">4</span>M+</span>
         <span class="stat-label">Verified cost savings</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== EXPERIENCE ========== -->
-<section class="section section-alt" id="experience">
+<section class="section section-alt">
   <div class="container">
     <div class="section-head">
-      <span class="section-num mono">02</span>
-      <h2 class="section-title" data-split-words>Trajectory</h2>
-      <div class="exp-tabs" role="group" aria-label="Show work or education history">
-        <button class="exp-tab active" data-tab="work" aria-pressed="true">Work</button>
-        <button class="exp-tab" data-tab="education" aria-pressed="false">Education</button>
-      </div>
-    </div>
-
-    <!-- Work -->
-    <div class="timeline" id="tab-work">
-      <div class="timeline-progress" aria-hidden="true"><span id="timeline-fill"></span></div>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">NOW</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">NOV 2023 — PRESENT</span>
-            <h3 class="t-role">Capability Lead — AI &amp; OmniFDE</h3>
-            <p class="t-org">Symprio · Malaysia</p>
-          </header>
-          <ul class="t-points">
-            <li>Lead the Automation Practice — global strategy &amp; delivery for 20+ clients across Asia, the Middle East and the US.</li>
-            <li>Manage a 6+ member team across advanced RPA and custom AI builds, including local RAG systems.</li>
-            <li>Personally drive solution design, MVP creation, consulting and training for every major initiative.</li>
-            <li>Partner with senior business &amp; IT stakeholders to anchor automation in digital-transformation goals.</li>
-          </ul>
-          <div class="t-tags"><span>Agentic AI</span><span>RAG</span><span>RPA</span><span>n8n</span><span>Zapier</span></div>
-        </div>
-      </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2024</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JUN 2024 — JUN 2025 · CONTRACT</span>
-            <h3 class="t-role">RPA Project Manager</h3>
-            <p class="t-org">Generali Malaysia · Insurance</p>
-          </header>
-          <ul class="t-points">
-            <li>Led key RPA programs in the insurance domain — lifting process efficiency and team alignment.</li>
-            <li>Worked cross-functionally with operations, IT and change management to raise automation throughput.</li>
-            <li>Mentored developers and business stakeholders to elevate automation maturity.</li>
-          </ul>
-          <div class="t-tags"><span>RAG</span><span>Vector DBs</span><span>Computer Vision</span><span>YOLO</span><span>Python</span></div>
-        </div>
-      </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2020</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JAN 2020 — NOV 2023</span>
-            <h3 class="t-role">Automation Solution Architect</h3>
-            <p class="t-org">Symprio · Malaysia</p>
-          </header>
-          <ul class="t-points">
-            <li>Architected enterprise-scale automation and helped build &amp; scale the company's Automation CoE.</li>
-            <li>Established governance, operating models and delivery frameworks for sustainable automation at scale.</li>
-          </ul>
-          <div class="t-tags"><span>Solution Architecture</span><span>CoE</span><span>UiPath</span><span>Power Platform</span></div>
-        </div>
-      </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2017</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JUN 2017 — DEC 2019</span>
-            <h3 class="t-role">RPA Engineer</h3>
-            <p class="t-org">KGiSL GSS · India → Malaysia</p>
-          </header>
-          <ul class="t-points">
-            <li>Mastered UiPath and relocated to the Malaysian client site within two weeks of joining.</li>
-            <li>Hybrid BA / Solution Architect / Developer — delivered and oversaw 100+ automated processes.</li>
-            <li>Built a foundational RPA framework for a key insurance client — still in production today.</li>
-            <li>Moved into pre-sales across BFSI, logistics and aviation; trained a major airline's dev team on UiPath.</li>
-          </ul>
-          <div class="t-tags"><span>UiPath</span><span>Pre-sales</span><span>Training</span><span>BFSI</span></div>
-        </div>
-      </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2017</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2017 · INTERNSHIP</span>
-            <h3 class="t-role">JavaScript Developer</h3>
-            <p class="t-org">KGISL IAS · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Built a Queue Management System from scratch in 3 months — sole BA, designer, developer and tester.</li>
-            <li>Integrated a custom Slack bot for automated answers; doubled as my Master's final-year project.</li>
-          </ul>
-          <div class="t-tags"><span>JavaScript</span><span>Slack Bot</span><span>DevOps</span></div>
-        </div>
-      </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2012</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JAN 2012 — 2016 · PART-TIME</span>
-            <h3 class="t-role">Linux Administrator</h3>
-            <p class="t-org">Caliber Interconnect Solutions · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Ran complete IT infrastructure for a 250-employee organisation — mail, FTP and chat servers.</li>
-            <li>Managed the organisation-wide firewall; wrote shell scripts for monitoring and automated alerting.</li>
-          </ul>
-          <div class="t-tags"><span>Linux</span><span>Shell</span><span>Networking</span></div>
-        </div>
-      </article>
-    </div>
-
-    <!-- Education -->
-    <div class="timeline hidden" id="tab-education">
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2017</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2015 — 2017</span>
-            <h3 class="t-role">Master's — Computer Software Engineering (MCA)</h3>
-            <p class="t-org">KGiSL-IIM · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Won the <strong>KGiSL Achiever</strong> award.</li>
-            <li>Final-year project: SlackBot-integrated Queue Management System.</li>
-          </ul>
-        </div>
-      </article>
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2015</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2012 — 2015</span>
-            <h3 class="t-role">BCA — Software Development</h3>
-            <p class="t-org">Kongunadu Arts &amp; Science College · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Final-year project: timetable generator powered by a genetic algorithm.</li>
-          </ul>
-        </div>
-      </article>
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2012</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2007 — 2012</span>
-            <h3 class="t-role">Business / Commerce</h3>
-            <p class="t-org">K/Hindu National College · Sri Lanka</p>
-          </header>
-          <ul class="t-points">
-            <li>Accountancy &amp; business management; first taste of leadership and event organisation.</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SKILLS ========== -->
-<section class="section" id="skills">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">03</span>
-      <h2 class="section-title" data-split-words>Arsenal</h2>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill-card reveal-up">
-        <div class="skill-card-head">
-          <span class="skill-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></span>
-          <h3>AI &amp; Agentic Systems</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="tag tag-hot">Agentic AI Development</span>
-          <span class="tag tag-hot">Generative AI</span>
-          <span class="tag tag-hot">RAG</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">Vector DBs</span>
-          <span class="tag">LLM Orchestration</span>
-          <span class="tag">Computer Vision · YOLO</span>
-          <span class="tag">Prompt Engineering</span>
-        </div>
-      </div>
-
-      <div class="skill-card reveal-up">
-        <div class="skill-card-head">
-          <span class="skill-icon" aria-hidden="true"><i class="fa-solid fa-robot"></i></span>
-          <h3>Hyperautomation</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="tag tag-hot">UiPath</span>
-          <span class="tag tag-hot">Power Platform</span>
-          <span class="tag">Power Automate</span>
-          <span class="tag">RPA Architecture</span>
-          <span class="tag">n8n</span>
-          <span class="tag">Zapier</span>
-          <span class="tag">Abbyy</span>
-          <span class="tag">Process Assessment</span>
-        </div>
-      </div>
-
-      <div class="skill-card reveal-up">
-        <div class="skill-card-head">
-          <span class="skill-icon" aria-hidden="true"><i class="fa-solid fa-code"></i></span>
-          <h3>Engineering</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="tag tag-hot">Python</span>
-          <span class="tag">JavaScript / TypeScript</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">SQL</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">Shell Scripting</span>
-          <span class="tag">Git / CI</span>
-          <span class="tag">Linux</span>
-        </div>
-      </div>
-
-      <div class="skill-card reveal-up">
-        <div class="skill-card-head">
-          <span class="skill-icon" aria-hidden="true"><i class="fa-solid fa-compass-drafting"></i></span>
-          <h3>Leadership &amp; Strategy</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="tag tag-hot">Solution Architecture</span>
-          <span class="tag">CoE Build-out</span>
-          <span class="tag">Pre-sales</span>
-          <span class="tag">Training &amp; Mentoring</span>
-          <span class="tag">Project Delivery</span>
-          <span class="tag">Stakeholder Management</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== WORK / PROJECTS ========== -->
-<section class="section section-alt" id="work">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">04</span>
-      <h2 class="section-title" data-split-words>Selected work</h2>
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-btn" data-filter="delivery" aria-pressed="false">Delivery</button>
-        <button class="filter-btn" data-filter="presales" aria-pressed="false">Pre-sales</button>
-        <button class="filter-btn" data-filter="training" aria-pressed="false">Training</button>
-      </div>
+      <span class="section-num mono">NOW BUILDING</span>
+      <h2 class="section-title" data-split-words>Products &amp; builds</h2>
+      <a href="work.html" class="btn btn-ghost head-cta" data-magnetic>All work <i class="fa-solid fa-arrow-right"></i></a>
     </div>
 
     <div class="featured-grid">
@@ -583,252 +296,15 @@
         <span class="f-link">symprio.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
       </a>
     </div>
-
-    <div class="projects-grid" id="projects-grid">
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2017–18</span></div>
-        <h3 class="p-title">Insurance Automation Suite</h3>
-        <p class="p-org">Insurance Company · Malaysia</p>
-        <p class="p-desc">11 end-to-end automations — outpatient registration, health-claims approval, MiCARE registration, letter issuance, claim extraction, GIRO accounts, petrol &amp; staff claims, finance receipting, mobile API and ESOA bot.</p>
-        <div class="p-tags"><span>UiPath</span><span>RPA</span><span>BFSI</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2018</span></div>
-        <h3 class="p-title">Supply Chain Automation</h3>
-        <p class="p-org">Medical Supply Chain Co · Malaysia</p>
-        <p class="p-desc">End-to-end solution design and project management for supply-chain automation processes.</p>
-        <div class="p-tags"><span>Solution Design</span><span>Healthcare</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Inward Claims Process</h3>
-        <p class="p-org">Insurance Company · Malaysia</p>
-        <p class="p-desc">Automation of inward claims processing workflows for improved efficiency and accuracy.</p>
-        <div class="p-tags"><span>UiPath</span><span>Insurance</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">Banking Operations RPA</h3>
-        <p class="p-org">Bank · Malaysia</p>
-        <p class="p-desc">Full-lifecycle solution design and delivery of RPA solutions for banking operations.</p>
-        <div class="p-tags"><span>Solution Design</span><span>Banking</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">Government Process Automation</h3>
-        <p class="p-org">JPA · Malaysia</p>
-        <p class="p-desc">Designed and developed automation solutions for government agency processes.</p>
-        <div class="p-tags"><span>UiPath</span><span>Government</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2021</span></div>
-        <h3 class="p-title">Automation Roadmap &amp; Design</h3>
-        <p class="p-org">Averis · Malaysia</p>
-        <p class="p-desc">Designed RPA solutions for business-process optimisation and the automation roadmap.</p>
-        <div class="p-tags"><span>Solution Design</span><span>RPA</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2022</span></div>
-        <h3 class="p-title">Recruitment Platform Automation</h3>
-        <p class="p-org">Seek Asia · Malaysia</p>
-        <p class="p-desc">End-to-end solution design and project delivery for recruitment platform automation.</p>
-        <div class="p-tags"><span>Solution Design</span><span>Recruitment</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Banking Automation Pursuit</h3>
-        <p class="p-org">Hong Leong Bank · Malaysia</p>
-        <p class="p-desc">Led pre-sales engagement and solution design for banking automation initiatives.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Banking</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Manufacturing POC</h3>
-        <p class="p-org">Swagelok · Malaysia</p>
-        <p class="p-desc">Pre-sales demonstrations and proof of concept for manufacturing automation.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Manufacturing</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Insurance ROI POC</h3>
-        <p class="p-org">The Pacific Insurance · Malaysia</p>
-        <p class="p-desc">Led proof of concept for insurance process automation and demonstrated ROI potential.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Insurance</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">Conglomerate RPA Pursuit</h3>
-        <p class="p-org">IOI · Malaysia</p>
-        <p class="p-desc">Pre-sales engagement for RPA opportunities in palm oil and property industries.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Conglomerate</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2022</span></div>
-        <h3 class="p-title">Process Assessment &amp; Feasibility</h3>
-        <p class="p-org">Bank Muamalat · Malaysia</p>
-        <p class="p-desc">Assessed banking processes for RPA feasibility and created an automation roadmap.</p>
-        <div class="p-tags"><span>Assessment</span><span>Banking</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="training" data-tilt>
-        <div class="p-top"><span class="p-kind mono">TRAINING</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">UiPath Intensive — 3 Days</h3>
-        <p class="p-org">Malaysian Airlines</p>
-        <p class="p-desc">Intensive 3-day UiPath RPA training for the airline operations team.</p>
-        <div class="p-tags"><span>Training</span><span>Aviation</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="training" data-tilt>
-        <div class="p-top"><span class="p-kind mono">TRAINING</span><span class="p-year mono">2021</span></div>
-        <h3 class="p-title">Basic &amp; Advanced UiPath</h3>
-        <p class="p-org">Averis · Malaysia</p>
-        <p class="p-desc">Comprehensive basic and advanced UiPath training programs for the automation team.</p>
-        <div class="p-tags"><span>Training</span><span>UiPath</span></div>
-      </article>
-
-      <article class="p-card reveal-up" data-category="training" data-tilt>
-        <div class="p-top"><span class="p-kind mono">TRAINING</span><span class="p-year mono">2021</span></div>
-        <h3 class="p-title">UiPath Developer Training</h3>
-        <p class="p-org">JOS · Malaysia</p>
-        <p class="p-desc">UiPath development training for an IT solutions company.</p>
-        <div class="p-tags"><span>Training</span><span>UiPath</span></div>
-      </article>
-    </div>
-
-    <div class="subsection-head">
-      <h3 class="subsection-title mono">// OPEN SOURCE</h3>
-    </div>
-
-    <div class="projects-grid repos-grid">
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/creator_pasar" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">TYPESCRIPT</span></div>
-        <h3 class="p-title">creator_pasar</h3>
-        <p class="p-desc">Connecting brands with the right micro-influencers — simple, transparent, results-focused collaborations.</p>
-        <div class="p-tags"><span>AI</span><span>Marketplace</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/UiPath_Log_Viewer" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">C#</span></div>
-        <h3 class="p-title">UiPath_Log_Viewer</h3>
-        <p class="p-desc">Log-viewing utility for RPA developers to debug and monitor automation workflows.</p>
-        <div class="p-tags"><span>UiPath</span><span>Tooling</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/ainexus" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">TYPESCRIPT</span></div>
-        <h3 class="p-title">ainexus</h3>
-        <p class="p-desc">AI-powered application built with TypeScript.</p>
-        <div class="p-tags"><span>AI</span><span>TypeScript</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/mistral_hackathon_26" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">TYPESCRIPT</span></div>
-        <h3 class="p-title">mistral_hackathon_26</h3>
-        <p class="p-desc">Hackathon build on Mistral AI — exploring cutting-edge model capabilities.</p>
-        <div class="p-tags"><span>AI</span><span>Hackathon</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/Tamil_songs_ai" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">PYTHON</span></div>
-        <h3 class="p-title">Tamil_songs_ai</h3>
-        <p class="p-desc">AI-powered Tamil songs project leveraging Python and machine learning.</p>
-        <div class="p-tags"><span>AI</span><span>Music</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/fbChatBotBoilerplate" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">JAVASCRIPT</span></div>
-        <h3 class="p-title">fbChatBotBoilerplate</h3>
-        <p class="p-desc">Messenger chatbot boilerplate for quickly building conversational bots.</p>
-        <div class="p-tags"><span>Chatbot</span><span>Node.js</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
-      </a>
-    </div>
   </div>
 </section>
 
-<!-- ========== WRITING ========== -->
-<section class="section" id="writing">
+<section class="section">
   <div class="container">
     <div class="section-head">
-      <span class="section-num mono">05</span>
-      <h2 class="section-title" data-split-words>Field notes</h2>
-      <a href="https://medium.com/@symprioblog" target="_blank" rel="noopener" class="btn btn-ghost head-cta" data-magnetic>
-        <i class="fa-brands fa-medium"></i> All articles on Medium
-      </a>
-    </div>
-
-    <div class="writing-list">
-      <a class="w-item reveal-up" href="https://symprioblog.medium.com/fde-vs-omnifde-0de450164b5b" target="_blank" rel="noopener">
-        <span class="w-date mono">MAY 2026</span>
-        <span>
-          <span class="w-title">FDE vs OmniFDE</span>
-          <span class="w-blurb">The vendor-neutral future of Forward Deployed Engineering.</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://symprioblog.medium.com/testing-ai-products-the-five-layers-most-teams-skip-88186b0bb0d2" target="_blank" rel="noopener">
-        <span class="w-date mono">JUN 2026</span>
-        <span>
-          <span class="w-title">Testing AI Products: The Five Layers Most Teams Skip</span>
-          <span class="w-blurb">A five-layer framework for testing LLM and agent products — from unit tests to red-teaming.</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://symprioblog.medium.com/every-ai-model-carries-a-passport-db1d971c7799" target="_blank" rel="noopener">
-        <span class="w-date mono">JUN 2026</span>
-        <span>
-          <span class="w-title">Every AI Model Carries a Passport</span>
-          <span class="w-blurb">The AI model map split into blocs — why picking one vendor is the new lock-in.</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://symprioblog.medium.com/built-not-bought-the-ai-product-imperative-a45118f46ade" target="_blank" rel="noopener">
-        <span class="w-date mono">MAY 2026</span>
-        <span>
-          <span class="w-title">Built, Not Bought: The AI Product Imperative</span>
-          <span class="w-blurb">Why enterprises must build AI-enabled products — and how vibe coding compresses time to value.</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://symprioblog.medium.com/why-85-of-malaysian-banks-are-stuck-in-ai-pilot-purgatory-and-how-to-escape-it-36fd26519adf" target="_blank" rel="noopener">
-        <span class="w-date mono">MAY 2026</span>
-        <span>
-          <span class="w-title">Why 85% of Malaysian Banks Are Stuck in AI Pilot Purgatory</span>
-          <span class="w-blurb">And the playbook for escaping it.</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://symprioblog.medium.com/your-company-isnt-ai-enabled-it-s-ai-aware-ebeddbcf6585" target="_blank" rel="noopener">
-        <span class="w-date mono">MAY 2026</span>
-        <span>
-          <span class="w-title">Your Company Isn't AI-Enabled. It's AI-Aware.</span>
-          <span class="w-blurb">The question every board will eventually ask — and why most companies can't answer it.</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-    </div>
-
-    <div class="section-head" style="margin-top: 64px;">
-      <h3 class="section-title" data-split-words style="font-size: 1.6rem;">Dushy from the Field</h3>
-      <a href="https://www.linkedin.com/newsletters/dushy-from-the-field-7475174440457097217/" target="_blank" rel="noopener" class="btn btn-ghost head-cta" data-magnetic>
-        <i class="fa-brands fa-linkedin-in"></i> Subscribe on LinkedIn
-      </a>
+      <span class="section-num mono">LATEST</span>
+      <h2 class="section-title" data-split-words>From the field</h2>
+      <a href="writing.html" class="btn btn-ghost head-cta" data-magnetic>All writing <i class="fa-solid fa-arrow-right"></i></a>
     </div>
 
     <div class="writing-list">
@@ -836,6 +312,7 @@
         <span class="w-date mono">SEP 2026</span>
         <span>
           <span class="w-title">Why Learn AI If AI Already Knows Everything?</span>
+          <span class="w-blurb">LinkedIn · Dushy from the Field</span>
         </span>
         <span class="w-arrow" aria-hidden="true">↗</span>
       </a>
@@ -843,6 +320,7 @@
         <span class="w-date mono">SEP 2026</span>
         <span>
           <span class="w-title">What a Dead Hard Disk Taught Me About Business</span>
+          <span class="w-blurb">LinkedIn · Dushy from the Field</span>
         </span>
         <span class="w-arrow" aria-hidden="true">↗</span>
       </a>
@@ -850,41 +328,7 @@
         <span class="w-date mono">AUG 2026</span>
         <span>
           <span class="w-title">Two Interviews in Twelve Years, and the Egg That Broke Me</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://www.linkedin.com/pulse/i-23-before-learned-how-learn-dushyanth-ramalingam-ysbec" target="_blank" rel="noopener">
-        <span class="w-date mono">AUG 2026</span>
-        <span>
-          <span class="w-title">I Was 23 Before I Learned How to Learn</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://www.linkedin.com/pulse/ten-episodes-one-ringgit-zero-regenerates-dushyanth-ramalingam-z0llc" target="_blank" rel="noopener">
-        <span class="w-date mono">AUG 2026</span>
-        <span>
-          <span class="w-title">Ten Episodes, One Ringgit, Zero Regenerates</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://www.linkedin.com/pulse/twelve-years-my-brain-still-runs-tamil-dushyanth-ramalingam-rjdbc" target="_blank" rel="noopener">
-        <span class="w-date mono">AUG 2026</span>
-        <span>
-          <span class="w-title">Twelve Years in IT, and My Brain Still Runs on Tamil</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://www.linkedin.com/pulse/we-bought-software-ravi-still-runs-company-dushyanth-ramalingam-j9pcc" target="_blank" rel="noopener">
-        <span class="w-date mono">AUG 2026</span>
-        <span>
-          <span class="w-title">We Bought the Software. Ravi Still Runs the Company.</span>
-        </span>
-        <span class="w-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="w-item reveal-up" href="https://www.linkedin.com/pulse/ai-workshops-getting-hard-understand-dushyanth-ramalingam-t0arc" target="_blank" rel="noopener">
-        <span class="w-date mono">AUG 2026</span>
-        <span>
-          <span class="w-title">AI Workshops Are Getting Hard to Understand</span>
+          <span class="w-blurb">LinkedIn · Dushy from the Field</span>
         </span>
         <span class="w-arrow" aria-hidden="true">↗</span>
       </a>
@@ -892,85 +336,16 @@
   </div>
 </section>
 
-<!-- ========== TALKS ========== -->
-<section class="section section-alt" id="talks">
+<section class="section section-contact">
   <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">06</span>
-      <h2 class="section-title" data-split-words>On stage &amp; on camera</h2>
-      <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener" class="btn btn-ghost head-cta" data-magnetic>
-        <i class="fa-brands fa-youtube"></i> AiSensei on YouTube
-      </a>
-    </div>
-
-    <div class="talks-grid">
-      <div class="talk-card reveal-up" data-video="bfPT4xYAN_g" data-title="AiSensei episode 1">
-        <img src="https://i.ytimg.com/vi/bfPT4xYAN_g/hqdefault.jpg" alt="Thumbnail for AiSensei episode 1" loading="lazy">
-        <button class="talk-play" aria-label="Play AiSensei episode 1"><i class="fa-solid fa-play"></i></button>
-      </div>
-      <div class="talk-card reveal-up" data-video="coyjtNrYGAs" data-title="AiSensei episode 2">
-        <img src="https://i.ytimg.com/vi/coyjtNrYGAs/hqdefault.jpg" alt="Thumbnail for AiSensei episode 2" loading="lazy">
-        <button class="talk-play" aria-label="Play AiSensei episode 2"><i class="fa-solid fa-play"></i></button>
-      </div>
-      <div class="talk-card reveal-up" data-video="Sc84xFhOvQg" data-title="Conference talk 1">
-        <img src="https://i.ytimg.com/vi/Sc84xFhOvQg/hqdefault.jpg" alt="Thumbnail for conference talk 1" loading="lazy">
-        <button class="talk-play" aria-label="Play conference talk 1"><i class="fa-solid fa-play"></i></button>
-      </div>
-      <div class="talk-card reveal-up" data-video="CfCormKjK0A" data-title="Conference talk 2">
-        <img src="https://i.ytimg.com/vi/CfCormKjK0A/hqdefault.jpg" alt="Thumbnail for conference talk 2" loading="lazy">
-        <button class="talk-play" aria-label="Play conference talk 2"><i class="fa-solid fa-play"></i></button>
-      </div>
-      <div class="talk-card reveal-up" data-video="HXT-nJJ1wek" data-title="Conference talk 3">
-        <img src="https://i.ytimg.com/vi/HXT-nJJ1wek/hqdefault.jpg" alt="Thumbnail for conference talk 3" loading="lazy">
-        <button class="talk-play" aria-label="Play conference talk 3"><i class="fa-solid fa-play"></i></button>
-      </div>
-      <div class="talk-card reveal-up" data-video="s1Hqg0pu5WU" data-title="Conference talk 4">
-        <img src="https://i.ytimg.com/vi/s1Hqg0pu5WU/hqdefault.jpg" alt="Thumbnail for conference talk 4" loading="lazy">
-        <button class="talk-play" aria-label="Play conference talk 4"><i class="fa-solid fa-play"></i></button>
-      </div>
-      <div class="talk-card reveal-up" data-video="icx9TDcMoMM" data-title="Conference talk 5">
-        <img src="https://i.ytimg.com/vi/icx9TDcMoMM/hqdefault.jpg" alt="Thumbnail for conference talk 5" loading="lazy">
-        <button class="talk-play" aria-label="Play conference talk 5"><i class="fa-solid fa-play"></i></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CONTACT ========== -->
-<section class="section section-contact" id="contact">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">07</span>
-    </div>
-
-    <h2 class="contact-title">
+    <h2 class="contact-title" id="cta-title">
       <span class="contact-line" data-split>LET'S BUILD</span>
       <span class="contact-line outline" data-split>THE FUTURE</span>
       <span class="contact-line" data-split>OF WORK<span class="accent">.</span></span>
     </h2>
-
-    <div class="contact-grid">
-      <a href="mailto:ddrdushy@yahoo.com" class="contact-mail link-underline reveal-up">ddrdushy@yahoo.com <i class="fa-solid fa-arrow-right contact-mail-arrow"></i></a>
-
-      <div class="contact-details reveal-up">
-        <div class="c-item">
-          <span class="c-label mono">PHONE</span>
-          <a href="tel:+60172750818" class="c-value link-underline">+60 17 275 0818</a>
-        </div>
-        <div class="c-item">
-          <span class="c-label mono">LOCATION</span>
-          <span class="c-value">Brickfields, Kuala Lumpur, Malaysia</span>
-        </div>
-        <div class="c-item">
-          <span class="c-label mono">ELSEWHERE</span>
-          <div class="c-socials">
-            <a href="https://www.linkedin.com/in/ddr-dushy/" target="_blank" rel="noopener" aria-label="LinkedIn" data-magnetic><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://github.com/ddrdushy" target="_blank" rel="noopener" aria-label="GitHub" data-magnetic><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener" aria-label="YouTube" data-magnetic><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener" aria-label="Medium" data-magnetic><i class="fa-brands fa-medium"></i></a>
-          </div>
-        </div>
-      </div>
+    <div class="cta-actions reveal-up">
+      <a href="contact.html" class="btn btn-primary" data-magnetic>Start a conversation <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="docs/resume_DR.pdf" target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic>Download CV <i class="fa-solid fa-arrow-down"></i></a>
     </div>
   </div>
 </section>
@@ -979,189 +354,45 @@
 
 <!-- ========== FOOTER ========== -->
 <footer class="footer">
-  <div class="container footer-inner">
-    <p class="footer-quote mono">"Stay hungry. Stay foolish."</p>
-    <p class="footer-copy">© 2026 Dushyanth Ramalingam — built with code, caffeine &amp; agents.</p>
-    <a href="#hero" class="footer-top mono" data-magnetic>BACK TO TOP ↑</a>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="Dushyanth Ramalingam — home">DR<span class="accent">.</span></a>
+        <p class="footer-blurb">Agentic AI systems &amp; hyperautomation. Based in Kuala Lumpur, working with teams across Asia, the Middle East and the US.</p>
+        <a href="mailto:ddrdushy@yahoo.com" class="footer-mail link-underline">ddrdushy@yahoo.com</a>
+      </div>
+      <nav aria-label="Footer">
+        <span class="footer-label mono">PAGES</span>
+        <ul class="footer-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="writing.html">Writing</a></li>
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <span class="footer-label mono">ELSEWHERE</span>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/ddr-dushy/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/newsletters/dushy-from-the-field-7475174440457097217/" target="_blank" rel="noopener">Newsletter</a></li>
+          <li><a href="https://github.com/ddrdushy" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube — AiSensei</a></li>
+          <li><a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener">Medium</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-inner">
+      <p class="footer-quote mono">"Stay hungry. Stay foolish."</p>
+      <p class="footer-copy">© 2026 Dushyanth Ramalingam — built with code, caffeine &amp; agents.</p>
+      <a href="#top" class="footer-top mono" data-magnetic>BACK TO TOP ↑</a>
+    </div>
   </div>
 </footer>
 
 <!-- ========== SCRIPTS ========== -->
-<script>
-// Hero particles with mouse interaction
-(function() {
-  const canvas = document.getElementById('hero-particles');
-  const ctx = canvas.getContext('2d');
-  let w, h, particles, mouse = { x: -1000, y: -1000 };
-  const PARTICLE_COUNT = 80;
-  const CONNECT_DIST = 120;
-  const MOUSE_RADIUS = 150;
-
-  function resize() {
-    const hero = document.getElementById('hero');
-    w = canvas.width = hero.offsetWidth;
-    h = canvas.height = hero.offsetHeight;
-  }
-
-  function createParticles() {
-    particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.6,
-        vy: (Math.random() - 0.5) * 0.6,
-        r: Math.random() * 2 + 1
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      // Mouse repulsion
-      const dx = p.x - mouse.x;
-      const dy = p.y - mouse.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < MOUSE_RADIUS) {
-        const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
-        p.vx += (dx / dist) * force * 0.8;
-        p.vy += (dy / dist) * force * 0.8;
-      }
-      // Damping
-      p.vx *= 0.98;
-      p.vy *= 0.98;
-      p.x += p.vx;
-      p.y += p.vy;
-      // Wrap around
-      if (p.x < 0) p.x = w;
-      if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h;
-      if (p.y > h) p.y = 0;
-      // All white particles on dark background
-      const alpha = 0.4;
-      const c = 255;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(' + c + ',' + c + ',' + c + ',' + alpha + ')';
-      ctx.fill();
-      // Draw connections
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-        const ddx = p.x - p2.x;
-        const ddy = p.y - p2.y;
-        const d = Math.sqrt(ddx * ddx + ddy * ddy);
-        if (d < CONNECT_DIST) {
-          const lineAlpha = (1 - d / CONNECT_DIST) * 0.15;
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = 'rgba(' + c + ',' + c + ',' + c + ',' + lineAlpha + ')';
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(draw);
-  }
-
-  const hero = document.getElementById('hero');
-  hero.addEventListener('mousemove', function(e) {
-    const rect = hero.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
-  hero.addEventListener('mouseleave', function() {
-    mouse.x = -1000;
-    mouse.y = -1000;
-  });
-
-  window.addEventListener('resize', resize);
-  resize();
-  createParticles();
-  draw();
-})();
-
-// Mobile menu toggle
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-navToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('open');
-  navToggle.classList.toggle('active');
-});
-
-// Close menu on link click
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('open');
-    navToggle.classList.remove('active');
-  });
-});
-
-// Sticky navbar on scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  const scrollY = window.pageYOffset + 100;
-  sections.forEach(section => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute('id');
-    const link = document.querySelector('.nav-link[href="#' + id + '"]');
-    if (link) {
-      link.classList.toggle('active', scrollY >= top && scrollY < top + height);
-    }
-  });
-});
-
-// Experience tabs
-document.querySelectorAll('.exp-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const target = tab.dataset.tab;
-    document.getElementById('tab-work').classList.toggle('hidden', target !== 'work');
-    document.getElementById('tab-education').classList.toggle('hidden', target !== 'education');
-  });
-});
-
-// Project filters
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.project-card').forEach(card => {
-      if (filter === 'all' || card.dataset.category === filter) {
-        card.style.display = '';
-        card.style.animation = 'fadeUp 0.4s ease forwards';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-});
-
-// Scroll animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.timeline-item, .project-card, .stat-card, .skill-category, .talk-card, .contact-item, .about-text, .about-stats').forEach(el => {
-  el.classList.add('animate-on-scroll');
-  observer.observe(el);
-});
-</script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>

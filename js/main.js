@@ -104,13 +104,15 @@
         stagger: 0.028
       });
     }
-    tl.from('.hero .reveal-up', {
-      y: 36,
-      opacity: 0,
-      duration: 0.9,
-      ease: 'power3.out',
-      stagger: 0.1
-    }, '-=0.55');
+    if (document.querySelector('.hero .reveal-up')) {
+      tl.from('.hero .reveal-up', {
+        y: 36,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        stagger: 0.1
+      }, '-=0.55');
+    }
   }
 
   function dismissPreloader() {
@@ -329,12 +331,6 @@
   /* ---------- Navbar behaviour ---------- */
   var navbar = document.getElementById('navbar');
   var lastY = 0;
-  // Cache section/link pairs once — querying inside the scroll handler janks
-  var navSections = [];
-  document.querySelectorAll('main section[id]').forEach(function (sec) {
-    var link = document.querySelector('.nav-link[href="#' + sec.id + '"]');
-    if (link) navSections.push({ sec: sec, link: link });
-  });
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
     navbar.classList.toggle('scrolled', y > 40);
@@ -344,12 +340,6 @@
       navbar.classList.remove('nav-hidden');
     }
     lastY = y;
-
-    for (var i = 0; i < navSections.length; i++) {
-      var top = navSections[i].sec.offsetTop - 140;
-      var bottom = top + navSections[i].sec.offsetHeight;
-      navSections[i].link.classList.toggle('active', y >= top && y < bottom);
-    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -442,7 +432,11 @@
           }
         });
       }, { threshold: 0.6 });
-      counters.forEach(function (c) { io.observe(c); });
+      counters.forEach(function (c) {
+        // Real values live in the HTML; zero them only when we'll count up
+        if (!reducedMotion && c.getBoundingClientRect().top > window.innerHeight) c.textContent = '0';
+        io.observe(c);
+      });
     } else {
       counters.forEach(animate);
     }
@@ -527,9 +521,9 @@
       });
     }
 
-    // Generic reveals (outside hero — hero handled post-preloader)
+    // Generic reveals (hero plays after the preloader; page heroes animate in CSS)
     gsap.utils.toArray('.reveal-up').forEach(function (el) {
-      if (el.closest('.hero') || alreadyInView(el)) return;
+      if (el.closest('.hero, .page-hero') || alreadyInView(el)) return;
       gsap.from(el, {
         y: 44,
         opacity: 0,
@@ -556,7 +550,7 @@
     }
 
     // Hero name subtle parallax out
-    gsap.to('.hero-inner', {
+    if (document.querySelector('.hero-inner')) gsap.to('.hero-inner', {
       yPercent: -8,
       opacity: 0.4,
       ease: 'none',
