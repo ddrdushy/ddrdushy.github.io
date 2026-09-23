@@ -835,9 +835,9 @@ html.night .house-name { color: var(--hb); }
 .portrait-photo.wide { aspect-ratio: 16 / 9; }
 
 /* ---------- Page heroes with a framed picture ---------- */
-.page-hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
-.page-hero-grid .portrait { max-width: 400px; justify-self: end; }
-.page-hero-grid .portrait.wide-frame { max-width: 520px; }
+.page-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.page-hero-grid .portrait { width: 100%; max-width: 520px; justify-self: end; }
+.page-hero-grid .portrait.wide-frame { max-width: 640px; }
 
 /* ---------- Home: the illustrated castle map ---------- */
 .map-illustrated { padding: 0; background: var(--card); }
