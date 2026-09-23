@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate resume_DR.pdf — Dushyanth Ramalingam, synced with LinkedIn (Jun 2026)."""
+import os
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.lib.colors import HexColor
@@ -159,7 +160,7 @@ for b in [
     story.append(bullet(b))
 
 doc = SimpleDocTemplate(
-    "/Users/symprio/Desktop/ddrdushy.github.io/docs/resume_DR.pdf",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "resume_DR.pdf"),
     pagesize=A4,
     leftMargin=18*mm, rightMargin=18*mm, topMargin=14*mm, bottomMargin=14*mm,
     title="Dushyanth Ramalingam — Resume",
