@@ -29,12 +29,14 @@
   <meta property="og:site_name" content="Dushyanth Ramalingam — Portfolio">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://ddrdushy.github.io/contact.html">
-  <meta property="og:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
-  <meta property="og:image:alt" content="Dushyanth Ramalingam in the AiSensei studio">
+  <meta property="og:image" content="https://ddrdushy.github.io/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Painted portrait of Dushyanth Ramalingam on a sealed parchment">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Owlery — Contact Dushyanth Ramalingam">
   <meta name="twitter:description" content="Contact Dushyanth Ramalingam in Kuala Lumpur for agentic AI and hyperautomation programmes, training and workshops, or talks.">
-  <meta name="twitter:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
+  <meta name="twitter:image" content="https://ddrdushy.github.io/img/og-image.jpg">
 
   <!-- Fonts: Cinzel (titles), EB Garamond (text), IM Fell English (asides), UnifrakturCook (newspaper masthead) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,8 +78,8 @@
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube</a>
       </div>
     </nav>
-    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: Gates of the Ancient Realm"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
-    <audio id="bgm" src="audio/gates-of-the-ancient-realm.mp3" preload="none" loop></audio>
+    <button class="theme-toggle music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play the music of the hall" title="Music: The Mapmaker&rsquo;s Secret by day, Waltz for a Sleeping Hall by night"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
+    <audio id="bgm" preload="none" data-day="audio/the-mapmakers-secret.mp3,audio/gates-of-the-ancient-realm.mp3" data-night="audio/waltz-for-a-sleeping-hall.mp3" data-chime="audio/chime.mp3"></audio>
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to candle-lit (night) mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open the map" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button>
   </div>
@@ -89,11 +91,25 @@
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">The map</a><span aria-hidden="true">·</span><span aria-current="page">Chapter VI — the owlery</span></nav>
     <h1 class="ink" aria-label="Send an owl"><span class="ink-line" style="--i:0">Send an <em>owl</em></span></h1>
     <svg class="flourish" viewBox="0 0 340 26" aria-hidden="true"><path d="M2 16 C58 2 104 28 162 13 S268 3 316 15 C326 17 334 11 338 5"/></svg>
-    <p class="page-lede after-ink" style="--after:1.8s">Have an automation programme, an AI product idea or a great hall that needs a speaker? Owls are welcome; email is faster. I usually reply within a couple of days.</p>
+    <div class="page-hero-grid">
+      <div>
+        <p class="page-lede after-ink" style="--after:1.8s">Have an automation programme, an AI product idea or a great hall that needs a speaker? Owls are welcome; email is faster. I usually reply within a couple of days.</p>
+      </div>
+      <figure class="portrait wide-frame after-ink" style="--after:1.2s">
+        <div class="portrait-photo wide">
+          <video data-autoplay muted loop playsinline preload="metadata" width="960" height="540" poster="img/owl-flight-poster.webp" aria-label="A barn owl flying with a sealed letter, drawn on parchment">
+            <source src="video/owl-flight.webm" type="video/webm">
+            <source src="video/owl-flight.mp4" type="video/mp4">
+          </video>
+          <img src="img/owl-flight-poster.webp" width="960" height="540" alt="A barn owl flying with a sealed letter" class="on">
+        </div>
+        <figcaption class="plaque">The owlery&rsquo;s fastest courier, mid-delivery</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 <section class="section" style="position:relative;overflow:hidden">
-  <svg class="owl" id="owl" viewBox="0 0 90 70" aria-hidden="true"><g fill="currentColor"><g class="wing"><path d="M8 30 C20 8 40 10 45 28 C50 10 70 8 82 30 C68 24 55 28 45 36 C35 28 22 24 8 30Z"/></g><ellipse cx="45" cy="42" rx="11" ry="15"/><circle cx="45" cy="28" r="9"/><path d="M38 21 L40 14 L43 20Z M52 21 L50 14 L47 20Z"/><rect x="41" y="54" width="8" height="6" fill="#f6ecd3" stroke="currentColor"/><path d="M41 54 L45 58 L49 54" fill="none" stroke="currentColor"/></g><circle cx="41.5" cy="27" r="2" fill="#e8b23c"/><circle cx="48.5" cy="27" r="2" fill="#e8b23c"/></svg>
+  <img class="owl" id="owl" src="img/owl-letter.webp" width="720" height="512" loading="lazy" alt="" aria-hidden="true">
   <div class="container">
     <div class="letter-wrap">
       <article class="letter reveal">
@@ -133,17 +149,17 @@
     </div>
     <div class="sorting">
     <div class="sort-options">
-      <button class="sort-opt" data-house="badger" aria-pressed="false"><span class="mini-crest" aria-hidden="true" style="--ha:var(--badger-a);--hb:var(--badger-b)"><i class="fa-solid fa-robot"></i></span><span class="sort-q"><b>My processes are drowning in manual work</b><span>House of the Badger</span></span></button>
-      <button class="sort-opt" data-house="serpent" aria-pressed="false"><span class="mini-crest" aria-hidden="true" style="--ha:var(--serpent-a);--hb:var(--serpent-b)"><i class="fa-solid fa-brain"></i></span><span class="sort-q"><b>I want AI agents in production, not pilots</b><span>House of the Serpent</span></span></button>
-      <button class="sort-opt" data-house="eagle" aria-pressed="false"><span class="mini-crest" aria-hidden="true" style="--ha:var(--eagle-a);--hb:var(--eagle-b)"><i class="fa-solid fa-graduation-cap"></i></span><span class="sort-q"><b>My team needs to learn this magic</b><span>House of the Eagle</span></span></button>
-      <button class="sort-opt" data-house="lion" aria-pressed="false"><span class="mini-crest" aria-hidden="true" style="--ha:var(--lion-a);--hb:var(--lion-b)"><i class="fa-solid fa-microphone-lines"></i></span><span class="sort-q"><b>I need a speaker for my great hall</b><span>House of the Lion</span></span></button>
+      <button class="sort-opt" data-house="badger" aria-pressed="false"><span class="mini-crest" aria-hidden="true"><img src="img/crest-badger.webp" width="640" height="672" loading="lazy" alt=""></span><span class="sort-q"><b>My processes are drowning in manual work</b><span>House of the Badger</span></span></button>
+      <button class="sort-opt" data-house="serpent" aria-pressed="false"><span class="mini-crest" aria-hidden="true"><img src="img/crest-serpent.webp" width="640" height="658" loading="lazy" alt=""></span><span class="sort-q"><b>I want AI agents in production, not pilots</b><span>House of the Serpent</span></span></button>
+      <button class="sort-opt" data-house="eagle" aria-pressed="false"><span class="mini-crest" aria-hidden="true"><img src="img/crest-eagle.webp" width="640" height="621" loading="lazy" alt=""></span><span class="sort-q"><b>My team needs to learn this magic</b><span>House of the Eagle</span></span></button>
+      <button class="sort-opt" data-house="lion" aria-pressed="false"><span class="mini-crest" aria-hidden="true"><img src="img/crest-lion.webp" width="640" height="620" loading="lazy" alt=""></span><span class="sort-q"><b>I need a speaker for my great hall</b><span>House of the Lion</span></span></button>
     </div>
     <div class="sort-result" id="sort-result" tabindex="-1" aria-live="polite" hidden></div>
     </div>
-<template id="sort-badger"><span class="house-name" style="color:var(--badger-a)">House of the Badger!</span><h3>A hyperautomation programme</h3><p>We assess your processes, then automate the grind with UiPath, Power Platform or n8n, with governance so it keeps running after I leave.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Hyperautomation%20programme">Send an owl about this</a></template>
-<template id="sort-serpent"><span class="house-name" style="color:var(--serpent-a)">House of the Serpent!</span><h3>An agentic AI &amp; OmniFDE engagement</h3><p>Vendor-neutral architecture, production agents with humans in the loop, and forward-deployed engineers embedded with your team.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Agentic%20AI%20engagement">Send an owl about this</a></template>
-<template id="sort-eagle"><span class="house-name" style="color:var(--eagle-a)">House of the Eagle!</span><h3>Training &amp; workshops</h3><p>UiPath, Power Platform and GenAI training for developer and business teams, as delivered for airlines, banks and IT firms.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Training%20and%20workshops">Send an owl about this</a></template>
-<template id="sort-lion"><span class="house-name" style="color:var(--lion-a)">House of the Lion!</span><h3>Talks &amp; panels</h3><p>Keynotes, webinars and live demos on agentic AI, RPA and the future of work.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Speaking%20invitation">Send an owl about this</a></template>
+<template id="sort-badger"><span class="mini-crest" aria-hidden="true"><img src="img/crest-badger.webp" width="640" height="672" alt=""></span><span class="house-name" style="color:var(--badger-a)">House of the Badger!</span><h3>A hyperautomation programme</h3><p>We assess your processes, then automate the grind with UiPath, Power Platform or n8n, with governance so it keeps running after I leave.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Hyperautomation%20programme">Send an owl about this</a></template>
+<template id="sort-serpent"><span class="mini-crest" aria-hidden="true"><img src="img/crest-serpent.webp" width="640" height="658" alt=""></span><span class="house-name" style="color:var(--serpent-a)">House of the Serpent!</span><h3>An agentic AI &amp; OmniFDE engagement</h3><p>Vendor-neutral architecture, production agents with humans in the loop, and forward-deployed engineers embedded with your team.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Agentic%20AI%20engagement">Send an owl about this</a></template>
+<template id="sort-eagle"><span class="mini-crest" aria-hidden="true"><img src="img/crest-eagle.webp" width="640" height="621" alt=""></span><span class="house-name" style="color:var(--eagle-a)">House of the Eagle!</span><h3>Training &amp; workshops</h3><p>UiPath, Power Platform and GenAI training for developer and business teams, as delivered for airlines, banks and IT firms.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Training%20and%20workshops">Send an owl about this</a></template>
+<template id="sort-lion"><span class="mini-crest" aria-hidden="true"><img src="img/crest-lion.webp" width="640" height="620" alt=""></span><span class="house-name" style="color:var(--lion-a)">House of the Lion!</span><h3>Talks &amp; panels</h3><p>Keynotes, webinars and live demos on agentic AI, RPA and the future of work.</p><a class="btn btn-seal" href="mailto:ddrdushy@yahoo.com?subject=Speaking%20invitation">Send an owl about this</a></template>
   </div>
 </section>
 

@@ -28,45 +28,97 @@
       var night = !root.classList.contains('night');
       applyTheme(night);
       try { localStorage.setItem('dr_theme', night ? 'night' : 'day'); } catch (e) {}
+      root.dispatchEvent(new CustomEvent('dr:theme'));
     });
   }
 
-  /* ---------- Background music (opt-in, carries across pages) ---------- */
+  /* ---------- Background music (opt-in, carries across pages) ----------
+     Two decks (#bgm + a second Audio) so the day and night tracks can
+     cross-fade when the theme changes. localStorage dr_music = on/off,
+     sessionStorage dr_music_t = resume position (plus dr_music_i / dr_music_th
+     for the track index and the theme it belongs to). */
+  var playChime = null;
   var bgm = document.getElementById('bgm');
   var musicBtn = document.getElementById('music-toggle');
   if (bgm && musicBtn) {
-    var VOL = 0.35, fadeTimer = null;
-    // Resume where the previous page left off
-    var saved = 0;
-    try { saved = parseFloat(sessionStorage.getItem('dr_music_t') || '0') || 0; } catch (e) {}
+    var VOL = 0.35;
+    var lists = {
+      day: (bgm.dataset.day || bgm.getAttribute('src') || '').split(',').filter(Boolean),
+      night: (bgm.dataset.night || '').split(',').filter(Boolean)
+    };
+    if (!lists.night.length) lists.night = lists.day;
+    var deckB = new Audio(); deckB.preload = 'none';
+    var active = bgm, idle = deckB;
+    var themeOf = function () { return root.classList.contains('night') ? 'night' : 'day'; };
+    var idx = 0, saved = 0, savedTheme = '';
+    try {
+      idx = parseInt(sessionStorage.getItem('dr_music_i') || '0', 10) || 0;
+      saved = parseFloat(sessionStorage.getItem('dr_music_t') || '0') || 0;
+      savedTheme = sessionStorage.getItem('dr_music_th') || '';
+    } catch (e) {}
+    var srcFor = function (theme) { var l = lists[theme]; return l[idx % l.length]; };
     var setBtn = function (on) {
       musicBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
       musicBtn.setAttribute('aria-label', on ? 'Pause the music' : 'Play the music of the hall');
     };
-    var fadeTo = function (target, done) {
-      clearInterval(fadeTimer);
-      fadeTimer = setInterval(function () {
-        var v = bgm.volume + (target > bgm.volume ? 0.03 : -0.03);
-        if ((target > bgm.volume && v >= target) || (target <= bgm.volume && v <= target)) {
-          bgm.volume = target; clearInterval(fadeTimer); if (done) done(); return;
+    var fadeTo = function (el, target, done) {
+      clearInterval(el._fade);
+      el._fade = setInterval(function () {
+        var v = el.volume + (target > el.volume ? 0.03 : -0.03);
+        if ((target > el.volume && v >= target) || (target <= el.volume && v <= target)) {
+          el.volume = target; clearInterval(el._fade); if (done) done(); return;
         }
-        bgm.volume = Math.max(0, Math.min(1, v));
+        el.volume = Math.max(0, Math.min(1, v));
       }, 60);
     };
-    var start = function () {
-      bgm.volume = 0;
-      return bgm.play().then(function () {
-        if (saved) { bgm.currentTime = saved; saved = 0; }
-        setBtn(true); fadeTo(VOL);
-      });
+    var playOn = function (el, src, at) {
+      if (el._src !== src) { el._src = src; el.src = src; }
+      el.volume = 0;
+      return el.play().then(function () { if (at) el.currentTime = at; });
     };
+    var isOn = function () { return !active.paused; };
+    var start = function () {
+      var theme = themeOf(), at = 0;
+      if (saved && savedTheme === theme) at = saved;
+      saved = 0;
+      return playOn(active, srcFor(theme), at).then(function () { setBtn(true); fadeTo(active, VOL); });
+    };
+    var stop = function () {
+      [active, idle].forEach(function (el) { if (!el.paused) fadeTo(el, 0, function () { el.pause(); }); });
+      setBtn(false);
+    };
+    // When a track ends, move on to the next one of the current theme
+    [bgm, deckB].forEach(function (el) {
+      el.addEventListener('ended', function () {
+        if (el !== active) return;
+        var l = lists[themeOf()];
+        idx = (idx + 1) % l.length;
+        playOn(el, srcFor(themeOf()), 0).then(function () { fadeTo(el, VOL); }).catch(function () {});
+      });
+    });
+    // Day <-> night: cross-fade to the other theme's track
+    root.addEventListener('dr:theme', function () {
+      if (!isOn()) return;
+      var from = active, to = idle, src = srcFor(themeOf());
+      if (from._src === src) return;
+      active = to; idle = from;
+      playOn(to, src, 0).then(function () { fadeTo(to, VOL); })
+        .catch(function () { active = from; idle = to; });
+      fadeTo(from, 0, function () { from.pause(); });
+    });
     var remember = function (on) { try { localStorage.setItem('dr_music', on ? 'on' : 'off'); } catch (e) {} };
     musicBtn.addEventListener('click', function () {
-      if (bgm.paused) { start().catch(function () {}); remember(true); }
-      else { fadeTo(0, function () { bgm.pause(); }); setBtn(false); remember(false); }
+      if (!isOn()) { start().catch(function () {}); remember(true); }
+      else { stop(); remember(false); }
     });
     window.addEventListener('pagehide', function () {
-      try { if (!bgm.paused) sessionStorage.setItem('dr_music_t', String(bgm.currentTime)); } catch (e) {}
+      try {
+        if (isOn()) {
+          sessionStorage.setItem('dr_music_t', String(active.currentTime));
+          sessionStorage.setItem('dr_music_i', String(idx));
+          sessionStorage.setItem('dr_music_th', themeOf());
+        }
+      } catch (e) {}
     });
     var wanted = false;
     try { wanted = localStorage.getItem('dr_music') === 'on'; } catch (e) {}
@@ -79,6 +131,15 @@
         };
         ['pointerdown', 'keydown'].forEach(function (t) { window.addEventListener(t, go, true); });
       });
+    }
+    // A short chime for the golden flier, only while the music is on
+    if (bgm.dataset.chime) {
+      var chime = new Audio(bgm.dataset.chime); chime.preload = 'none';
+      playChime = function () {
+        if (!isOn()) return;
+        chime.volume = 0.5; chime.currentTime = 0;
+        chime.play().catch(function () {});
+      };
     }
   }
 
@@ -169,6 +230,18 @@
       i = (i + 1) % imgs.length;
       imgs[i].classList.add('on');
     }, 6500);
+  });
+
+  /* ---------- Portrait loops: play only in view, poster only under reduced motion ---------- */
+  document.querySelectorAll('video[data-autoplay]').forEach(function (v) {
+    if (reduced) { v.preload = 'none'; v.pause(); return; }
+    v.muted = true;
+    var tryPlay = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    var r = v.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < window.innerHeight) tryPlay();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { if (e[0].isIntersecting) tryPlay(); else v.pause(); }, { threshold: 0.1 }).observe(v);
+    } else { tryPlay(); }
   });
 
   /* ---------- Lantern follows the cursor ---------- */
@@ -305,6 +378,7 @@
     var toast = document.getElementById('toast');
     flier.addEventListener('click', function () {
       flier.classList.add('caught');
+      if (playChime) playChime();
       if (toast) {
         toast.classList.add('on');
         setTimeout(function () { toast.classList.remove('on'); }, 3800);
