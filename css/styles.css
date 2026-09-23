@@ -949,20 +949,6 @@ section[tabindex="-1"]:focus { outline: none; }
 }
 .f-link i { color: var(--volt); transition: transform 0.35s var(--ease-out); }
 .f-card:hover .f-link i { transform: translate(4px, -4px); }
-.f-link-soon {
-  align-self: flex-start;
-  color: var(--volt);
-  border: 1px dashed var(--line-strong);
-  border-radius: 100px;
-  padding: 8px 16px;
-}
-.soon-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--volt);
-  box-shadow: 0 0 8px var(--volt-glow);
-  animation: pulse 2.2s infinite;
-}
 
 /* ---------- Writing ---------- */
 .writing-list {
