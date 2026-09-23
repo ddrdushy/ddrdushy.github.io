@@ -259,7 +259,7 @@
       walk(mapLayer,
         { x: a.left - mb.left + a.width / 2, y: a.top - mb.top + a.height / 2 },
         { x: b.left - mb.left + b.width / 2, y: b.top - mb.top + b.height / 2 },
-        'D. Ramalingam');
+        'R. Dushyanth');
       cur = nxt;
     }, 6500);
   }
