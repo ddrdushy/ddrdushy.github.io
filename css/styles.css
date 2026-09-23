@@ -236,6 +236,10 @@ p strong, li strong { font-weight: 600; }
 }
 .theme-toggle:hover { border-color: var(--seal); color: var(--seal); transform: rotate(-12deg); }
 .nav-toggle { display: none; }
+.music-toggle { margin-left: -8px; }
+.music-toggle[aria-pressed="true"] { color: var(--seal); border-color: var(--seal); }
+.music-toggle[aria-pressed="true"] i { animation: note 1.2s ease-in-out infinite alternate; }
+@keyframes note { from { transform: translateY(1px) rotate(-8deg); } to { transform: translateY(-2px) rotate(8deg); } }
 .nav-menu-foot { display: none; }
 
 /* ---------- Home hero ---------- */
@@ -759,7 +763,8 @@ html.night .house-name { color: var(--hb); }
   .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--ink); transition: transform 0.35s var(--ease); }
   .nav-toggle.active span:first-child { transform: translateY(4px) rotate(45deg); }
   .nav-toggle.active span:last-child { transform: translateY(-4px) rotate(-45deg); }
-  .theme-toggle { margin-left: auto; order: 2; }
+  .theme-toggle { order: 2; }
+  .music-toggle { margin-left: auto; }
   .nav-menu {
     position: fixed; inset: 0; z-index: 1101;
     background: var(--bg);
@@ -789,6 +794,10 @@ html.night .house-name { color: var(--hb); }
   .brand-name { font-size: 16px; }
   .brand-name small { display: none; }
   .brand-mark { width: 38px; }
+  .brand-name { white-space: nowrap; }
+  .nav-inner { gap: 10px; }
+  .theme-toggle, .nav-toggle { width: 40px; height: 40px; }
+  .music-toggle { margin-left: auto; }
   .grid-3, .grid-2, .hall, .houses, .sort-options, .record { grid-template-columns: 1fr; }
   .ledger { grid-template-columns: repeat(2, 1fr); }
   .ledger > div:nth-child(2) { border-right: 0; }
@@ -804,6 +813,13 @@ html.night .house-name { color: var(--hb); }
   .footer-grid { grid-template-columns: 1fr; }
   .next-page .page-corner { display: none; }
 }
+
+@media (max-width: 380px) {
+  .brand-name { font-size: 14px; }
+  .brand-mark { width: 32px; }
+  .brand { gap: 8px; }
+}
+.nav-toggle, .theme-toggle { flex-shrink: 0; }
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {

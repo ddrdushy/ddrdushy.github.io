@@ -31,6 +31,57 @@
     });
   }
 
+  /* ---------- Background music (opt-in, carries across pages) ---------- */
+  var bgm = document.getElementById('bgm');
+  var musicBtn = document.getElementById('music-toggle');
+  if (bgm && musicBtn) {
+    var VOL = 0.35, fadeTimer = null;
+    // Resume where the previous page left off
+    var saved = 0;
+    try { saved = parseFloat(sessionStorage.getItem('dr_music_t') || '0') || 0; } catch (e) {}
+    var setBtn = function (on) {
+      musicBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      musicBtn.setAttribute('aria-label', on ? 'Pause the music' : 'Play the music of the hall');
+    };
+    var fadeTo = function (target, done) {
+      clearInterval(fadeTimer);
+      fadeTimer = setInterval(function () {
+        var v = bgm.volume + (target > bgm.volume ? 0.03 : -0.03);
+        if ((target > bgm.volume && v >= target) || (target <= bgm.volume && v <= target)) {
+          bgm.volume = target; clearInterval(fadeTimer); if (done) done(); return;
+        }
+        bgm.volume = Math.max(0, Math.min(1, v));
+      }, 60);
+    };
+    var start = function () {
+      bgm.volume = 0;
+      return bgm.play().then(function () {
+        if (saved) { bgm.currentTime = saved; saved = 0; }
+        setBtn(true); fadeTo(VOL);
+      });
+    };
+    var remember = function (on) { try { localStorage.setItem('dr_music', on ? 'on' : 'off'); } catch (e) {} };
+    musicBtn.addEventListener('click', function () {
+      if (bgm.paused) { start().catch(function () {}); remember(true); }
+      else { fadeTo(0, function () { bgm.pause(); }); setBtn(false); remember(false); }
+    });
+    window.addEventListener('pagehide', function () {
+      try { if (!bgm.paused) sessionStorage.setItem('dr_music_t', String(bgm.currentTime)); } catch (e) {}
+    });
+    var wanted = false;
+    try { wanted = localStorage.getItem('dr_music') === 'on'; } catch (e) {}
+    if (wanted) {
+      start().catch(function () {
+        // Autoplay was blocked: begin on the visitor's first tap or key press
+        var go = function () {
+          start().catch(function () {});
+          ['pointerdown', 'keydown'].forEach(function (t) { window.removeEventListener(t, go, true); });
+        };
+        ['pointerdown', 'keydown'].forEach(function (t) { window.addEventListener(t, go, true); });
+      });
+    }
+  }
+
   /* ---------- Navbar ---------- */
   var navbar = document.getElementById('navbar');
   var lastY = 0;
