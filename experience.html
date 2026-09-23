@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    document.documentElement.classList.add('js');
+    try { if (localStorage.getItem('dr_theme') === 'night') document.documentElement.classList.add('night'); } catch (e) {}
+  </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQNSXTRNVB"></script>
@@ -13,14 +17,14 @@
 
     gtag('config', 'G-RQNSXTRNVB');
   </script>
-  <title>Experience — Dushyanth Ramalingam</title>
-  <meta name="description" content="Work history and education of Dushyanth Ramalingam: Symprio, Generali Malaysia, KGiSL — from RPA engineer to Capability Lead for AI &amp; OmniFDE.">
+  <title>The Chronicle — Experience of Dushyanth Ramalingam</title>
+  <meta name="description" content="Work history, education and certifications of Dushyanth Ramalingam: Symprio, Generali Malaysia, KGiSL and more — from RPA engineer to Capability Lead for AI &amp; OmniFDE.">
   <meta name="author" content="Dushyanth Ramalingam">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0a0a0e">
+  <meta name="theme-color" content="#efe3c6">
   <link rel="canonical" href="https://ddrdushy.github.io/experience.html">
-  <meta property="og:title" content="Experience — Dushyanth Ramalingam">
-  <meta property="og:description" content="Work history and education of Dushyanth Ramalingam: Symprio, Generali Malaysia, KGiSL — from RPA engineer to Capability Lead for AI &amp; OmniFDE.">
+  <meta property="og:title" content="The Chronicle — Experience of Dushyanth Ramalingam">
+  <meta property="og:description" content="Work history, education and certifications of Dushyanth Ramalingam: Symprio, Generali Malaysia, KGiSL and more — from RPA engineer to Capability Lead for AI &amp; OmniFDE.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dushyanth Ramalingam — Portfolio">
   <meta property="og:locale" content="en_US">
@@ -28,336 +32,241 @@
   <meta property="og:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
   <meta property="og:image:alt" content="Dushyanth Ramalingam in the AiSensei studio">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Experience — Dushyanth Ramalingam">
-  <meta name="twitter:description" content="Work history and education of Dushyanth Ramalingam: Symprio, Generali Malaysia, KGiSL — from RPA engineer to Capability Lead for AI &amp; OmniFDE.">
+  <meta name="twitter:title" content="The Chronicle — Experience of Dushyanth Ramalingam">
+  <meta name="twitter:description" content="Work history, education and certifications of Dushyanth Ramalingam: Symprio, Generali Malaysia, KGiSL and more — from RPA engineer to Capability Lead for AI &amp; OmniFDE.">
   <meta name="twitter:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
-  <!-- Fonts: Clash Display + Satoshi (Fontshare), JetBrains Mono (Google) -->
-  <link rel="preconnect" href="https://api.fontshare.com">
+
+  <!-- Fonts: Cinzel (titles), EB Garamond (text), IM Fell English (asides), UnifrakturCook (newspaper masthead) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English:ital@0;1&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Styles -->
   <link href="css/styles.css" rel="stylesheet">
 
-  <!-- Apply saved theme before first paint to avoid a flash -->
-  <script>
-    try { if (localStorage.getItem('dr_theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
-  </script>
-
-  <!-- Favicon -->
   <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
   <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
   <link href="icons/apple-touch-icon-144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
 </head>
-
 <body id="top">
-
-<!-- ========== CUSTOM CURSOR ========== -->
-<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
-
-<!-- ========== GRAIN OVERLAY ========== -->
+<a class="skip" href="#main">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
+<div class="lantern" id="lantern" aria-hidden="true"></div>
+<div class="flier" id="flier" aria-hidden="true" title="Catch it!"><span class="wing l"></span><span class="ball"></span><span class="wing r"></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><b>+150 points</b> to your House! You caught the golden flier.</div>
 
-<!-- ========== NAVIGATION ========== -->
 <header class="navbar" id="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="nav-logo" aria-label="Dushyanth Ramalingam — home" data-magnetic>DR<span class="accent">.</span></a>
-    <div class="nav-status" aria-hidden="true">
-      <span class="status-dot"></span>
-      <span class="status-text">OPEN&nbsp;TO&nbsp;COLLABORATE</span>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-    </button>
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Dushyanth Ramalingam — the map (home)">
+      <svg class="brand-mark" viewBox="0 0 46 30" aria-hidden="true"><circle cx="11" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="35" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M19 18 q4 -4.5 8 0" fill="none" stroke="currentColor" stroke-width="2.2"/><path class="bolt" d="M24.5 0 L19.5 8.5 H23.2 L20.6 14.5 L27.6 5.6 H23.9 L26.6 0 Z"/></svg>
+      <span class="brand-name">D. Ramalingam<small>keeper of agents &amp; automations</small></span>
+    </a>
     <nav class="nav-menu" id="nav-menu" aria-label="Primary">
       <ul class="nav-list">
-        <li><a href="about.html" class="nav-link"><span class="nav-num">01</span>About</a></li>
-        <li><a href="experience.html" class="nav-link" aria-current="page"><span class="nav-num">02</span>Experience</a></li>
-        <li><a href="work.html" class="nav-link"><span class="nav-num">03</span>Work</a></li>
-        <li><a href="writing.html" class="nav-link"><span class="nav-num">04</span>Writing</a></li>
-        <li><a href="talks.html" class="nav-link"><span class="nav-num">05</span>Talks</a></li>
-        <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span>Contact</a></li>
+        <li><a href="about.html" class="nav-link">About<i>the study</i></a></li>
+        <li><a href="experience.html" class="nav-link" aria-current="page">Experience<i>the chronicle</i></a></li>
+        <li><a href="work.html" class="nav-link">Work<i>the workshop</i></a></li>
+        <li><a href="writing.html" class="nav-link">Writing<i>the daily agent</i></a></li>
+        <li><a href="talks.html" class="nav-link">Talks<i>the great hall</i></a></li>
       </ul>
-      <a href="docs/resume_DR.pdf" class="btn btn-primary nav-cta" target="_blank" rel="noopener" data-magnetic>
-        Resume <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </a>
-      <div class="nav-menu-footer">
-        <a href="https://github.com/ddrdushy" target="_blank" rel="noopener">GitHub</a>
+      <a href="docs/resume_DR.pdf" class="nav-cv" target="_blank" rel="noopener">The scroll (CV)</a>
+      <a href="contact.html" class="btn btn-seal nav-owl">Send an owl</a>
+      <div class="nav-menu-foot">
         <a href="https://www.linkedin.com/in/ddr-dushy/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ddrdushy" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener">Medium</a>
       </div>
     </nav>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme">
-      <i class="fa-solid fa-sun" aria-hidden="true"></i>
-    </button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to candle-lit (night) mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open the map" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main">
-
-<section class="page-hero">
+<section class="page-hero" data-candles>
   <div class="container">
-    <nav class="crumbs rise" aria-label="Breadcrumb">
-      <a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">02 · Experience</span>
-    </nav>
-    <h1 class="page-title rise" style="--d:1">Trajec<em>tory</em></h1>
-    <p class="page-lede rise" style="--d:2">From a part-time Linux admin in Coimbatore to leading an AI practice for clients on three continents: every role, degree and credential.</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">The map</a><span aria-hidden="true">·</span><span aria-current="page">Chapter II — the chronicle</span></nav>
+    <h1 class="ink" aria-label="The Chronicle"><span class="ink-line" style="--i:0">The <em>Chronicle</em></span></h1>
+    <svg class="flourish" viewBox="0 0 340 26" aria-hidden="true"><path d="M2 16 C58 2 104 28 162 13 S268 3 316 15 C326 17 334 11 338 5"/></svg>
+    <p class="page-lede after-ink" style="--after:1.8s">From tending Linux servers in Coimbatore to leading an AI practice for clients on three continents: every post held, every apprenticeship and every charm certified.</p>
   </div>
 </section>
-
 <section class="section">
   <div class="container">
-    <div class="toolbar">
-      <span class="toolbar-note">2012 — present</span>
-      <div class="exp-tabs" role="group" aria-label="Show work or education history">
-        <button class="exp-tab active" data-tab="work" aria-pressed="true">Work</button>
-        <button class="exp-tab" data-tab="education" aria-pressed="false">Education</button>
+    <div class="chapter-row">
+      <div class="chapter reveal">
+      <span class="label">2012 — present</span>
+      <h2>Posts held &amp; schooling</h2>
+    </div>
+      <div class="tabs" role="group" aria-label="Show posts held or schooling">
+        <button class="tab" data-tab="work" aria-pressed="true">Posts held</button>
+        <button class="tab" data-tab="education" aria-pressed="false">Schooling</button>
       </div>
     </div>
-
-    <div class="timeline" id="tab-work">
-      <div class="timeline-progress" aria-hidden="true"><span id="timeline-fill"></span></div>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">NOW</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">NOV 2023 — PRESENT</span>
-            <h3 class="t-role">Capability Lead — AI &amp; OmniFDE</h3>
-            <p class="t-org">Symprio · Malaysia</p>
-          </header>
-          <ul class="t-points">
-            <li>Lead the Automation Practice — global strategy &amp; delivery for 20+ clients across Asia, the Middle East and the US.</li>
-            <li>Manage a 6+ member team across advanced RPA and custom AI builds, including local RAG systems.</li>
-            <li>Personally drive solution design, MVP creation, consulting and training for every major initiative.</li>
-            <li>Partner with senior business &amp; IT stakeholders to anchor automation in digital-transformation goals.</li>
-          </ul>
-          <div class="t-tags"><span>Agentic AI</span><span>RAG</span><span>RPA</span><span>n8n</span><span>Zapier</span></div>
+    <div class="chronicle" data-panel="work">
+      <article class="entry reveal">
+        <span class="entry-year">Now</span>
+        <div class="card">
+          <span class="date">NOV 2023 — PRESENT</span>
+          <h3>Capability Lead — AI &amp; OmniFDE</h3>
+          <p class="org">Symprio · Malaysia</p>
+          <ul><li>Lead the Automation Practice — global strategy &amp; delivery for 20+ clients across Asia, the Middle East and the US.</li><li>Manage a 6+ member team across advanced RPA and custom AI builds, including local RAG systems.</li><li>Personally drive solution design, MVP creation, consulting and training for every major initiative.</li><li>Partner with senior business &amp; IT stakeholders to anchor automation in digital-transformation goals.</li></ul><div class="tags"><span>Agentic AI</span><span>RAG</span><span>RPA</span><span>n8n</span><span>Zapier</span></div>
         </div>
       </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2024</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JUN 2024 — JUN 2025 · CONTRACT</span>
-            <h3 class="t-role">RPA Project Manager</h3>
-            <p class="t-org">Generali Malaysia · Insurance</p>
-          </header>
-          <ul class="t-points">
-            <li>Led key RPA programs in the insurance domain — lifting process efficiency and team alignment.</li>
-            <li>Worked cross-functionally with operations, IT and change management to raise automation throughput.</li>
-            <li>Mentored developers and business stakeholders to elevate automation maturity.</li>
-          </ul>
-          <div class="t-tags"><span>RAG</span><span>Vector DBs</span><span>Computer Vision</span><span>YOLO</span><span>Python</span></div>
+      <article class="entry reveal">
+        <span class="entry-year">2024</span>
+        <div class="card">
+          <span class="date">JUN 2024 — JUN 2025 · CONTRACT</span>
+          <h3>RPA Project Manager</h3>
+          <p class="org">Generali Malaysia · Insurance</p>
+          <ul><li>Led key RPA programs in the insurance domain — lifting process efficiency and team alignment.</li><li>Worked cross-functionally with operations, IT and change management to raise automation throughput.</li><li>Mentored developers and business stakeholders to elevate automation maturity.</li></ul><div class="tags"><span>RAG</span><span>Vector DBs</span><span>Computer Vision</span><span>YOLO</span><span>Python</span></div>
         </div>
       </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2020</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JAN 2020 — NOV 2023</span>
-            <h3 class="t-role">Automation Solution Architect</h3>
-            <p class="t-org">Symprio · Malaysia</p>
-          </header>
-          <ul class="t-points">
-            <li>Architected enterprise-scale automation and helped build &amp; scale the company's Automation CoE.</li>
-            <li>Established governance, operating models and delivery frameworks for sustainable automation at scale.</li>
-          </ul>
-          <div class="t-tags"><span>Solution Architecture</span><span>CoE</span><span>UiPath</span><span>Power Platform</span></div>
+      <article class="entry reveal">
+        <span class="entry-year">2020</span>
+        <div class="card">
+          <span class="date">JAN 2020 — NOV 2023</span>
+          <h3>Automation Solution Architect</h3>
+          <p class="org">Symprio · Malaysia</p>
+          <ul><li>Architected enterprise-scale automation and helped build &amp; scale the company's Automation CoE.</li><li>Established governance, operating models and delivery frameworks for sustainable automation at scale.</li></ul><div class="tags"><span>Solution Architecture</span><span>CoE</span><span>UiPath</span><span>Power Platform</span></div>
         </div>
       </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2017</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JUN 2017 — DEC 2019</span>
-            <h3 class="t-role">RPA Engineer</h3>
-            <p class="t-org">KGiSL GSS · India → Malaysia</p>
-          </header>
-          <ul class="t-points">
-            <li>Mastered UiPath and relocated to the Malaysian client site within two weeks of joining.</li>
-            <li>Hybrid BA / Solution Architect / Developer — delivered and oversaw 100+ automated processes.</li>
-            <li>Built a foundational RPA framework for a key insurance client — still in production today.</li>
-            <li>Moved into pre-sales across BFSI, logistics and aviation; trained a major airline's dev team on UiPath.</li>
-          </ul>
-          <div class="t-tags"><span>UiPath</span><span>Pre-sales</span><span>Training</span><span>BFSI</span></div>
+      <article class="entry reveal">
+        <span class="entry-year">2017</span>
+        <div class="card">
+          <span class="date">JUN 2017 — DEC 2019</span>
+          <h3>RPA Engineer</h3>
+          <p class="org">KGiSL GSS · India → Malaysia</p>
+          <ul><li>Mastered UiPath and relocated to the Malaysian client site within two weeks of joining.</li><li>Hybrid BA / Solution Architect / Developer — delivered and oversaw 100+ automated processes.</li><li>Built a foundational RPA framework for a key insurance client — still in production today.</li><li>Moved into pre-sales across BFSI, logistics and aviation; trained a major airline's dev team on UiPath.</li></ul><div class="tags"><span>UiPath</span><span>Pre-sales</span><span>Training</span><span>BFSI</span></div>
         </div>
       </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2017</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2017 · INTERNSHIP</span>
-            <h3 class="t-role">JavaScript Developer</h3>
-            <p class="t-org">KGISL IAS · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Built a Queue Management System from scratch in 3 months — sole BA, designer, developer and tester.</li>
-            <li>Integrated a custom Slack bot for automated answers; doubled as my Master's final-year project.</li>
-          </ul>
-          <div class="t-tags"><span>JavaScript</span><span>Slack Bot</span><span>DevOps</span></div>
+      <article class="entry reveal">
+        <span class="entry-year">2017</span>
+        <div class="card">
+          <span class="date">2017 · INTERNSHIP</span>
+          <h3>JavaScript Developer</h3>
+          <p class="org">KGISL IAS · India</p>
+          <ul><li>Built a Queue Management System from scratch in 3 months — sole BA, designer, developer and tester.</li><li>Integrated a custom Slack bot for automated answers; doubled as my Master's final-year project.</li></ul><div class="tags"><span>JavaScript</span><span>Slack Bot</span><span>DevOps</span></div>
         </div>
       </article>
-
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2012</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">JAN 2012 — 2016 · PART-TIME</span>
-            <h3 class="t-role">Linux Administrator</h3>
-            <p class="t-org">Caliber Interconnect Solutions · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Ran complete IT infrastructure for a 250-employee organisation — mail, FTP and chat servers.</li>
-            <li>Managed the organisation-wide firewall; wrote shell scripts for monitoring and automated alerting.</li>
-          </ul>
-          <div class="t-tags"><span>Linux</span><span>Shell</span><span>Networking</span></div>
+      <article class="entry reveal">
+        <span class="entry-year">2012</span>
+        <div class="card">
+          <span class="date">JAN 2012 — 2016 · PART-TIME</span>
+          <h3>Linux Administrator</h3>
+          <p class="org">Caliber Interconnect Solutions · India</p>
+          <ul><li>Ran complete IT infrastructure for a 250-employee organisation — mail, FTP and chat servers.</li><li>Managed the organisation-wide firewall; wrote shell scripts for monitoring and automated alerting.</li></ul><div class="tags"><span>Linux</span><span>Shell</span><span>Networking</span></div>
         </div>
       </article>
     </div>
-
-    <div class="timeline hidden" id="tab-education">
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2017</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2015 — 2017</span>
-            <h3 class="t-role">Master's — Computer Software Engineering (MCA)</h3>
-            <p class="t-org">KGiSL-IIM · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Won the <strong>KGiSL Achiever</strong> award.</li>
-            <li>Final-year project: SlackBot-integrated Queue Management System.</li>
-          </ul>
+    <div class="chronicle" data-panel="education" hidden>
+      <article class="entry reveal">
+        <span class="entry-year">2017</span>
+        <div class="card">
+          <span class="date">2015 — 2017</span>
+          <h3>Master's — Computer Software Engineering (MCA)</h3>
+          <p class="org">KGiSL-IIM · India</p>
+          <ul><li>Won the <strong>KGiSL Achiever</strong> award.</li><li>Final-year project: SlackBot-integrated Queue Management System.</li></ul>
         </div>
       </article>
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2015</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2012 — 2015</span>
-            <h3 class="t-role">BCA — Software Development</h3>
-            <p class="t-org">Kongunadu Arts &amp; Science College · India</p>
-          </header>
-          <ul class="t-points">
-            <li>Final-year project: timetable generator powered by a genetic algorithm.</li>
-          </ul>
+      <article class="entry reveal">
+        <span class="entry-year">2015</span>
+        <div class="card">
+          <span class="date">2012 — 2015</span>
+          <h3>BCA — Software Development</h3>
+          <p class="org">Kongunadu Arts &amp; Science College · India</p>
+          <ul><li>Final-year project: timetable generator powered by a genetic algorithm.</li></ul>
         </div>
       </article>
-      <article class="t-item reveal-up">
-        <div class="t-marker mono">2012</div>
-        <div class="t-card">
-          <header class="t-head">
-            <span class="t-date mono">2007 — 2012</span>
-            <h3 class="t-role">Business / Commerce</h3>
-            <p class="t-org">K/Hindu National College · Sri Lanka</p>
-          </header>
-          <ul class="t-points">
-            <li>Accountancy &amp; business management; first taste of leadership and event organisation.</li>
-          </ul>
+      <article class="entry reveal">
+        <span class="entry-year">2012</span>
+        <div class="card">
+          <span class="date">2007 — 2012</span>
+          <h3>Business / Commerce</h3>
+          <p class="org">K/Hindu National College · Sri Lanka</p>
+          <ul><li>Accountancy &amp; business management; first taste of leadership and event organisation.</li></ul>
         </div>
       </article>
     </div>
   </div>
 </section>
-
 <section class="section section-alt">
   <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">CREDENTIALS</span>
-      <h2 class="section-title" data-split-words>Certified &amp; multilingual</h2>
+    <div class="chapter reveal">
+      <span class="label">Credentials</span>
+      <h2>Charms certified &amp; tongues spoken</h2>
     </div>
-
-    <div class="cred-grid">
-      <div class="cred-card reveal-up">
-        <h3><i class="fa-solid fa-certificate" aria-hidden="true"></i> Certifications</h3>
+    <div class="grid-2">
+      <div class="card reveal">
+        <span class="card-label"><i class="fa-solid fa-certificate"></i> Charms certified</span>
         <ul class="cred-list">
-          <li><span>UiPath Orchestrator Certification</span><span class="cred-meta">v2017.1</span></li>
-          <li><span>UiPath Orchestrator Certification</span><span class="cred-meta">v2016.2</span></li>
+          <li><span>UiPath Orchestrator Certification</span><span class="meta">v2017.1</span></li>
+          <li><span>UiPath Orchestrator Certification</span><span class="meta">v2016.2</span></li>
         </ul>
       </div>
-      <div class="cred-card reveal-up">
-        <h3><i class="fa-solid fa-language" aria-hidden="true"></i> Languages</h3>
+      <div class="card reveal">
+        <span class="card-label"><i class="fa-solid fa-language"></i> Tongues spoken</span>
         <ul class="cred-list">
-          <li><span>Tamil</span><span class="cred-meta">Native</span></li>
-          <li><span>English</span><span class="cred-meta">Professional</span></li>
-          <li><span>Sinhala</span><span class="cred-meta">Limited working</span></li>
-          <li><span>Japanese</span><span class="cred-meta">Elementary</span></li>
+          <li><span>Tamil</span><span class="meta">Native</span></li>
+          <li><span>English</span><span class="meta">Professional</span></li>
+          <li><span>Sinhala</span><span class="meta">Limited working</span></li>
+          <li><span>Japanese</span><span class="meta">Elementary</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-
 <div class="container next-page">
   <a href="work.html">
     <span>
-      <span class="next-label">NEXT — 03 /</span>
-      <span class="next-title">Work</span>
+      <span class="label">Turn the page — Chapter III</span>
+      <span class="next-title">The Workshop</span>
+      <span class="next-sub">Work</span>
     </span>
-    <span class="next-arrow" aria-hidden="true">↗</span>
+    <span class="page-corner" aria-hidden="true"></span>
   </a>
 </div>
 
 </main>
 
-<!-- ========== FOOTER ========== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo" aria-label="Dushyanth Ramalingam — home">DR<span class="accent">.</span></a>
-        <p class="footer-blurb">Agentic AI systems &amp; hyperautomation. Based in Kuala Lumpur, working with teams across Asia, the Middle East and the US.</p>
-        <a href="mailto:ddrdushy@yahoo.com" class="footer-mail link-underline">ddrdushy@yahoo.com</a>
+      <div>
+        <a href="index.html" class="brand"><svg class="brand-mark" viewBox="0 0 46 30" aria-hidden="true"><circle cx="11" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="35" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M19 18 q4 -4.5 8 0" fill="none" stroke="currentColor" stroke-width="2.2"/><path class="bolt" d="M24.5 0 L19.5 8.5 H23.2 L20.6 14.5 L27.6 5.6 H23.9 L26.6 0 Z"/></svg><span class="brand-name">D. Ramalingam</span></a>
+        <p class="footer-blurb">Agentic AI and hyperautomation, conjured in Kuala Lumpur for enterprises across Asia, the Middle East and the US.</p>
+        <a class="footer-mail" href="mailto:ddrdushy@yahoo.com">ddrdushy@yahoo.com</a>
       </div>
       <nav aria-label="Footer">
-        <span class="footer-label mono">PAGES</span>
+        <h4>The map</h4>
         <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="experience.html" aria-current="page">Experience</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="writing.html">Writing</a></li>
-          <li><a href="talks.html">Talks</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home <small>· the map</small></a></li>
+          <li><a href="about.html">About <small>· the study</small></a></li>
+          <li><a href="experience.html" aria-current="page">Experience <small>· the chronicle</small></a></li>
+          <li><a href="work.html">Work <small>· the workshop</small></a></li>
+          <li><a href="writing.html">Writing <small>· the daily agent</small></a></li>
+          <li><a href="talks.html">Talks <small>· the great hall</small></a></li>
+          <li><a href="contact.html">Contact <small>· the owlery</small></a></li>
         </ul>
       </nav>
       <div>
-        <span class="footer-label mono">ELSEWHERE</span>
+        <h4>Beyond the castle</h4>
         <ul class="footer-links">
           <li><a href="https://www.linkedin.com/in/ddr-dushy/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.linkedin.com/newsletters/dushy-from-the-field-7475174440457097217/" target="_blank" rel="noopener">Newsletter</a></li>
+          <li><a href="https://www.linkedin.com/newsletters/dushy-from-the-field-7475174440457097217/" target="_blank" rel="noopener">Newsletter — Dushy from the Field</a></li>
+          <li><a href="https://www.symprio.com/blog/" target="_blank" rel="noopener">Symprio Insights</a></li>
           <li><a href="https://github.com/ddrdushy" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube — AiSensei</a></li>
-          <li><a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener">Medium</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-inner">
-      <p class="footer-quote mono">"Stay hungry. Stay foolish."</p>
-      <p class="footer-copy">© 2026 Dushyanth Ramalingam — built with code, caffeine &amp; agents.</p>
-      <a href="#top" class="footer-top mono" data-magnetic>BACK TO TOP ↑</a>
+    <div class="footer-base">
+      <span class="motto">Magic is just engineering you haven&rsquo;t read about yet.</span>
+      <span>© 2026 Dushyanth Ramalingam · A fan-made, wizarding-inspired design</span>
+      <a href="#top">Back to the top of the map ↑</a>
     </div>
   </div>
 </footer>
 
-<!-- ========== SCRIPTS ========== -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
 <script src="js/main.js" defer></script>
-
 </body>
 </html>

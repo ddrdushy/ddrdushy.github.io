@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    document.documentElement.classList.add('js');
+    try { if (localStorage.getItem('dr_theme') === 'night') document.documentElement.classList.add('night'); } catch (e) {}
+  </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQNSXTRNVB"></script>
@@ -13,14 +17,14 @@
 
     gtag('config', 'G-RQNSXTRNVB');
   </script>
-  <title>Work — Dushyanth Ramalingam</title>
-  <meta name="description" content="Selected work by Dushyanth Ramalingam: HireOps AI, ZeroKey, symprio.com, and RPA and AI delivery for banks, insurers, airlines and government in Malaysia.">
+  <title>The Workshop — Work of Dushyanth Ramalingam</title>
+  <meta name="description" content="HireOps AI, ZeroKey, Codanium and more, plus RPA and AI delivery for banks, insurers, airlines and government in Malaysia, by Dushyanth Ramalingam.">
   <meta name="author" content="Dushyanth Ramalingam">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0a0a0e">
+  <meta name="theme-color" content="#efe3c6">
   <link rel="canonical" href="https://ddrdushy.github.io/work.html">
-  <meta property="og:title" content="Work — Dushyanth Ramalingam">
-  <meta property="og:description" content="Selected work by Dushyanth Ramalingam: HireOps AI, ZeroKey, symprio.com, and RPA and AI delivery for banks, insurers, airlines and government in Malaysia.">
+  <meta property="og:title" content="The Workshop — Work of Dushyanth Ramalingam">
+  <meta property="og:description" content="HireOps AI, ZeroKey, Codanium and more, plus RPA and AI delivery for banks, insurers, airlines and government in Malaysia, by Dushyanth Ramalingam.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dushyanth Ramalingam — Portfolio">
   <meta property="og:locale" content="en_US">
@@ -28,394 +32,346 @@
   <meta property="og:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
   <meta property="og:image:alt" content="Dushyanth Ramalingam in the AiSensei studio">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Work — Dushyanth Ramalingam">
-  <meta name="twitter:description" content="Selected work by Dushyanth Ramalingam: HireOps AI, ZeroKey, symprio.com, and RPA and AI delivery for banks, insurers, airlines and government in Malaysia.">
+  <meta name="twitter:title" content="The Workshop — Work of Dushyanth Ramalingam">
+  <meta name="twitter:description" content="HireOps AI, ZeroKey, Codanium and more, plus RPA and AI delivery for banks, insurers, airlines and government in Malaysia, by Dushyanth Ramalingam.">
   <meta name="twitter:image" content="https://ddrdushy.github.io/img/aisensei-studio.jpg">
-  <!-- Fonts: Clash Display + Satoshi (Fontshare), JetBrains Mono (Google) -->
-  <link rel="preconnect" href="https://api.fontshare.com">
+
+  <!-- Fonts: Cinzel (titles), EB Garamond (text), IM Fell English (asides), UnifrakturCook (newspaper masthead) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English:ital@0;1&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Styles -->
   <link href="css/styles.css" rel="stylesheet">
 
-  <!-- Apply saved theme before first paint to avoid a flash -->
-  <script>
-    try { if (localStorage.getItem('dr_theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
-  </script>
-
-  <!-- Favicon -->
   <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
   <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
   <link href="icons/apple-touch-icon-144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
 </head>
-
 <body id="top">
-
-<!-- ========== CUSTOM CURSOR ========== -->
-<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
-
-<!-- ========== GRAIN OVERLAY ========== -->
+<a class="skip" href="#main">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
+<div class="lantern" id="lantern" aria-hidden="true"></div>
+<div class="flier" id="flier" aria-hidden="true" title="Catch it!"><span class="wing l"></span><span class="ball"></span><span class="wing r"></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><b>+150 points</b> to your House! You caught the golden flier.</div>
 
-<!-- ========== NAVIGATION ========== -->
 <header class="navbar" id="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="nav-logo" aria-label="Dushyanth Ramalingam — home" data-magnetic>DR<span class="accent">.</span></a>
-    <div class="nav-status" aria-hidden="true">
-      <span class="status-dot"></span>
-      <span class="status-text">OPEN&nbsp;TO&nbsp;COLLABORATE</span>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-    </button>
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Dushyanth Ramalingam — the map (home)">
+      <svg class="brand-mark" viewBox="0 0 46 30" aria-hidden="true"><circle cx="11" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="35" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M19 18 q4 -4.5 8 0" fill="none" stroke="currentColor" stroke-width="2.2"/><path class="bolt" d="M24.5 0 L19.5 8.5 H23.2 L20.6 14.5 L27.6 5.6 H23.9 L26.6 0 Z"/></svg>
+      <span class="brand-name">D. Ramalingam<small>keeper of agents &amp; automations</small></span>
+    </a>
     <nav class="nav-menu" id="nav-menu" aria-label="Primary">
       <ul class="nav-list">
-        <li><a href="about.html" class="nav-link"><span class="nav-num">01</span>About</a></li>
-        <li><a href="experience.html" class="nav-link"><span class="nav-num">02</span>Experience</a></li>
-        <li><a href="work.html" class="nav-link" aria-current="page"><span class="nav-num">03</span>Work</a></li>
-        <li><a href="writing.html" class="nav-link"><span class="nav-num">04</span>Writing</a></li>
-        <li><a href="talks.html" class="nav-link"><span class="nav-num">05</span>Talks</a></li>
-        <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span>Contact</a></li>
+        <li><a href="about.html" class="nav-link">About<i>the study</i></a></li>
+        <li><a href="experience.html" class="nav-link">Experience<i>the chronicle</i></a></li>
+        <li><a href="work.html" class="nav-link" aria-current="page">Work<i>the workshop</i></a></li>
+        <li><a href="writing.html" class="nav-link">Writing<i>the daily agent</i></a></li>
+        <li><a href="talks.html" class="nav-link">Talks<i>the great hall</i></a></li>
       </ul>
-      <a href="docs/resume_DR.pdf" class="btn btn-primary nav-cta" target="_blank" rel="noopener" data-magnetic>
-        Resume <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </a>
-      <div class="nav-menu-footer">
-        <a href="https://github.com/ddrdushy" target="_blank" rel="noopener">GitHub</a>
+      <a href="docs/resume_DR.pdf" class="nav-cv" target="_blank" rel="noopener">The scroll (CV)</a>
+      <a href="contact.html" class="btn btn-seal nav-owl">Send an owl</a>
+      <div class="nav-menu-foot">
         <a href="https://www.linkedin.com/in/ddr-dushy/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ddrdushy" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener">Medium</a>
       </div>
     </nav>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme">
-      <i class="fa-solid fa-sun" aria-hidden="true"></i>
-    </button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to candle-lit (night) mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open the map" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main">
-
-<section class="page-hero">
+<section class="page-hero" data-candles>
   <div class="container">
-    <nav class="crumbs rise" aria-label="Breadcrumb">
-      <a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">03 · Work</span>
-    </nav>
-    <h1 class="page-title rise" style="--d:1">Selected <em>work</em></h1>
-    <p class="page-lede rise" style="--d:2">AI products I&rsquo;ve launched and side projects I&rsquo;m building, enterprise automation I&rsquo;ve delivered for banks, insurers, airlines and government, and the tools I give away.</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">The map</a><span aria-hidden="true">·</span><span aria-current="page">Chapter III — the workshop</span></nav>
+    <h1 class="ink" aria-label="The Workshop"><span class="ink-line" style="--i:0">The <em>Workshop</em></span></h1>
+    <svg class="flourish" viewBox="0 0 340 26" aria-hidden="true"><path d="M2 16 C58 2 104 28 162 13 S268 3 316 15 C326 17 334 11 338 5"/></svg>
+    <p class="page-lede after-ink" style="--after:1.8s">Enchantments I&rsquo;ve released into the world, commissions delivered for banks, insurers, airlines and government, and the spellbooks I give away for free.</p>
   </div>
 </section>
-
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">PRODUCTS</span>
-      <h2 class="section-title" data-split-words>Now building</h2>
+    <div class="chapter reveal">
+      <span class="label">Enchantments &amp; artefacts</span>
+      <h2>What I&rsquo;m brewing</h2>
     </div>
-
-    <div class="featured-grid">
-      <a class="f-card reveal-up" href="https://hireops.symprio.com/" target="_blank" rel="noopener">
-        <span class="f-label">AI PRODUCT · LIVE</span>
-        <h3 class="f-title">HireOps AI</h3>
-        <p class="f-tagline">From inbox to hired, on autopilot.</p>
-        <p class="f-desc">The AI recruiting OS: auto-classifies applications, scores resumes with evidence, runs Q&amp;A or ElevenLabs voice interviews and surfaces the best candidates. First built at the Mistral AI Hackathon 2026.</p>
-        <span class="f-link">hireops.symprio.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+    <div class="grid-3">
+      <a class="card reveal" href="https://hireops.symprio.com/" target="_blank" rel="noopener">
+        <span class="card-seal gold" aria-hidden="true"><i class="fa-solid fa-hat-wizard"></i></span>
+        <span class="card-label">Enchantment · Live</span>
+        <h3>HireOps AI</h3>
+        <p class="tagline">From inbox to hired, on autopilot.</p>
+        <p class="desc">The AI recruiting OS: auto-classifies applications, scores resumes with evidence, runs Q&amp;A or ElevenLabs voice interviews and surfaces the best candidates. First built at the Mistral AI Hackathon 2026.</p>
+        <span class="card-foot">hireops.symprio.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
       </a>
-      <a class="f-card reveal-up" href="https://zerokey.symprio.com/" target="_blank" rel="noopener">
-        <span class="f-label">AI PRODUCT · LIVE</span>
-        <h3 class="f-title">ZeroKey</h3>
-        <p class="f-tagline">Drop the PDF. Drop the keys.</p>
-        <p class="f-desc">E-invoicing for Malaysian SMEs: takes invoices in any format, extracts and validates every line, signs with the customer&rsquo;s LHDN certificate and submits to MyInvois.</p>
-        <span class="f-link">zerokey.symprio.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      <a class="card reveal" href="https://zerokey.symprio.com/" target="_blank" rel="noopener">
+        <span class="card-seal gold" aria-hidden="true"><i class="fa-solid fa-key"></i></span>
+        <span class="card-label">Enchantment · Live</span>
+        <h3>ZeroKey</h3>
+        <p class="tagline">Drop the PDF. Drop the keys.</p>
+        <p class="desc">E-invoicing for Malaysian SMEs: takes invoices in any format, extracts and validates every line, signs with the customer&rsquo;s LHDN certificate and submits to MyInvois.</p>
+        <span class="card-foot">zerokey.symprio.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
       </a>
-      <a class="f-card reveal-up" href="https://github.com/ddrdushy/codanium" target="_blank" rel="noopener">
-        <span class="f-label">AI PLATFORM · OPEN SOURCE</span>
-        <h3 class="f-title">Codanium</h3>
-        <p class="f-tagline">24 AI agents, one delivery pipeline.</p>
-        <p class="f-desc">An AI software-delivery platform where specialised agents cover the whole SDLC. Next.js, Prisma, PostgreSQL and BullMQ, with a Tauri desktop client.</p>
-        <span class="f-link">github.com/ddrdushy/codanium <i class="fa-brands fa-github"></i></span>
+      <a class="card reveal" href="https://github.com/ddrdushy/codanium" target="_blank" rel="noopener">
+        <span class="card-seal" aria-hidden="true"><i class="fa-solid fa-scroll"></i></span>
+        <span class="card-label">Artefact · Open source</span>
+        <h3>Codanium</h3>
+        <p class="tagline">24 AI agents, one delivery pipeline.</p>
+        <p class="desc">An AI software-delivery platform where specialised agents cover the whole SDLC. Next.js, Prisma, PostgreSQL and BullMQ, with a Tauri desktop client.</p>
+        <span class="card-foot">github.com/ddrdushy/codanium <i class="fa-brands fa-github" aria-hidden="true"></i></span>
       </a>
-      <a class="f-card reveal-up" href="https://github.com/ddrdushy/Teman" target="_blank" rel="noopener">
-        <span class="f-label">COMMUNITY · SOLO BUILD</span>
-        <h3 class="f-title">Teman</h3>
-        <p class="f-tagline">Free companionship for Malaysia&rsquo;s elderly.</p>
-        <p class="f-desc">A community platform connecting elderly people, caregivers and volunteers. Installable PWA, self-hosted on a single VPS, built end to end on my own.</p>
-        <span class="f-link">github.com/ddrdushy/Teman <i class="fa-brands fa-github"></i></span>
+      <a class="card reveal" href="https://github.com/ddrdushy/Teman" target="_blank" rel="noopener">
+        <span class="card-seal" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
+        <span class="card-label">Artefact · Solo build</span>
+        <h3>Teman</h3>
+        <p class="tagline">Free companionship for Malaysia&rsquo;s elderly.</p>
+        <p class="desc">A community platform connecting elderly people, caregivers and volunteers. Installable PWA, self-hosted on a single VPS, built end to end on my own.</p>
+        <span class="card-foot">github.com/ddrdushy/Teman <i class="fa-brands fa-github" aria-hidden="true"></i></span>
       </a>
-      <a class="f-card reveal-up" href="https://github.com/ddrdushy/PettahPro" target="_blank" rel="noopener">
-        <span class="f-label">SAAS · OPEN SOURCE</span>
-        <h3 class="f-title">PettahPro</h3>
-        <p class="f-tagline">Accounting for Sri Lankan SMEs.</p>
-        <p class="f-desc">Cloud accounting SaaS for small and medium businesses in Sri Lanka, built in TypeScript.</p>
-        <span class="f-link">github.com/ddrdushy/PettahPro <i class="fa-brands fa-github"></i></span>
+      <a class="card reveal" href="https://github.com/ddrdushy/PettahPro" target="_blank" rel="noopener">
+        <span class="card-seal" aria-hidden="true"><i class="fa-solid fa-coins"></i></span>
+        <span class="card-label">Artefact · Open source</span>
+        <h3>PettahPro</h3>
+        <p class="tagline">Accounting for Sri Lankan SMEs.</p>
+        <p class="desc">Cloud accounting SaaS for small and medium businesses in Sri Lanka, built in TypeScript.</p>
+        <span class="card-foot">github.com/ddrdushy/PettahPro <i class="fa-brands fa-github" aria-hidden="true"></i></span>
       </a>
-      <a class="f-card reveal-up" href="https://symprio.com/" target="_blank" rel="noopener">
-        <span class="f-label">FEATURED · WEB DESIGN</span>
-        <h3 class="f-title">Symprio.com</h3>
-        <p class="f-tagline">Designed &amp; built end to end.</p>
-        <p class="f-desc">The corporate home of Symprio — AI &amp; automation solutions for enterprises and SMEs — covering OmniFDE, products, services, training and insights.</p>
-        <span class="f-link">symprio.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      <a class="card reveal" href="https://symprio.com/" target="_blank" rel="noopener">
+        <span class="card-seal" aria-hidden="true"><i class="fa-solid fa-feather-pointed"></i></span>
+        <span class="card-label">Commission · Web design</span>
+        <h3>Symprio.com</h3>
+        <p class="tagline">Designed &amp; built end to end.</p>
+        <p class="desc">The corporate home of Symprio — AI &amp; automation solutions for enterprises and SMEs — covering OmniFDE, products, services, training and insights.</p>
+        <span class="card-foot">symprio.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
       </a>
     </div>
   </div>
 </section>
-
 <section class="section section-alt">
   <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">CLIENTS</span>
-      <h2 class="section-title" data-split-words>Engagements</h2>
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-btn" data-filter="delivery" aria-pressed="false">Delivery</button>
-        <button class="filter-btn" data-filter="presales" aria-pressed="false">Pre-sales</button>
-        <button class="filter-btn" data-filter="training" aria-pressed="false">Training</button>
+    <div class="chapter-row">
+    <div class="chapter reveal">
+      <span class="label">Commissions</span>
+      <h2>Work for the realm&rsquo;s great houses</h2>
+    </div>
+      <div class="filters" role="group" aria-label="Filter commissions">
+        <button class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="delivery" aria-pressed="false">Delivered</button>
+        <button class="filter" data-filter="presales" aria-pressed="false">Pursued</button>
+        <button class="filter" data-filter="training" aria-pressed="false">Taught</button>
       </div>
     </div>
-
-    <div class="projects-grid" id="projects-grid">
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2017–18</span></div>
-        <h3 class="p-title">Insurance Automation Suite</h3>
-        <p class="p-org">Insurance Company · Malaysia</p>
-        <p class="p-desc">11 end-to-end automations — outpatient registration, health-claims approval, MiCARE registration, letter issuance, claim extraction, GIRO accounts, petrol &amp; staff claims, finance receipting, mobile API and ESOA bot.</p>
-        <div class="p-tags"><span>UiPath</span><span>RPA</span><span>BFSI</span></div>
+    <div class="grid-3" id="commissions">
+      <article class="card commission reveal" data-category="delivery">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-wand-sparkles"></i> Delivered</span><span class="year">2017–18</span></div>
+        <h3>Insurance Automation Suite</h3>
+        <p class="org">Insurance Company · Malaysia</p>
+        <p class="desc">11 end-to-end automations — outpatient registration, health-claims approval, MiCARE registration, letter issuance, claim extraction, GIRO accounts, petrol &amp; staff claims, finance receipting, mobile API and ESOA bot.</p>
+        <div class="tags"><span>UiPath</span><span>RPA</span><span>BFSI</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2018</span></div>
-        <h3 class="p-title">Supply Chain Automation</h3>
-        <p class="p-org">Medical Supply Chain Co · Malaysia</p>
-        <p class="p-desc">End-to-end solution design and project management for supply-chain automation processes.</p>
-        <div class="p-tags"><span>Solution Design</span><span>Healthcare</span></div>
+      <article class="card commission reveal" data-category="delivery">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-wand-sparkles"></i> Delivered</span><span class="year">2018</span></div>
+        <h3>Supply Chain Automation</h3>
+        <p class="org">Medical Supply Chain Co · Malaysia</p>
+        <p class="desc">End-to-end solution design and project management for supply-chain automation processes.</p>
+        <div class="tags"><span>Solution Design</span><span>Healthcare</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Inward Claims Process</h3>
-        <p class="p-org">Insurance Company · Malaysia</p>
-        <p class="p-desc">Automation of inward claims processing workflows for improved efficiency and accuracy.</p>
-        <div class="p-tags"><span>UiPath</span><span>Insurance</span></div>
+      <article class="card commission reveal" data-category="delivery">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-wand-sparkles"></i> Delivered</span><span class="year">2019</span></div>
+        <h3>Inward Claims Process</h3>
+        <p class="org">Insurance Company · Malaysia</p>
+        <p class="desc">Automation of inward claims processing workflows for improved efficiency and accuracy.</p>
+        <div class="tags"><span>UiPath</span><span>Insurance</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">Banking Operations RPA</h3>
-        <p class="p-org">Bank · Malaysia</p>
-        <p class="p-desc">Full-lifecycle solution design and delivery of RPA solutions for banking operations.</p>
-        <div class="p-tags"><span>Solution Design</span><span>Banking</span></div>
+      <article class="card commission reveal" data-category="delivery">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-wand-sparkles"></i> Delivered</span><span class="year">2020</span></div>
+        <h3>Banking Operations RPA</h3>
+        <p class="org">Bank · Malaysia</p>
+        <p class="desc">Full-lifecycle solution design and delivery of RPA solutions for banking operations.</p>
+        <div class="tags"><span>Solution Design</span><span>Banking</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">Government Process Automation</h3>
-        <p class="p-org">JPA · Malaysia</p>
-        <p class="p-desc">Designed and developed automation solutions for government agency processes.</p>
-        <div class="p-tags"><span>UiPath</span><span>Government</span></div>
+      <article class="card commission reveal" data-category="delivery">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-wand-sparkles"></i> Delivered</span><span class="year">2020</span></div>
+        <h3>Government Process Automation</h3>
+        <p class="org">JPA · Malaysia</p>
+        <p class="desc">Designed and developed automation solutions for government agency processes.</p>
+        <div class="tags"><span>UiPath</span><span>Government</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2021</span></div>
-        <h3 class="p-title">Automation Roadmap &amp; Design</h3>
-        <p class="p-org">Averis · Malaysia</p>
-        <p class="p-desc">Designed RPA solutions for business-process optimisation and the automation roadmap.</p>
-        <div class="p-tags"><span>Solution Design</span><span>RPA</span></div>
+      <article class="card commission reveal" data-category="delivery">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-wand-sparkles"></i> Delivered</span><span class="year">2021</span></div>
+        <h3>Automation Roadmap &amp; Design</h3>
+        <p class="org">Averis · Malaysia</p>
+        <p class="desc">Designed RPA solutions for business-process optimisation and the automation roadmap.</p>
+        <div class="tags"><span>Solution Design</span><span>RPA</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="delivery" data-tilt>
-        <div class="p-top"><span class="p-kind mono">DELIVERY</span><span class="p-year mono">2022</span></div>
-        <h3 class="p-title">Recruitment Platform Automation</h3>
-        <p class="p-org">Seek Asia · Malaysia</p>
-        <p class="p-desc">End-to-end solution design and project delivery for recruitment platform automation.</p>
-        <div class="p-tags"><span>Solution Design</span><span>Recruitment</span></div>
+      <article class="card commission reveal" data-category="delivery">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-wand-sparkles"></i> Delivered</span><span class="year">2022</span></div>
+        <h3>Recruitment Platform Automation</h3>
+        <p class="org">Seek Asia · Malaysia</p>
+        <p class="desc">End-to-end solution design and project delivery for recruitment platform automation.</p>
+        <div class="tags"><span>Solution Design</span><span>Recruitment</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Banking Automation Pursuit</h3>
-        <p class="p-org">Hong Leong Bank · Malaysia</p>
-        <p class="p-desc">Led pre-sales engagement and solution design for banking automation initiatives.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Banking</span></div>
+      <article class="card commission reveal" data-category="presales">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-magnifying-glass"></i> Pursued</span><span class="year">2019</span></div>
+        <h3>Banking Automation Pursuit</h3>
+        <p class="org">Hong Leong Bank · Malaysia</p>
+        <p class="desc">Led pre-sales engagement and solution design for banking automation initiatives.</p>
+        <div class="tags"><span>Pre-sales</span><span>Banking</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Manufacturing POC</h3>
-        <p class="p-org">Swagelok · Malaysia</p>
-        <p class="p-desc">Pre-sales demonstrations and proof of concept for manufacturing automation.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Manufacturing</span></div>
+      <article class="card commission reveal" data-category="presales">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-magnifying-glass"></i> Pursued</span><span class="year">2019</span></div>
+        <h3>Manufacturing POC</h3>
+        <p class="org">Swagelok · Malaysia</p>
+        <p class="desc">Pre-sales demonstrations and proof of concept for manufacturing automation.</p>
+        <div class="tags"><span>Pre-sales</span><span>Manufacturing</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2019</span></div>
-        <h3 class="p-title">Insurance ROI POC</h3>
-        <p class="p-org">The Pacific Insurance · Malaysia</p>
-        <p class="p-desc">Led proof of concept for insurance process automation and demonstrated ROI potential.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Insurance</span></div>
+      <article class="card commission reveal" data-category="presales">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-magnifying-glass"></i> Pursued</span><span class="year">2019</span></div>
+        <h3>Insurance ROI POC</h3>
+        <p class="org">The Pacific Insurance · Malaysia</p>
+        <p class="desc">Led proof of concept for insurance process automation and demonstrated ROI potential.</p>
+        <div class="tags"><span>Pre-sales</span><span>Insurance</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">Conglomerate RPA Pursuit</h3>
-        <p class="p-org">IOI · Malaysia</p>
-        <p class="p-desc">Pre-sales engagement for RPA opportunities in palm oil and property industries.</p>
-        <div class="p-tags"><span>Pre-sales</span><span>Conglomerate</span></div>
+      <article class="card commission reveal" data-category="presales">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-magnifying-glass"></i> Pursued</span><span class="year">2020</span></div>
+        <h3>Conglomerate RPA Pursuit</h3>
+        <p class="org">IOI · Malaysia</p>
+        <p class="desc">Pre-sales engagement for RPA opportunities in palm oil and property industries.</p>
+        <div class="tags"><span>Pre-sales</span><span>Conglomerate</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="presales" data-tilt>
-        <div class="p-top"><span class="p-kind mono">PRE-SALES</span><span class="p-year mono">2022</span></div>
-        <h3 class="p-title">Process Assessment &amp; Feasibility</h3>
-        <p class="p-org">Bank Muamalat · Malaysia</p>
-        <p class="p-desc">Assessed banking processes for RPA feasibility and created an automation roadmap.</p>
-        <div class="p-tags"><span>Assessment</span><span>Banking</span></div>
+      <article class="card commission reveal" data-category="presales">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-magnifying-glass"></i> Pursued</span><span class="year">2022</span></div>
+        <h3>Process Assessment &amp; Feasibility</h3>
+        <p class="org">Bank Muamalat · Malaysia</p>
+        <p class="desc">Assessed banking processes for RPA feasibility and created an automation roadmap.</p>
+        <div class="tags"><span>Assessment</span><span>Banking</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="training" data-tilt>
-        <div class="p-top"><span class="p-kind mono">TRAINING</span><span class="p-year mono">2020</span></div>
-        <h3 class="p-title">UiPath Intensive — 3 Days</h3>
-        <p class="p-org">Malaysian Airlines</p>
-        <p class="p-desc">Intensive 3-day UiPath RPA training for the airline operations team.</p>
-        <div class="p-tags"><span>Training</span><span>Aviation</span></div>
+      <article class="card commission reveal" data-category="training">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-graduation-cap"></i> Taught</span><span class="year">2020</span></div>
+        <h3>UiPath Intensive — 3 Days</h3>
+        <p class="org">Malaysian Airlines</p>
+        <p class="desc">Intensive 3-day UiPath RPA training for the airline operations team.</p>
+        <div class="tags"><span>Training</span><span>Aviation</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="training" data-tilt>
-        <div class="p-top"><span class="p-kind mono">TRAINING</span><span class="p-year mono">2021</span></div>
-        <h3 class="p-title">Basic &amp; Advanced UiPath</h3>
-        <p class="p-org">Averis · Malaysia</p>
-        <p class="p-desc">Comprehensive basic and advanced UiPath training programs for the automation team.</p>
-        <div class="p-tags"><span>Training</span><span>UiPath</span></div>
+      <article class="card commission reveal" data-category="training">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-graduation-cap"></i> Taught</span><span class="year">2021</span></div>
+        <h3>Basic &amp; Advanced UiPath</h3>
+        <p class="org">Averis · Malaysia</p>
+        <p class="desc">Comprehensive basic and advanced UiPath training programs for the automation team.</p>
+        <div class="tags"><span>Training</span><span>UiPath</span></div>
       </article>
-
-      <article class="p-card reveal-up" data-category="training" data-tilt>
-        <div class="p-top"><span class="p-kind mono">TRAINING</span><span class="p-year mono">2021</span></div>
-        <h3 class="p-title">UiPath Developer Training</h3>
-        <p class="p-org">JOS · Malaysia</p>
-        <p class="p-desc">UiPath development training for an IT solutions company.</p>
-        <div class="p-tags"><span>Training</span><span>UiPath</span></div>
+      <article class="card commission reveal" data-category="training">
+        <div class="card-top"><span class="card-label"><i class="fa-solid fa-graduation-cap"></i> Taught</span><span class="year">2021</span></div>
+        <h3>UiPath Developer Training</h3>
+        <p class="org">JOS · Malaysia</p>
+        <p class="desc">UiPath development training for an IT solutions company.</p>
+        <div class="tags"><span>Training</span><span>UiPath</span></div>
       </article>
     </div>
   </div>
 </section>
-
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="section-num mono">OPEN SOURCE</span>
-      <h2 class="section-title" data-split-words>On GitHub</h2>
-      <a href="https://github.com/ddrdushy" target="_blank" rel="noopener" class="btn btn-ghost head-cta" data-magnetic><i class="fa-brands fa-github"></i> github.com/ddrdushy</a>
+    <div class="chapter-row">
+    <div class="chapter reveal">
+      <span class="label">Open-source spellbooks</span>
+      <h2>Free for any apprentice</h2>
     </div>
-
-    <div class="projects-grid repos-grid">
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/Mario-And-Jev" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">C++</span></div>
-        <h3 class="p-title">Mario-And-Jev</h3>
-        <p class="p-desc">Super Mario played by Jev, a &ldquo;System One&rdquo; model that answers in probabilities and confidence scores instead of text.</p>
-        <div class="p-tags"><span>AI</span><span>Game</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
+      <a href="https://github.com/ddrdushy" class="text-link" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github.com/ddrdushy</a>
+    </div>
+    <div class="grid-3">
+      <a class="card repo reveal" href="https://github.com/ddrdushy/Mario-And-Jev" target="_blank" rel="noopener">
+        <span class="card-label"><i class="fa-brands fa-github"></i> Spellbook · C++</span>
+        <h3>Mario-And-Jev</h3>
+        <p class="desc">Super Mario played by Jev, a &ldquo;System One&rdquo; model that answers in probabilities and confidence scores instead of text.</p>
+        <div class="tags"><span>AI</span><span>Game</span></div>
       </a>
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/creator_pasar" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">TYPESCRIPT</span></div>
-        <h3 class="p-title">creator_pasar</h3>
-        <p class="p-desc">Connecting brands with the right micro-influencers — simple, transparent, results-focused collaborations.</p>
-        <div class="p-tags"><span>AI</span><span>Marketplace</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
+      <a class="card repo reveal" href="https://github.com/ddrdushy/creator_pasar" target="_blank" rel="noopener">
+        <span class="card-label"><i class="fa-brands fa-github"></i> Spellbook · TYPESCRIPT</span>
+        <h3>creator_pasar</h3>
+        <p class="desc">Connecting brands with the right micro-influencers — simple, transparent, results-focused collaborations.</p>
+        <div class="tags"><span>AI</span><span>Marketplace</span></div>
       </a>
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/Tamil_songs_ai" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">PYTHON</span></div>
-        <h3 class="p-title">Tamil_songs_ai</h3>
-        <p class="p-desc">AI-powered Tamil songs project leveraging Python and machine learning.</p>
-        <div class="p-tags"><span>AI</span><span>Music</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
+      <a class="card repo reveal" href="https://github.com/ddrdushy/Tamil_songs_ai" target="_blank" rel="noopener">
+        <span class="card-label"><i class="fa-brands fa-github"></i> Spellbook · PYTHON</span>
+        <h3>Tamil_songs_ai</h3>
+        <p class="desc">AI-powered Tamil songs project leveraging Python and machine learning.</p>
+        <div class="tags"><span>AI</span><span>Music</span></div>
       </a>
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/UiPath_Log_Viewer" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">C#</span></div>
-        <h3 class="p-title">UiPath_Log_Viewer</h3>
-        <p class="p-desc">Log-viewing utility for RPA developers to debug and monitor automation workflows.</p>
-        <div class="p-tags"><span>UiPath</span><span>Tooling</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
+      <a class="card repo reveal" href="https://github.com/ddrdushy/UiPath_Log_Viewer" target="_blank" rel="noopener">
+        <span class="card-label"><i class="fa-brands fa-github"></i> Spellbook · C#</span>
+        <h3>UiPath_Log_Viewer</h3>
+        <p class="desc">Log-viewing utility for RPA developers to debug and monitor automation workflows.</p>
+        <div class="tags"><span>UiPath</span><span>Tooling</span></div>
       </a>
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/Printer-Sevice" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">C#</span></div>
-        <h3 class="p-title">Printer-Sevice</h3>
-        <p class="p-desc">Windows printer service driven over sockets, with a forms front end.</p>
-        <div class="p-tags"><span>C#</span><span>Service</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
+      <a class="card repo reveal" href="https://github.com/ddrdushy/Printer-Sevice" target="_blank" rel="noopener">
+        <span class="card-label"><i class="fa-brands fa-github"></i> Spellbook · C#</span>
+        <h3>Printer-Sevice</h3>
+        <p class="desc">Windows printer service driven over sockets, with a forms front end.</p>
+        <div class="tags"><span>C#</span><span>Service</span></div>
       </a>
-      <a class="p-card repo-card reveal-up" href="https://github.com/ddrdushy/fbChatBotBoilerplate" target="_blank" rel="noopener" data-tilt>
-        <div class="p-top"><span class="p-kind mono"><i class="fa-brands fa-github"></i> REPO</span><span class="p-year mono">JAVASCRIPT</span></div>
-        <h3 class="p-title">fbChatBotBoilerplate</h3>
-        <p class="p-desc">Messenger chatbot boilerplate for quickly building conversational bots.</p>
-        <div class="p-tags"><span>Chatbot</span><span>Node.js</span></div>
-        <span class="repo-arrow" aria-hidden="true">↗</span>
+      <a class="card repo reveal" href="https://github.com/ddrdushy/fbChatBotBoilerplate" target="_blank" rel="noopener">
+        <span class="card-label"><i class="fa-brands fa-github"></i> Spellbook · JAVASCRIPT</span>
+        <h3>fbChatBotBoilerplate</h3>
+        <p class="desc">Messenger chatbot boilerplate for quickly building conversational bots.</p>
+        <div class="tags"><span>Chatbot</span><span>Node.js</span></div>
       </a>
     </div>
   </div>
 </section>
-
 <div class="container next-page">
   <a href="writing.html">
     <span>
-      <span class="next-label">NEXT — 04 /</span>
-      <span class="next-title">Writing</span>
+      <span class="label">Turn the page — Chapter IV</span>
+      <span class="next-title">The Daily Agent</span>
+      <span class="next-sub">Writing</span>
     </span>
-    <span class="next-arrow" aria-hidden="true">↗</span>
+    <span class="page-corner" aria-hidden="true"></span>
   </a>
 </div>
 
 </main>
 
-<!-- ========== FOOTER ========== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo" aria-label="Dushyanth Ramalingam — home">DR<span class="accent">.</span></a>
-        <p class="footer-blurb">Agentic AI systems &amp; hyperautomation. Based in Kuala Lumpur, working with teams across Asia, the Middle East and the US.</p>
-        <a href="mailto:ddrdushy@yahoo.com" class="footer-mail link-underline">ddrdushy@yahoo.com</a>
+      <div>
+        <a href="index.html" class="brand"><svg class="brand-mark" viewBox="0 0 46 30" aria-hidden="true"><circle cx="11" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="35" cy="19" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M19 18 q4 -4.5 8 0" fill="none" stroke="currentColor" stroke-width="2.2"/><path class="bolt" d="M24.5 0 L19.5 8.5 H23.2 L20.6 14.5 L27.6 5.6 H23.9 L26.6 0 Z"/></svg><span class="brand-name">D. Ramalingam</span></a>
+        <p class="footer-blurb">Agentic AI and hyperautomation, conjured in Kuala Lumpur for enterprises across Asia, the Middle East and the US.</p>
+        <a class="footer-mail" href="mailto:ddrdushy@yahoo.com">ddrdushy@yahoo.com</a>
       </div>
       <nav aria-label="Footer">
-        <span class="footer-label mono">PAGES</span>
+        <h4>The map</h4>
         <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="work.html" aria-current="page">Work</a></li>
-          <li><a href="writing.html">Writing</a></li>
-          <li><a href="talks.html">Talks</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home <small>· the map</small></a></li>
+          <li><a href="about.html">About <small>· the study</small></a></li>
+          <li><a href="experience.html">Experience <small>· the chronicle</small></a></li>
+          <li><a href="work.html" aria-current="page">Work <small>· the workshop</small></a></li>
+          <li><a href="writing.html">Writing <small>· the daily agent</small></a></li>
+          <li><a href="talks.html">Talks <small>· the great hall</small></a></li>
+          <li><a href="contact.html">Contact <small>· the owlery</small></a></li>
         </ul>
       </nav>
       <div>
-        <span class="footer-label mono">ELSEWHERE</span>
+        <h4>Beyond the castle</h4>
         <ul class="footer-links">
           <li><a href="https://www.linkedin.com/in/ddr-dushy/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.linkedin.com/newsletters/dushy-from-the-field-7475174440457097217/" target="_blank" rel="noopener">Newsletter</a></li>
+          <li><a href="https://www.linkedin.com/newsletters/dushy-from-the-field-7475174440457097217/" target="_blank" rel="noopener">Newsletter — Dushy from the Field</a></li>
+          <li><a href="https://www.symprio.com/blog/" target="_blank" rel="noopener">Symprio Insights</a></li>
           <li><a href="https://github.com/ddrdushy" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.youtube.com/@AiSensei_MY" target="_blank" rel="noopener">YouTube — AiSensei</a></li>
-          <li><a href="https://medium.com/@ddrdushy" target="_blank" rel="noopener">Medium</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-inner">
-      <p class="footer-quote mono">"Stay hungry. Stay foolish."</p>
-      <p class="footer-copy">© 2026 Dushyanth Ramalingam — built with code, caffeine &amp; agents.</p>
-      <a href="#top" class="footer-top mono" data-magnetic>BACK TO TOP ↑</a>
+    <div class="footer-base">
+      <span class="motto">Magic is just engineering you haven&rsquo;t read about yet.</span>
+      <span>© 2026 Dushyanth Ramalingam · A fan-made, wizarding-inspired design</span>
+      <a href="#top">Back to the top of the map ↑</a>
     </div>
   </div>
 </footer>
 
-<!-- ========== SCRIPTS ========== -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
 <script src="js/main.js" defer></script>
-
 </body>
 </html>
